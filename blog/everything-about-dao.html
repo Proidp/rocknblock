@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from rocknblock.io/blog/everything-about-dao by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Apr 2023 16:33:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', () => {
+		setTimeout(function(){
+			
+			   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+			   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+			   (window, document, "script", "../../mc.yandex.ru/metrika/tag.js", "ym");
+			
+			   ym(82964167, "init", {
+			        clickmap:true,
+			        trackLinks:true,
+			        accurateTrackBounce:true,
+			        webvisor:true
+			   });
+			   
+			   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','dataLayer','GTM-P548TMG');
+			   
+		}, 3500); // время указано в мс = 0,001 секунды, изменить по вкусу
+	});
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<meta name="author" content="Amary Filo">
+<meta name="generator" content="Rocknblock Developing">
+<meta name="application-name" content="Rocknblock Developing">
+<style>body{background-color: black;}</style>
+<link rel="stylesheet" href="../themes/rocknblock/assets/css/style.min.css" as="style">
+<link rel="preload" href="../themes/rocknblock/assets/javascript/main.min.js" as="script">
+<link rel="manifest" href="../themes/rocknblock/assets/images/manifest.html">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-96x96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="57x57" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../themes/rocknblock/assets/images/favicon/android-chrome-192x192.png" />
+<meta name="msapplication-square70x70logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/smalltile.png" />
+<meta name="msapplication-square150x150logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/mediumtile.png" />
+<meta name="msapplication-wide310x150logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/widetile.png" />
+<meta name="msapplication-square310x310logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/largetile.png" />
+<link rel="mask-icon" href="../themes/rocknblock/assets/images/favicon/safari-pinned-tab.svg" " color="#ff0000" />
+<meta name="msapplication-TileColor" content="#ff0000" />
+<meta name="theme-color" content="#1D1B21" />
+<style>
+    .tabs-case .content-item {
+        margin: 20px !important;    
+    }
+</style> <title>The core of DAO. What are DAOs in the Web3 world, how do they operate, and how are they built?</title>
+<meta name="title" content="The core of DAO. What are DAOs in the Web3 world, how do they operate, and how are they built?">
+<meta name="keywords" content="dao,decentralization,blockchain,defi">
+<meta name="description" content="Driven by Web3 ideas and decentralization, DAOs are an important part of the blockchain ecosystem. This article uncovers all fundamentals of DAO.">
+<meta name="generator" content="Rock`n`Block Developing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The core of DAO. What are DAOs in the Web3 world, how do they operate, and how are they built?">
+<meta property="og:url" content="https://rocknblock.io/blog/everything-about-dao">
+<meta property="og:image" content="https://rocknblock.io/storage/app/uploads/public/c91/fbc/576/thumb__1200_640_0_0_crop.png">
+<meta property="og:description" content="Driven by Web3 ideas and decentralization, DAOs are an important part of the blockchain ecosystem. This article uncovers all fundamentals of DAO.">
+<meta property="article:author" content="Rock’n’Block">
+<meta property="article:published_time" content="2022-01-15 17:49:25">
+<meta property="article:modified_time" content="2022-11-07 14:50:14">
+<meta property="article:section" content="Technology">
+<meta property="article:tag" content="dao">
+<meta property="article:tag" content="decentralization">
+<meta property="article:tag" content="blockchain">
+<meta property="article:tag" content="defi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The core of DAO. What are DAOs in the Web3 world, how do they operate, and how are they built?">
+<meta name="twitter:description" content="Driven by Web3 ideas and decentralization DAOs are the important part of the blockchain ecosystems. This article will navigate you through all fundamentals of DAO">
+<meta name="twitter:site" content="@rocknblockdev">
+<meta name="twitter:url" content="https://rocknblock.io/blog/everything-about-dao">
+<meta name="twitter:image" content="https://rocknblock.io/storage/app/uploads/public/c91/fbc/576/thumb__1200_640_0_0_crop.png">
+<meta name="twitter:image:alt" content="">
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org/",
+		"@type": "Article",
+		"mainEntityOfPage": {
+			"@type": "WebPage",
+			"@id": "https://rocknblock.io/blog/everything-about-dao"
+		},
+		"author": {
+			"@type": "Organization",
+			"name": "Rock`n`Block"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "Rock`n`Block",
+			"logo": {
+				"@type": "ImageObject",
+				"url": "https://rocknblock.io/themes/rocknblock/assets/images/site/logo.png"
+			}
+		},
+		"headline": "The core of DAO. What are DAOs in the Web3 world, how do they operate, and how are they built?",
+		"image": "https://rocknblock.io/storage/app/uploads/public/61e/308/cb1/61e308cb13d74071038047.png",
+		"datePublished": "2022-01-15 17:49:25",
+		"dateModified": "2022-11-07 14:50:14"
+	}
+	</script>
+
+<meta name="google-site-verification" content="7_6Fy-97nJ33Ve9stEFXjT4RUqNwIQj-vh9tYL22ZU0"> </head>
+<body>
+
+
+
+<noscript>
+  
+  <div><img src="https://mc.yandex.ru/watch/82964167" style="position:absolute; left:-9999px;" alt="" /></div>
+  
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P548TMG" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+
+</noscript>
+
+<div class="preloader"><div class="preloader__row"><div class="preloader__item"></div><div class="preloader__item"></div></div></div>
+
+<header id="layout-header">
+<div class="container">
+<nav class="main-nav">
+<section class="main-nav__mobile">
+<a class="logo" href="../index.html">
+<img src="../themes/rocknblock/assets/images/site/logo.svg" alt="Rock'n'Block logo">
+</a>
+<div class="burger icon">
+<img class="icon-burger ic-open" src="../themes/rocknblock/assets/images/site/icons/icon-header-burger-mask.svg" alt="burger menu">
+<img class="icon-burger ic-close" src="../themes/rocknblock/assets/images/site/icons/icon-header-burger-close-mask.svg" alt="burger close menu" hidden>
+</div>
+</section>
+<section class="nav-pages" id="nav-pages">
+<a class="nav-pages__link" href="../index.html#solutions">Services</a>
+<a class="nav-pages__link" href="../index.html#cases">Cases</a>
+<a class="nav-pages__link" href="../index.html#team">Team</a>
+<a class="nav-pages__link" href="../index.html#partners">Partners</a>
+<a class="nav-pages__link" href="../blog.html">Blog</a>
+<a class="nav-pages__contact-button nav-pages__link__contact-us" href="#contact-us">CONTACT US</a>
+</section>
+</nav>
+</div> </header>
+
+<main id="layout-content">
+<section class="pg pg-article">
+<section class="article container">
+<h1 class="article-title">What are DAOs in the Web3 world? How are they built and operated?</h1>
+<span class="article-date" style="background-image: url('../themes/rocknblock/assets/images/site/blog/icon-clock.svg');">14 Jan 2022</span>
+<h3>We see the interest in DAO is very high up. Driven by Web3 idea, cryptocurrencies, and blockchain interoperability it is important to know what DAO is in actuality. This article will navigate you through all fundamentals of DAO, how it works and why you might need one in the future.
+<br><img src="../storage/temp/public/099/ce9/b5dimage_2022-01-14_14-13-36__2400.png" style="width: 100%;" class="fr-fic fr-dib" data-result="success" srcset="https://rocknblock.io//storage/temp/public/099/ce9/b5dimage_2022-01-14_14-13-36__2400.png 2400w, https://rocknblock.io//storage/temp/public/099/ce9/b5dimage_2022-01-14_14-13-36__100.png 100w, https://rocknblock.io//storage/temp/public/099/ce9/b5dimage_2022-01-14_14-13-36__250.png 250w, https://rocknblock.io//storage/temp/public/099/ce9/b5dimage_2022-01-14_14-13-36__400.png 400w, https://rocknblock.io//storage/temp/public/099/ce9/b5dimage_2022-01-14_14-13-36__768.png 768w, https://rocknblock.io//storage/temp/public/099/ce9/b5dimage_2022-01-14_14-13-36__1024.png 1024w" sizes="(max-width: 2400px) 100vw, 2400px"></h3>
+<section name="6726">
+<h3 name="45d5">Decentralization matters</h3>
+<p name="0c18">Every <a href="../consulting.html">blockchain product</a>, project, and protocol follows the basic principle of decentralization. Without decentralization, the concepts of DeFi protocols (decentralized finances), tokenized assets including NFTs, and blockchains wouldn’t make any sense.</p>
+<p name="2c13">Decentralization helps us to communicate with decentralized networks as blockchains independently and fairly, without any middleman or a centralized controller, that decides will your transaction be conducted successfully or not.</p>
+<p name="2a2c">For concepts like DAO, decentralization is the key to their existence. The fundamental principle.</p>
+<p name="24b4">The other important aspect which helps DAO to be a truly decentralized organization is OpenSource. Open source code follows ideas of decentralization and helps to make the structure of a DAO transparent and trustworthy.</p>
+<p name="e538">But what a DAO actually is?</p>
+</section>
+<section name="10fe">
+<h3 name="62fe">What is DAO?</h3>
+<blockquote name="22d4">Well, the definition of DAO is a decentralized autonomous organization.&nbsp;</blockquote>
+<p name="4df0">As how we mentioned earlier decentralization is the fundamental aspect of DAO.</p>
+<h4 name="6801">But how can an organization be decentralized?</h4>
+<p name="ebc4"><strong>Every DAO is backed by a smart-contract code</strong>, which declares the relationships between the members of the DAO and their ownership rights. To refresh your knowledge of smart contracts — we recommend you read <a data-href="https://rocknblock.io/blog/smart-contract-audit" href="smart-contract-audit.html" rel="noopener" target="_blank">this article</a>.</p>
+<blockquote name="d6ba">It is important to understand, that DAO in its inherency is a smart-contract code that runs on a public blockchain like Ethereum network, Solana, NEAR blockchain, Chainlink, etc. So it becomes decentralized since DAOs smart contracts are deployed on a public blockchain. Simple.</blockquote>
+<p name="a6b5">Every DAO in its smart contract allows members to participate in a built-in model of organization for the collective management of funds, and assets, making decisions, voting for decisions and changes, and so on.</p>
+<p name="8e9a">Everything for easy, transparent, and permissionless communication between DAOs members.</p>
+<h4 name="c811">But what types of organizations DAO can&nbsp;be?</h4>
+<p name="043a">When it’s about DAO, it’s always about the people</p>
+<p name="57c5">It’s logical to assume, that if a certain group of people decides to create a DAO and consequently be members of that DAO they must be bound by the same ideas.
+<br>Or they are following the same goal, united by the same ideas, or bounded because of other common reasons.</p>
+<p name="cca0">Just to give some illustrated examples of what DAO can actually be:</p>
+<ul>
+<li name="1f52"><strong>NFT artists DAO</strong>. Or even any other artist community that pursues monetizing their work. Over the past months, more and more NFT artist creators decided to create a DAO. Driven by a goal in a roadmap of their NFT project, artists and creators see a lot of potential in DAO.</li>
+<li name="0d2d"><strong>Freelancers DAO</strong>. A community-driven group of freelance workers can create their DAO to manage their funds, earnings, and contracts when they work in cooperation with each other.</li>
+<li name="dfa1"><strong>Venture Capital DAO</strong>. Especially, if that VC is empowered or backed by cryptocurrencies, or even built on digital assets as a whole. A VC DAO was one of the most popular DAO types to create.</li>
+<li name="ef0f"><strong>DeFi-driven DAO</strong>. A DAO that can be built by a group of crypto enthusiasts to pursue implementation of the innovative DeFi tools that they want to build. The most popular example is Olympus DAO. Or it can be a group of people that pursue a mass adoption of DeFi tools. Or decentralized tools as a whole (including the adoption of cryptocurrencies, DEXs, etc.)</li>
+<li name="bf97"><strong>Local, or independent fund community DAO</strong>. A DAO that is built by people united by the same goal. For example, a DAO that incentivizes funds gathering for supporting mental health organizations and volunteers.</li>
+</ul>
+<p name="0f86">Even though, the buzz around DAO may seem very new and fresh the concept has been brought to life in 2016.</p>
+</section>
+<section name="da20">
+<h3 name="7059">How the first DAO taught us a lesson for all future DAOs</h3>
+<p name="1c2f">Fairly saying, the concept of DAO has been inspired by a group of software developers in 2016, who were members of the Ethereum community. They were driven and inspired by the idea of decentralization in the creation of a solution for a cryptocurrency fund.</p>
+<p name="38f1">This first DAO was ironically called The DAO. And the goal of this DAO was to act as a VC (venture capital) with multiple member-owners. This concept was perfect for excluding any centralized authority (like a bank) to reduce costs, time for capital management, and in theory to improve the process of control by the investor’s funds.</p>
+<p name="1e64">The DAO was established and backed by a convoluted smart contract deployed on the Ethereum blockchain.</p>
+<p name="68df">The main feature of that smart contract was the fund management feature that would allow companies to make proposals for funding to The DAO.</p>
+<blockquote name="c54e">Read fully about this case of The DAO
+<br>
+<br>
+<br><a data-href="https://www.frontiersin.org/articles/10.3389/fbloc.2020.00025/full" href="https://www.frontiersin.org/articles/10.3389/fbloc.2020.00025/full" rel="noopener" target="_blank">here</a>.</blockquote>
+<h4 name="0640">How did it&nbsp;work?</h4>
+<p name="53a7">The DAO had curators at their disposal to manage these proposal-making processes across the whole DAO. The curators were prominent members of the Ethereum network and community at those times.</p>
+<p name="532d">One of the DAO members would create a funding proposal that should be approved by curators. After such a proposal is approved (whitelisted) members of The DAO could participate in the vote.</p>
+<p name="1a29">Such a vote was possible for holders of the DAO tokens, i.e the investors of The DAO, that were eligible for a vote on decision-making proposals.</p>
+<p name="e18b">Such proposals should’ve received at least 20% of the quorum, before the number of funds in those proposals could be withdrawn to the whitelisted wallet addresses.</p>
+<p name="dc23">After a certain time, not that long after The DAO was created, the smart contract was exploited and The DAO was hacked due to the loop in that contact.</p>
+<p name="be70">Well, pretty expectable, because the concept was a custom thing, so it was quite hard to foresee it.</p>
+<p name="f727"><strong>The painful truth is, due to that loop in the smart contract, hackers have managed to steal around 3.6m of ETH which was equal to ~ $70 M at the time of June 2016.</strong></p>
+<p name="d742"><strong>That exploit was called the “recursive call”</strong> due to the hacker’s ability to address the smart contract of The DAO requesting to give back the Ether in the time gap before the balance could be even displayed.</p>
+<p name="8682">Analyzing the possible reasons for this exploit, it was clear that in the very beginning of creating The DAO, the developers just couldn’t foresee this exploit. So they didn’t consider critical that bug of the smart contract when the token balance was displayed only after processing and sending the ETH amount to a different address.</p>
+<p name="5cd7">Eventually, the creators of The DAO didn’t have sweet times after that, the following DAO token delisting from all CEXs (centralized exchanges) and the US SEC report saying that “According to the SEC, The DAO violated federal securities laws, along with all of its investors.”</p>
+<p name="6d66"><strong>What is important to understand here, is that the exploit could’ve been avoided</strong>. As in cases of hacker attacks in the blockchain space, the way to avoid exploits is the smart contract audit. Even though the bug was spotted by the advisors, the time was not on the side of The DAO.</p>
+<p name="159e">Even though, with all the commotion around The DAO exploit, the original concept of DAO faced a lot of criticism before its broader adoption.</p>
+</section>
+<section name="6d25">
+<h3 name="1b16">How DAO is operating? Is DAO the opposite of traditional organization?</h3>
+<blockquote name="262a">The essential goal of every DAO — is to represent the company structure. This company structure could be anything, but it should be made by real people and coherently represent them as members and participants of a DAO.</blockquote>
+<p name="0eb3">Like every organization or company, DAO tends to operate with the help of rules and agreements. However, unlike traditional organizations, where all those rules and agreements were documented on paper and signed by a notary, DAO is using smart contracts instead.</p>
+<p name="225b">In DAO we don’t sign papers but sign smart contracts. <strong>A core of DAO creators approves and establishes the rules of DAO through the automated execution of smart contracts</strong>.</p>
+<p name="69f4">The participants and members of DAO are permanently written in a smart contract code and mostly represented by wallet addresses. Every decision and movement within a DAO is represented by transactions on a blockchain where DAO smart contract was deployed.</p>
+<p name="f336"><strong>Mostly, a DAO is operating either based on a token-driven membership model or a share-based model.</strong></p>
+<h4 name="d455"><em>What does it&nbsp;mean?</em></h4>
+<p name="ca76"><strong>In a token-based membership model</strong>, the core of a DAO like that is depending on its governance token. A DAO like this is entitled to issue these tokens and spread them among the participants. That DAO token can be listed on DEXs (decentralized exchange) and CEXs (centralized exchange) and be permissionless traded.</p>
+<p name="e98c">Participants of a DAO like this can <strong>earn those governance tokens</strong> through an active contribution within an organization, or by providing liquidity to the liquidity pools on DeFi platforms.</p>
+<p name="bae7">When someone wants to join a DAO and influence the activities in it, he or she needs to hold that governance token, and also be granted voting rights in that DAO.</p>
+<p name="84f9">On the other hand, <strong>share-based DAOs are operating with issuance and implication of proposals</strong>, like in the example of The DAO. The share-based membership model of DAO suits more for VC DAOs, or digital currency funds more because they tend to be a bit less permissionless and open because it makes sense for the fund’s management.</p>
+<p name="4236">Every new participant or someone who wants to join a DAO like this goes through the procedure of submitting a proposal.</p>
+<p name="92f4">The shares of that DAO are represented by the worth of the total fund pool that every DAO member is in charge of. And the fraction of his voting power, which aims to be equal.</p>
+<h4 name="8be9">What about the differences with a traditional organization?</h4>
+<blockquote name="3ce5">DAO is not a complete opposite of a traditional organization. At the end of the day, it’s a community, company, cooperative, or team.</blockquote>
+<p name="9ea5">The key differences between a traditional organization and a DAO lay in how they document their decisions, conduct the fund’s movements, and include or exclude the participants from their DAO.</p>
+<p name="694f">The fundamental differences between DAO and traditional organization:</p>
+<ul>
+<li name="6d4f"><strong>DAO is fully transparent and public</strong> on the matter of what’s going on inside a company or an organization. The structure and capital are publicly visible to everyone.</li>
+<li name="7398"><strong>DAO doesn’t have a hierarchical structure.</strong> It shouldn’t have it, due to the DAOs democratic nature of an organization. All the decisions are taken through votes, which gives an immutable right to every participant to influence the activity, management, and path of DAO.</li>
+<li name="ed63"><strong>DAO rules are fundamental and interchangeable</strong> for all DAOs participants.</li>
+<li name="d7fd"><strong>DAO is resistant to members’ manipulations.</strong> DAO rules and services are handled in a decentralized and automatic manner, they can’t be forged, changed back in time, or manipulated by one of the DAO members.</li>
+<li name="a3dc"><strong>DAO is mostly global</strong>, which means that DAO members are usually distributed around the globe, and they don’t have to run an office. At the same time, DAO can be a local community as well, when a traditional organization doesn’t have this flexibility.</li>
+</ul>
+</section>
+<section name="6077">
+<h3 name="eeb2">What is the legal power of DAO?</h3>
+<p name="8bb2">Well, the legal power of a DAO is still under a ton of debate around it. Due to the nature of DAO, it is quite difficult to define or even “physically” see a DAO in an offline world, even though DAO is empowered to create a significant impact on that world.</p>
+<blockquote name="7bfe">The solution for DAO to create a legal power is to create a legal entity.</blockquote>
+<p name="f541">Quite often, the DAO members collectively decide to establish an LLC, or a non-profit organization if they want to have legal power in the offline world.</p>
+<p name="2cc3">The decision for creating a legal entity is always left to the DAO members since there is no clear code of laws that can be applied to a DAO yet.</p>
+<p name="9bdd">But for a lot of DAOs out there, it makes a lot of sense sometimes.</p>
+</section>
+<section name="41d6">
+<h3 name="0894">Most prominent DAOs in 2022</h3>
+<p name="f436">At the end of 2021 and the beginning of 2022, the demand for a DAO creation has risen as never before. More and more DAOs are about to come, but here are the most prominent DAOs at the moment:</p>
+<ol>
+<li name="32a2"><a data-href="https://makerdao.com/en/" href="https://makerdao.com/en/" rel="noopener" target="_blank">MakerDAO</a>. A DAO on the Ethereum network, that aims to imply the adoption of a digital stablecoin currency DAI. The MakerDAO ecosystem offers Governance voting on changes in the Maker protocol and a variety of DeFi products that are made by the community.
+<br><a data-href="https://makerdao.com/en/whitepaper#abstract" href="https://makerdao.com/en/whitepaper#abstract" rel="noopener" target="_blank">The Maker Protocol allows users to issue DAI tokens by leveraging collateral assets approved by “Maker Governance.”</a></li>
+<li name="0cd6"><a data-href="https://dao.curve.fi/" href="https://dao.curve.fi/" rel="noopener" target="_blank">Curve DAO</a>. Exists on an Ethereum blockchain. Initially is a part of CURVE Finance, a DEX and DeFi platform that allows users to exchange tokens for stablecoins through an Automated Market Maker (AMM)
+<br><a data-href="https://rocknblock.io/blog/what-exactly-yield-farming-is" href="what-exactly-yield-farming-is.html" rel="noopener" target="_blank">read more about AMM here.</a>
+<br>The Curve DAO token powers the Curve. Curve DAO participants (Curve DAO tokens) voting power in DAO is based on their share of locked Curve DAO tokens that they hold. The longer locked time of the Curve Token (CRV) grants the increase of participants voting power and their potential rewards from membership of Curve DAO.</li>
+<li name="3364"><a data-href="https://www.bankless.community/" href="https://www.bankless.community/" rel="noopener" target="_blank">Bankless DAO</a>. A very strong community-driven DAO of crypto enthusiasts, NFT artists, and decentralization-inspired people. Bankless DAO follows the philosophy of removing a middleman between an asset and a transaction. Bankless DAO has a governance token BANK.
+<br>If you have BANK tokens it’s because you’ve participated in the bankless movement. Once you’ve claimed your BANK tokens it’s time to participate in the DAO.</li>
+<li name="c5be"><a data-href="https://www.olympusdao.finance/" href="https://www.olympusdao.finance/" rel="noopener" target="_blank">Olympus DAO</a>. Is a complicated DAO that combines a DeFi platform with staking and yield farming pools, issuing a governance token (OHM), and at the same time operates as a share-based DAO.
+<br><a data-href="https://www.coindesk.com/policy/2021/12/05/olympus-dao-might-be-the-future-of-money-or-it-might-be-a-ponzi/" href="https://www.coindesk.com/policy/2021/12/05/olympus-dao-might-be-the-future-of-money-or-it-might-be-a-ponzi/" rel="noopener" target="_blank">Some people may call it a Ponzi scheme.</a> Olympus DAO is a complex structured DAO where decisions about the future of the project are made by a community using proposals. The main goal of the Olympus DAO is to imply a global stablecoin digital asset that is backed by The Olympus Treasury (cryptocurrencies assets) instead of USD. Unlike all other stablecoins are.</li>
+</ol>
+</section>
+<section name="72e4">
+<h3 name="63ef">How you can build a DAO? Check if it makes sense for your project to build a DAO</h3>
+<p name="8cda">Well, building a DAO starts with creating a community. A lot of DAOs tend to appear from blockchain-specific projects, or from an idea to deliver new crypto/blockchain ideas.</p>
+<p name="89df">Building a DAO can be a long process if it is more community work. Technically speaking, the creation of a DAO isn’t difficult as long as there is no need for creating a new public blockchain, that would coincide with the DAO ideas or name (for example).</p>
+<p name="8c40">Since that, if you want to deploy your DAO smart contract on one of the known blockchains like Ethereum or Solana, then you should choose the membership model of your DAO.</p>
+<p name="7df7">Will, it be token-based or share-based DAO, and so on?</p>
+<h4 name="59fb">How is it to build a token-based DAO?</h4>
+<p name="db70">As we already mentioned before, the core of a DAO like that is its governance token and people.</p>
+<p name="fe13">Voting rights should be spread upfront by deploying a smart contract. Every token holder (i.e a DAO member) is given a certain fraction of voting rights in that DAO, mostly in an equal amount of a held governance token.</p>
+<p name="b2d8">Since a DAO is issuing the governance tokens (that also can be called a funding process), the treasury of that DAO can be full quite quickly.</p>
+<p name="958b">When a DAO treasury is full and the funding process is over, it’s time to freeze the agreements, rules, and the creation of a DAO event by deploying a smart contract on a blockchain.
+<br>A blockchain should be public and operate on one of the consensus mechanisms, except the Proof of Authority (that is used for private blockchain networks).</p>
+<blockquote name="29a9">After that, when a core DAO smart contract is deployed on a blockchain, there is no return for any changes in the DAO core structure. Any change can be implicated only through a voting mechanism since then.</blockquote>
+<p name="00ad">Since that, a DAO is completely autonomous and decentralized and no entitled authority is eligible to forcingly manipulate the DAOs rules, funds, and decisions in it. All those actions only can be possibly made by the members of that DAO.</p>
+<p name="2b98"><strong>Congrats, the DAO is active!</strong></p>
+<p name="75cb">Some examples of why it makes sense to create a DAO for you:</p>
+<ol>
+<li name="1ae3">You have a big community that is driven by the same idea, and they all value the principles of blockchain and decentralization.</li>
+<li name="7447">You have a big NFT Community and NFT project, P2E, PFP, and an NFT game. And you’re planning to develop your project even further with the help of contributors, and other valuable people.</li>
+<li name="c67f">You are having a crypto-based venture capital, or you’re a group of independent crypto investors that are aiming to fund innovative blockchain projects.</li>
+<li name="6ca0">You’re ready for Web3 adoption and you want to unite your decentralized-driven community into one DAO</li>
+<li name="03d4">You’re having a DeFi project that needs a lot of regulation in the Web3 world by its users, liquidity providers, etc.</li>
+<li name="5a49">You just feel that something like DAO makes a lot of sense to create for you</li>
+</ol>
+</section>
+<section name="6cd0">
+<h3 name="e373"><strong>We take the building of a&nbsp;</strong><a href="../consulting.html"><strong>DAO</strong></a><strong>&nbsp;to the right path</strong></h3>
+</section>
+<p data-selectable-paragraph="">Rock’n’Block’s team can help you with:</p>
+<p data-selectable-paragraph="">⚡️<a href="../marketplace.html" rel="noopener ugc nofollow" target="_blank">NFT and NFT Marketplaces development</a> ;
+<br>⚡️<a href="../10knft.html" rel="noopener ugc nofollow" target="_blank">NFT 10K generator</a>;
+<br>⚡️<a href="../staking.html" rel="noopener ugc nofollow" target="_blank">Staking platforms</a>;
+<br>⚡️<a href="../vesting.html" rel="noopener ugc nofollow" target="_blank">Vesting platforms</a>;
+<br>⚡️<a href="../farming.html" rel="noopener ugc nofollow" target="_blank">Farming platforms</a>;
+<br>⚡️<a href="../crowdsale.html" rel="noopener noreferrer" target="_blank">Crowdsale</a>;
+<br>⚡️<a href="../bridge.html" rel="noopener noreferrer" target="_blank">Crosschain bridge</a>;
+<br>⚡️Any other custom request from a crypto wallet development to custom <a href="../index.html" rel="noopener ugc nofollow" target="_blank">blockchain development</a>.</p>
+<p data-selectable-paragraph="" style="text-align: left;">If you’re interested in building your blockchain project, feel free to contact our team via the <a href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noopener ugc nofollow" target="_blank">Telegram channel</a> or<a href="https://calendly.com/alex-tka?_ga=2.125281484.774853951.1635149124-626771872.1633109778" rel="noopener noreferrer" target="_blank">&nbsp;book a call via Calendly</a>.</p>
+<p data-selectable-paragraph="" style="text-align: left;">
+<br>
+</p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>We❤️Development</strong></p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>Rock⚡️Block</strong></p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>Follow us on social media to receive the hottest blockchain development Rock’n’Block updates<a href="https://twitter.com/RocknBlockDev" rel="noopener ugc nofollow" target="_blank">&nbsp;Twitter</a>, <a href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noopener ugc nofollow" target="_blank">Telegram</a>, <a href="https://www.linkedin.com/company/13060149" rel="noopener ugc nofollow" target="_blank">LinkedIn</a>, <a href="https://www.facebook.com/RocknBlockDev" rel="noopener ugc nofollow" target="_blank">Facebook</a>,&nbsp;</strong><a href="https://www.instagram.com/rocknblock.io/" rel="noopener ugc nofollow" target="_blank"><strong>Instagram</strong></a></p>
+</section>
+<section class="article-share">
+<div class="container"><span class="article-section-title">Share it!</span>
+<div class="article-share-items">
+<a class="article-share-item" href="https://twitter.com/intent/tweet?text=The%20core%20of%20DAO.%20What%20are%20DAOs%20in%20the%20Web3%20world,%20how%20do%20they%20operate,%20and%20how%20are%20they%20built?.%20Driven%20by%20Web3%20ideas%20and%20decentralization%20DAOs%20are%20the%20important%20part%20of%20the%20blockchain%20ecosystems.%20This%20article%20will%20navigate%20you%20through%20all%20fundamentals%20of%20DAO&amp;url=https://rocknblock.io/blog/everything-about-dao&amp;hashtags=dao,decentralization,blockchain,defi" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tw-mask.svg" alt="twitter" /></a>
+<a class="article-share-item" href="https://t.me/share/url?url=https://rocknblock.io/blog/everything-about-dao&amp;text=Driven%20by%20Web3%20ideas%20and%20decentralization,%20DAOs%20are%20an%20important%20part%20of%20the%20blockchain%20ecosystem.%20This%20article%20uncovers%20all%20fundamentals%20of%20DAO." target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="telegram" /></a>
+<a class="article-share-item" href="https://www.facebook.com/sharer/sharer.php?u=https://rocknblock.io/blog/everything-about-dao&amp;t=The%20core%20of%20DAO.%20What%20are%20DAOs%20in%20the%20Web3%20world,%20how%20do%20they%20operate,%20and%20how%20are%20they%20built?&amp;text=Driven%20by%20Web3%20ideas%20and%20decentralization,%20DAOs%20are%20an%20important%20part%20of%20the%20blockchain%20ecosystem.%20This%20article%20uncovers%20all%20fundamentals%20of%20DAO." target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-fb-mask.svg" alt="facebook" /></a>
+<a class="article-share-item" href="https://www.linkedin.com/sharing/share-offsite/?url=https://rocknblock.io/blog/everything-about-dao" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-in-mask.svg" alt="linkedin" /></a>
+</div>
+</div>
+</section>
+<section>
+<div class="container article-similar"> <span class="article-section-title">Similar Posts</span>
+<div class="blog-items">
+<a class="swiper-slide blog-item" href="what-exactly-yield-farming-is.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/e2d/3b1/e24/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/a23/47c/456thumb__240_140_0_0_crop__240.png" alt="What exactly Yield Farming is? YDragon" srcset="https://rocknblock.io//storage/temp/public/a23/47c/456thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/a23/47c/456thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">What exactly Yield Farming is? YDragon</h3>
+<p class="blog-item-anonce">Full comprehensive guide about all Yield Farming mechanics and the development cases of Yield Framing platforms. Here is how we developed the YDragon, the powerful DeFi cross-chain platform</p>
+</a>
+<a class="swiper-slide blog-item" href="full-guide-about-all-blockchain-consensus-mechanisms.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/101/c88/3fe/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/409/77a/bdethumb__240_140_0_0_crop__240.png" alt="Full guide about all Blockchain consensus mechanisms" srcset="https://rocknblock.io//storage/temp/public/409/77a/bdethumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/409/77a/bdethumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Full guide about all Blockchain consensus mechanisms</h3>
+<p class="blog-item-anonce">The unfolding of all blockchain consensus mechanisms, how do different blockchain work? All the mechanics, advantages, and problem solving of every consensus mechanism are in this article</p>
+</a>
+<a class="swiper-slide blog-item" href="what-crowdsale-is-exactly.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/c25/60f/05f/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/3a4/631/d67thumb__240_140_0_0_crop__240.png" alt="What is a crowdsale? A pack for CratD2c" srcset="https://rocknblock.io//storage/temp/public/3a4/631/d67thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/3a4/631/d67thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">What is a crowdsale? A pack for CratD2c</h3>
+<p class="blog-item-anonce">Crowdsale is becoming more and more popular among entrepreneurs not only in the crypto field. In fact, many of them are considering a Crowdsale as the better version of Crowdfunding</p>
+</a>
+</div>
+</div>
+</section>
+</section>
+<section class="form">
+<div class="container">
+<div class="contact-us container" id="contact-us">
+<div class="background-img">
+<picture>
+<source type="image/webp" srcset="../themes/rocknblock/assets/images/site/background/partners.html" />
+<img loading="lazy" src="../storage/temp/public/d5a/9db/096partners__98.png" alt="partners" srcset="https://rocknblock.io//storage/temp/public/d5a/9db/096partners__98.png 98w" sizes="(max-width: 98px) 100vw, 98px">
+</picture>
+</div>
+<div class="background-img">
+<picture>
+<source type="image/webp" srcset="../themes/rocknblock/assets/images/site/background/contact.html" />
+<img loading="lazy" src="../storage/temp/public/565/7bf/e43contact__116.png" alt="contact" srcset="https://rocknblock.io//storage/temp/public/565/7bf/e43contact__116.png 116w, https://rocknblock.io//storage/temp/public/565/7bf/e43contact__100.png 100w" sizes="(max-width: 116px) 100vw, 116px">
+</picture>
+</div>
+<div class="block-header">
+<h2 class="primary-header">Estimate your project now!</h2>
+<h3 class="secondary-header">Get free consultation and build your blockchain project with our highly qualified team!</h3>
+</div>
+<div class="form-social-links">
+<a href="https://t.me/rocknblock" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/telegram.svg" alt="telegram" />
+</a>
+<a href="https://api.whatsapp.com/send?phone=16232304354" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/whatsapp.svg" alt="whatsapp" />
+</a>
+<a class="form-social-links__book" href="https://calendly.com/rocknblock-io" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/book-call.svg" alt="book a call" />
+</a>
+</div>
+<div class="form-info-text">
+<span>Start a chat with us or fill this form</span>
+</div>
+<form method="POST" action="https://rocknblock.io/blog/everything-about-dao" accept-charset="UTF-8" data-request="feedback::onForm" class="contact-us__form" data-request-loading="#loading-form" data-request-validate="1" data-request-update="&quot;forms\/main&quot;:&quot;#contact-us&quot;"><input name="_session_key" type="hidden" value="dOf1C81i9Hr0meXL9sxyzRf2zNFoNXRWmWNgy56R"><input name="_token" type="hidden" value="tzqrMj6CSUIY5mofJHeIk3iueabR8upP2HV01yGU">
+<div id="loading-form">
+<div class="load-form">
+<img class="load-form-icon" src="../themes/rocknblock/assets/images/site/icon-loader.svg" alt="rocknblock loading" />
+<span>Please wait...</span>
+</div>
+</div>
+<input class="contact-us__form__input" id="contact-us-input" type="text" name="id" placeholder="Name" value="all" required hidden="hidden" />
+<label class="visually-hidden" hidden="hidden" for="contact-us-input">Enter your name</label>
+<input class="contact-us__form__input" id="contact-us-input" type="text" name="name" placeholder="Name" required />
+<div class="form-group">
+<label hidden="hidden" for="contact-us-input-2">Your contact</label>
+<input class="contact-us__form__input" id="contact-us-input-2" name="contact" placeholder="Your contact" required />
+<div class="select-social">
+<select class="lm_input t-phone" name="type" required>
+<option value="telegram" default>Telegram</option>
+
+<option value="whatsapp">Whatsapp</option>
+</select>
+</div>
+</div>
+<div class="form-info-text" style="color:red;opacity: 1;" data-validate-for="contact"></div>
+<label class="visually-hidden" hidden="hidden" for="contact-us-textarea">Describe your project</label>
+<textarea class="contact-us__form__input contact-us__form__input-textarea" name="idea" id="contact-us-textarea" rows="1" placeholder="Briefly describe your project or idea" required></textarea>
+<p class="terms">By using the service, you accept the <a href="../terms-of-service.html" target="_blank">Terms of Service</a>
+</p>
+<input class="contact-us__form__submit-btn btn btn-orange btn-rounded" type="submit" value="Submit request" />
+</form>
+</div> </div>
+</section> </main>
+
+<footer id="layout-footer">
+<div class="container footer">
+<div class="sp-form-outer sp-force-hide">
+<div class="sp-form sp-form-regular sp-form-embed sp-form-horizontal sp-form-full-width" id="sp-form-213867" sp-id="213867" sp-hash="12ac849f63c2a031cbadb847c379704b51a7bf5903cc5b0d0de78bd1f8388438" sp-lang="en" sp-show-options="%7B%22satellite%22%3Afalse%2C%22maDomain%22%3A%22login.sendpulse.com%22%2C%22formsDomain%22%3A%22forms.sendpulse.com%22%2C%22condition%22%3A%22onEnter%22%2C%22scrollTo%22%3A25%2C%22delay%22%3A10%2C%22repeat%22%3A3%2C%22background%22%3A%22rgba(0%2C%200%2C%200%2C%200.5)%22%2C%22position%22%3A%22bottom-right%22%2C%22animation%22%3A%22%22%2C%22hideOnMobile%22%3Afalse%2C%22urlFilter%22%3Afalse%2C%22urlFilterConditions%22%3A%5B%7B%22force%22%3A%22hide%22%2C%22clause%22%3A%22contains%22%2C%22token%22%3A%22%22%7D%5D%2C%22analytics%22%3A%7B%22ga%22%3A%7B%22eventLabel%22%3Anull%2C%22send%22%3Afalse%7D%2C%22ym%22%3A%7B%22counterId%22%3Anull%2C%22eventLabel%22%3Anull%2C%22targetId%22%3Anull%2C%22send%22%3Afalse%7D%7D%2C%22utmEnable%22%3Afalse%7D">
+<div class="sp-form-fields-wrapper show-grid">
+<div class="form__wrapper">
+<label class="sp-control-label"><span>Stay Current With Our Latest Insights</span></label>
+<form class="sp-element-container" novalidate="">
+<div class="sp-field" sp-id="sp-a71e6fd1-9acf-4f41-b3dc-8f2152c749f8"><input class="sp-form-control" type="email" sp-type="email" name="sform[email]" placeholder="Enter Your Email" sp-tips="%7B%22required%22%3A%22Required%20field%22%2C%22wrong%22%3A%22Wrong%20email%22%7D" autocomplete="on" required="required"></div>
+<div class="sp-field sp-button-container" sp-id="sp-f63cba59-48d0-4248-babc-97587ed34c99"><button class="sp-button" id="sp-f63cba59-48d0-4248-babc-97587ed34c99">SUBSCRIBE</button></div>
+<div class="sp-field sp-field-full-width" sp-id="sp-7dd427e4-a8c3-4126-b02f-897742857dde">
+<div style="font-family: inherit; line-height: 1;"></div>
+</div>
+</form>
+<div class="sp-message">
+<div></div>
+</div>
+</div>
+<nav class="social-links">
+<span>Let's connect</span>
+<ul class="social-links__list">
+<li class="social-links__link">
+<a class="icon" href="https://twitter.com/rocknblockdev" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-tw-mask.svg" alt="twiter">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="telegram">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://www.facebook.com/RocknBlockDev/?ref=br_rs" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-fb-mask.svg" alt="facebook">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://rocknblock.medium.com/" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-medium-mask.svg" alt="medium">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://www.linkedin.com/authwall?trk=ripf&amp;trkInfo=AQHvgveZGbs93QAAAXggz85o2_gQEyTCero1KbSW_FNCIX1sjFUjvezZQqiUuu2cVmo2lj4adoTCg0J8Rvb-V8pKjpQj8U3C5-qT4igU957ofdXB7BvLt6ctemMUWideBHjsZLg=&amp;originalReferer=https://rocknblock.io/&amp;sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2F13060149" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-in-mask.svg" alt="linked in">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="../cdn-cgi/l/email-protection.html#d6beb3babab996a4b9b5bdb8b4bab9b5bdf8bfb9" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-mail-mask.svg" alt="email">
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="footer-services">
+<div class="footer-services-list">
+<div class="footer-services-item">
+<span class="title">NFT Metaverse</span>
+<a class="link" href="../marketplace.html">NFT Marketplace</a>
+<a class="link" href="../10knft.html">10k NFT Generator</a>
+<a class="link" href="../gamefi.html">GameFi</a>
+<a class="link" href="../metaverse.html">Metaverse</a>
+</div>
+<div class="footer-services-item">
+<span class="title">De-Fi Experience</span>
+<a class="link" href="../farming.html">Yield Farming</a>
+<a class="link" href="../vesting.html">Vesting Contract</a>
+<a class="link" href="../staking.html">Staking Platfrom</a>
+<a class="link" href="../launchpad.html">Launchpad</a>
+<a class="link" href="../tools.html">Trading Tools</a>
+<a class="link" href="../dex.html">DEX/CEX</a>
+</div>
+<div class="footer-services-item">
+<span class="title">Token Assistance</span>
+<a class="link" href="../token-generator.html">Token Generator</a>
+<a class="link" href="../crowdsale.html">Crowdsale Pack</a>
+<a class="link" href="../bridge.html">Cross-Chain Bridge</a>
+<a class="link" href="../safemoon.html">Deflationary</a>
+<a class="link" href="../tokenization.html">Tokenized Property</a>
+</div>
+<div class="footer-services-item">
+<span class="title">Blockhain Expertise</span>
+<a class="link" href="../consulting.html">Consulting</a>
+<a class="link" href="../marketing.html">Web3 Marketing</a>
+<a class="link" href="../security-audit.html">Security Audit</a>
+<a class="link" href="../rust.html">Rust Development</a>
+</div>
+</div>
+</div>
+<div class="bottom">
+<div class="links">
+ <p class="bottom__copyright-desktop">© Copyright Rock’n’Block 2022</p> <a href="../privacy-policy.html" target="_blank">Privacy
+Policy</a><a href="../terms-of-service.html" target="_blank">Terms
+of Service</a><a href="../company.html" target="_blank">Company</a>
+</div>
+<p class="bottom__copyright-mobile">© Copyright Rock’n’Block 2023</p>
+</div>
+</div>
+<div id="btnScrollToTop">
+<img src="../themes/rocknblock/assets/images/site/icons/icon-arrow-top-mask.svg" alt="arrow top">
+</div>
+<ul class="side-socials">
+<li class="side-socials__link side-socials__link_tg">
+<a class="icon" href="https://t.me/rocknblock" rel="noreferrer" target="_blank"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="tg">
+</a>
+</li>
+<li class="side-socials__link side-socials__link_whatsapp">
+<a class="icon" href="https://api.whatsapp.com/send?phone=16232304354" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-whatsapp-mask.svg" alt="whatsapp">
+</a>
+</li>
+</ul> </footer>
+<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../themes/rocknblock/assets/javascript/jquery.js"></script>
+<script defer src="../themes/rocknblock/assets/javascript/main.min.js"></script>
+<script type="text/javascript" async src="../../web.webformscr.com/apps/fc3/build/default-handler79b6.js?1653643444289"></script>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(function(){
+      
+      window.__lc = window.__lc || {};
+      window.__lc.license = 9683030;
+      ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="../../cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+    
+    }, 3500); // время указано в мс = 0,001 секунды, изменить по вкусу
+  });
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/9683030/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+
+<script src="../modules/system/assets/js/framework.combined-min5cce.js?v=1.1.7"></script>
+<link rel="stylesheet" property="stylesheet" href="../modules/system/assets/css/framework.extras-min5cce.css?v=1.1.7">
+
+<scriptd type="text/javascript" id="amo_pixel_identifier_js" async="async" src="../../piper.amocrm.ru/pixel/js/identifier/pixel_identifier.js"></script>
+<script>window.AMOPIXEL_IDENTIFIER_PARAMS = window.AMOPIXEL_IDENTIFIER_PARAMS || { }; window.AMOPIXEL_IDENTIFIER_PARAMS.onload = function (pixel_identifier) { var visitor_uid = pixel_identifier.getVisitorUid ( ); if (visitor_uid) {document.getElementById ( 'visitor_uid' ).value = visitor_uid;}};</script> </body>
+
+<!-- Mirrored from rocknblock.io/blog/everything-about-dao by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Apr 2023 16:33:45 GMT -->
+</html>

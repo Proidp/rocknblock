@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from rocknblock.io/blog/how-create-token-safemoon by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Apr 2023 16:35:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', () => {
+		setTimeout(function(){
+			
+			   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+			   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+			   (window, document, "script", "../../mc.yandex.ru/metrika/tag.js", "ym");
+			
+			   ym(82964167, "init", {
+			        clickmap:true,
+			        trackLinks:true,
+			        accurateTrackBounce:true,
+			        webvisor:true
+			   });
+			   
+			   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','dataLayer','GTM-P548TMG');
+			   
+		}, 3500); // время указано в мс = 0,001 секунды, изменить по вкусу
+	});
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<meta name="author" content="Amary Filo">
+<meta name="generator" content="Rocknblock Developing">
+<meta name="application-name" content="Rocknblock Developing">
+<style>body{background-color: black;}</style>
+<link rel="stylesheet" href="../themes/rocknblock/assets/css/style.min.css" as="style">
+<link rel="preload" href="../themes/rocknblock/assets/javascript/main.min.js" as="script">
+<link rel="manifest" href="../themes/rocknblock/assets/images/manifest.html">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-96x96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="57x57" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../themes/rocknblock/assets/images/favicon/android-chrome-192x192.png" />
+<meta name="msapplication-square70x70logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/smalltile.png" />
+<meta name="msapplication-square150x150logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/mediumtile.png" />
+<meta name="msapplication-wide310x150logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/widetile.png" />
+<meta name="msapplication-square310x310logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/largetile.png" />
+<link rel="mask-icon" href="../themes/rocknblock/assets/images/favicon/safari-pinned-tab.svg" " color="#ff0000" />
+<meta name="msapplication-TileColor" content="#ff0000" />
+<meta name="theme-color" content="#1D1B21" />
+<style>
+    .tabs-case .content-item {
+        margin: 20px !important;    
+    }
+</style> <title>How to create a token like a “safemoon”</title>
+<meta name="title" content="How to create a token like a “safemoon”">
+<meta name="keywords" content="blockchain,safemoon token,deflationary token,safemoon protocol,blockchain development">
+<meta name="description" content="Custom Deflationary tokens like SafeMoon have taken over the market. Why is there attention to such projects and how can you run it with the help of Rock’n’Block?">
+<meta name="generator" content="Rock`n`Block Developing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to create a token like a “safemoon”">
+<meta property="og:url" content="https://rocknblock.io/blog/how-create-token-safemoon">
+<meta property="og:image" content="https://rocknblock.io/storage/app/uploads/public/4cc/958/016/thumb__1200_640_0_0_crop.png">
+<meta property="og:description" content="Custom Deflationary tokens like SafeMoon have taken over the market. Why is there attention to such projects and how can you run it with the help of Rock’n’Block?">
+<meta property="article:author" content="Rock’n’Block">
+<meta property="article:published_time" content="2021-12-13 13:44:58">
+<meta property="article:modified_time" content="2022-08-17 11:42:15">
+<meta property="article:section" content="Technology">
+<meta property="article:tag" content="blockchain">
+<meta property="article:tag" content="safemoon token">
+<meta property="article:tag" content="deflationare token">
+<meta property="article:tag" content="safemoon protocol">
+<meta property="article:tag" content="blockchain development">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to create a token like a “safemoon”">
+<meta name="twitter:description" content="Custom Deflationary tokens like SafeMoon have taken over the market. Why is there attention to such projects and how can you run it with the help of Rock’n’Block?">
+<meta name="twitter:site" content="@rocknblockdev">
+<meta name="twitter:url" content="https://rocknblock.io/blog/how-create-token-safemoon">
+<meta name="twitter:image" content="https://rocknblock.io/storage/app/uploads/public/4cc/958/016/thumb__1200_640_0_0_crop.png">
+<meta name="twitter:image:alt" content="How to create a token like a “safemoon”">
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org/",
+		"@type": "Article",
+		"mainEntityOfPage": {
+			"@type": "WebPage",
+			"@id": "https://rocknblock.io/blog/how-create-token-safemoon"
+		},
+		"author": {
+			"@type": "Organization",
+			"name": "Rock`n`Block"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "Rock`n`Block",
+			"logo": {
+				"@type": "ImageObject",
+				"url": "https://rocknblock.io/themes/rocknblock/assets/images/site/logo.png"
+			}
+		},
+		"headline": "How to create a token like a “safemoon”",
+		"image": "https://rocknblock.io/storage/app/uploads/public/61b/cd1/aa4/61bcd1aa4ccaf815616190.png",
+		"datePublished": "2021-12-13 13:44:58",
+		"dateModified": "2022-08-17 11:42:15"
+	}
+	</script>
+
+<meta name="google-site-verification" content="7_6Fy-97nJ33Ve9stEFXjT4RUqNwIQj-vh9tYL22ZU0"> </head>
+<body>
+
+
+
+<noscript>
+  
+  <div><img src="https://mc.yandex.ru/watch/82964167" style="position:absolute; left:-9999px;" alt="" /></div>
+  
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P548TMG" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+
+</noscript>
+
+<div class="preloader"><div class="preloader__row"><div class="preloader__item"></div><div class="preloader__item"></div></div></div>
+
+<header id="layout-header">
+<div class="container">
+<nav class="main-nav">
+<section class="main-nav__mobile">
+<a class="logo" href="../index.html">
+<img src="../themes/rocknblock/assets/images/site/logo.svg" alt="Rock'n'Block logo">
+</a>
+<div class="burger icon">
+<img class="icon-burger ic-open" src="../themes/rocknblock/assets/images/site/icons/icon-header-burger-mask.svg" alt="burger menu">
+<img class="icon-burger ic-close" src="../themes/rocknblock/assets/images/site/icons/icon-header-burger-close-mask.svg" alt="burger close menu" hidden>
+</div>
+</section>
+<section class="nav-pages" id="nav-pages">
+<a class="nav-pages__link" href="../index.html#solutions">Services</a>
+<a class="nav-pages__link" href="../index.html#cases">Cases</a>
+<a class="nav-pages__link" href="../index.html#team">Team</a>
+<a class="nav-pages__link" href="../index.html#partners">Partners</a>
+<a class="nav-pages__link" href="../blog.html">Blog</a>
+<a class="nav-pages__contact-button nav-pages__link__contact-us" href="#contact-us">CONTACT US</a>
+</section>
+</nav>
+</div> </header>
+
+<main id="layout-content">
+<section class="pg pg-article">
+<section class="article container">
+<h1 class="article-title">How to create a token like SafeMoon</h1>
+<span class="article-date" style="background-image: url('../themes/rocknblock/assets/images/site/blog/icon-clock.svg');">13 Aug 2021</span>
+<img src="../storage/temp/public/14b/689/7bbblog5-1__2400.png" style="width: 100%;" class="fr-fic fr-dib" data-result="success" alt="What is all about safemoon token and safemoon protocol? Why does everybody wants to have a token like that? Rock'n'Block explains the mechanics of safemoon" srcset="https://rocknblock.io//storage/temp/public/14b/689/7bbblog5-1__2400.png 2400w, https://rocknblock.io//storage/temp/public/14b/689/7bbblog5-1__100.png 100w, https://rocknblock.io//storage/temp/public/14b/689/7bbblog5-1__250.png 250w, https://rocknblock.io//storage/temp/public/14b/689/7bbblog5-1__400.png 400w, https://rocknblock.io//storage/temp/public/14b/689/7bbblog5-1__768.png 768w, https://rocknblock.io//storage/temp/public/14b/689/7bbblog5-1__1024.png 1024w" sizes="(max-width: 2400px) 100vw, 2400px">
+
+<h2 data-selectable-paragraph="">What’s the point</h2>
+<p data-selectable-paragraph=""><a href="../safemoon.html">SafeMoon</a> and others like it is a decentralized finance (DeFi) token. It has three characteristics: it burns, it accumulates, and it is 100% community-driven.</p>
+<p data-selectable-paragraph="">SafeMoon (SFM) debuted in March 2021 and quickly gained popularity. Its focus on reducing volatility attracted attention — SafeMoon prevents the participation of coins in speculative trading, while long-term holders, on the contrary, receive additional rewards.</p>
+<p data-selectable-paragraph="">SFM is designed as a token of the Binance Smart Chain ecosystem. SafeMoon originally emerged as an internet meme similar to Dogecoin and Shiba Inu. Instead of continuous token burning, manual token burning is preferred. This gives more control over the supply of coins and allows for a more efficient upward direction of the coin rate.</p>
+<p data-selectable-paragraph="">Due to the rapidly increasing popularity of the token, the Rock’n’Block team receives frequent requests to create a custom similar token and add better refinements to it.</p>
+<h2 data-selectable-paragraph=""><strong>How does this technology work?</strong></h2>
+<p data-selectable-paragraph="">The burn-on-transaction function is built directly into the smart token contract. The contract charges a commission on each transaction on the chain and then sends it to the burn-on-transaction address. In this way, the negotiable supply of tokens decreases with each transfer. This approach to tokenomics depends on the volume of trades: the higher the volume, the more tokens will be excluded from the circulation supply.</p>
+<p data-selectable-paragraph="">Along with burn-per-transaction, other distribution functions can be added to the contract. Transaction fees can include automatic LP replenishment and distribution to holders. Thus, with each transaction on the chain, a certain amount of funds will be transferred to LPs and/or holders. In this way, holders receive an incentive to hold, as well as an incentive to maintain a high trading volume.</p>
+<figure>
+<div tabindex="0"><img alt="https://rocknblock.io/" src="../storage/temp/public/2f0/a9b/fd31639402943810__1200.jpg" srcset="https://miro.medium.com/max/552/0*RdyJL0mfoUP7wjFB 276w, https://miro.medium.com/max/1104/0*RdyJL0mfoUP7wjFB 552w, https://miro.medium.com/max/1280/0*RdyJL0mfoUP7wjFB 640w, https://miro.medium.com/max/1400/0*RdyJL0mfoUP7wjFB 700w" sizes="700px" class="fr-fic fr-dib" data-result="success" style="width: 100%;"></div>
+</figure>
+<h2 data-selectable-paragraph=""><strong>Deflationary token functions</strong></h2>
+<p data-selectable-paragraph="">The Rock’n’Block team develops a contract, flexible to be customized for any deflation tokemonics model. The contract flexibility implies any desired combination of the following functions:</p>
+<h2 data-selectable-paragraph=""><strong>1. Token Burn</strong></h2>
+<p data-selectable-paragraph="">Burning cannot be finite and controllable; on the other hand, supply reduction is beneficial only in the early stages. That’s why TOKEN controls the burn, announcing the terms and number of tokens to be destroyed. This strategy is aimed at those holders who aim at the project in the long term</p>
+<h2 data-selectable-paragraph=""><strong>2. Distribution to holders</strong></h2>
+<p data-selectable-paragraph="">The solution to the price collapse is static rewards, their size depending on the volume of tokens traded. This mechanism aims to alleviate the selling pressure caused by first holders selling their assets in the market after insanely high percentage farming yields. Second, the reflection mechanism encourages holders to hold on to their tokens in order to get higher returns, which are percentage-based and dependent on the total number of tokens in the holder’s hands.</p>
+<h2 data-selectable-paragraph=""><strong>3. Liquidity Pool transfers (Uniswap V3; PancakeSwap)</strong></h2>
+<p data-selectable-paragraph="">An automated liquidity pool (LP) is created to prevent a price collapse when whales decide to sell their tokens. Technically, this is ensured by the following scheme: a smart contract charges tokens from both sellers and buyers and then adds them to the common pool, thus forming a price threshold. In theory, the added LP creates stability from the delivered LP by adding tax to the total liquidity of the token, thus increasing the total LP of tokens and maintaining the price threshold.</p>
+<h2 data-selectable-paragraph=""><strong>4. Minting function</strong></h2>
+<p data-selectable-paragraph="">Such a deflationary token contract allows users to choose any combination of the four mentioned above functions including and excluding the desired ones to fit the tokenomics structure.</p>
+<p data-selectable-paragraph="">In addition, the developers of Rock’n’Block can add to your custom token the following improvements:</p>
+<ul>
+<li data-selectable-paragraph="">gas optimization</li>
+<li data-selectable-paragraph="">automatic LP Uniswap v3</li>
+<li data-selectable-paragraph="">customization of contract parameters for specific tokenomics</li>
+<li data-selectable-paragraph="">combining the functionality of the deflation token and the token with Automatic LP</li>
+</ul>
+<p data-selectable-paragraph=""><strong>As for Automatic LP</strong>
+<br>An automatic LP option can be added to a deflationary token contract. In this case, each transaction contributes to the automatic generation of liquidity, which goes to the pool used by the exchange. The user can set the number of funds to be transferred to the LP from each transaction. For Ethereum-based contracts, the Uniswap V3 liquidity pool can be replenished with each transaction.</p>
+<h2 data-selectable-paragraph=""><strong>Our expertise</strong></h2>
+<p data-selectable-paragraph="">To date, we have developed about 25 such unique deflation tokens using the safemoon protocol, which makes us highly skilled in this field. We continue to improve the implementation of customizable parameters and bring developments to the point of excellence.</p>
+<p data-selectable-paragraph="">Built projects examples: Mom, Black cat, Covid, Heart Beat, and other coins under NDA.</p>
+<p data-selectable-paragraph="">We take on work of any complexity of token in any blockchain not only on Binance Smart Chain, on Ethereum and Tron too. The full realization of a safe moon type-token takes up to 2 weeks, including timeframes to agree on all terms and designs of the project.</p>
+<p data-selectable-paragraph="">We are currently upgrading the safemoon protocol, which means that our clients are getting a better deflationary token with refined contract formulas to calculate rewards.</p>
+<p data-selectable-paragraph="">Such tokens help solve global and significant problems in the decentralized finance market, but you also need to consider the risks concerning decentralized finance projects.</p>
+<p data-selectable-paragraph=""><strong>Order your custom </strong><a href="../safemoon.html"><strong>deflationary token development</strong></a><strong> today, leave a request with the Rock’n’Block team!</strong></p>
+<p data-selectable-paragraph="">Rock’n’Block’s team can help you with:</p>
+<p data-selectable-paragraph="">⚡️<a href="../marketplace.html" rel="noopener ugc nofollow" target="_blank">NFT and NFT Marketplaces development</a> ;
+<br>⚡️<a href="../10knft.html" rel="noopener ugc nofollow" target="_blank">NFT 10K generator</a>;
+<br>⚡️<a href="../staking.html" rel="noopener ugc nofollow" target="_blank">Staking platforms</a>;
+<br>⚡️<a href="../vesting.html" rel="noopener ugc nofollow" target="_blank">Vesting platforms</a>;
+<br>⚡️<a href="../farming.html" rel="noopener ugc nofollow" target="_blank">Farming platforms</a>;
+<br>⚡️<a href="../crowdsale.html" rel="noopener noreferrer" target="_blank">Crowdsale</a>;
+<br>⚡️Any other custom request from a crypto wallet development to custom <a href="../index.html" rel="noopener ugc nofollow" target="_blank">blockchain development</a>.</p>
+<p data-selectable-paragraph="">If you’re interested in building your blockchain project, feel free to contact our team via the <a href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noopener ugc nofollow" target="_blank">Telegram channel</a> or<a href="https://calendly.com/alex-tka?_ga=2.125281484.774853951.1635149124-626771872.1633109778" rel="noopener noreferrer" target="_blank">&nbsp;book a call via Calendly</a>.</p>
+<p data-selectable-paragraph="">
+<br>
+</p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>We</strong>❤️<strong>Development</strong></p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>Rock</strong>⚡️<strong>Block</strong></p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>Follow us on social media to receive the hottest blockchain development Rock’n’Block updates</strong><a href="https://twitter.com/RocknBlockDev" rel="noopener ugc nofollow" target="_blank">&nbsp;Twitter</a>, <a href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noopener ugc nofollow" target="_blank">Telegram</a>, <a href="https://www.linkedin.com/company/13060149" rel="noopener ugc nofollow" target="_blank">LinkedIn</a>, <a href="https://www.facebook.com/RocknBlockDev" rel="noopener ugc nofollow" target="_blank">Facebook</a>, <a href="https://www.instagram.com/rocknblock.io/" rel="noopener ugc nofollow" target="_blank">Instagram</a></p>
+</section>
+<section class="article-share">
+<div class="container"><span class="article-section-title">Share it!</span>
+<div class="article-share-items">
+<a class="article-share-item" href="https://twitter.com/intent/tweet?text=How%20to%20create%20a%20token%20like%20a%20%e2%80%9csafemoon%e2%80%9d.%20Custom%20Deflationary%20tokens%20like%20SafeMoon%20have%20taken%20over%20the%20market.%20Why%20is%20there%20attention%20to%20such%20projects%20and%20how%20can%20you%20run%20it%20with%20the%20help%20of%20Rock%e2%80%99n%e2%80%99Block?&amp;url=https://rocknblock.io/blog/how-create-token-safemoon&amp;hashtags=blockchain,safemoon%20token,deflationary%20token,safemoon%20protocol,blockchain%20development" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tw-mask.svg" alt="twitter" /></a>
+<a class="article-share-item" href="https://t.me/share/url?url=https://rocknblock.io/blog/how-create-token-safemoon&amp;text=Custom%20Deflationary%20tokens%20like%20SafeMoon%20have%20taken%20over%20the%20market.%20Why%20is%20there%20attention%20to%20such%20projects%20and%20how%20can%20you%20run%20it%20with%20the%20help%20of%20Rock%e2%80%99n%e2%80%99Block?" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="telegram" /></a>
+<a class="article-share-item" href="https://www.facebook.com/sharer/sharer.php?u=https://rocknblock.io/blog/how-create-token-safemoon&amp;t=How%20to%20create%20a%20token%20like%20a%20%e2%80%9csafemoon%e2%80%9d&amp;text=Custom%20Deflationary%20tokens%20like%20SafeMoon%20have%20taken%20over%20the%20market.%20Why%20is%20there%20attention%20to%20such%20projects%20and%20how%20can%20you%20run%20it%20with%20the%20help%20of%20Rock%e2%80%99n%e2%80%99Block?" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-fb-mask.svg" alt="facebook" /></a>
+<a class="article-share-item" href="https://www.linkedin.com/sharing/share-offsite/?url=https://rocknblock.io/blog/how-create-token-safemoon" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-in-mask.svg" alt="linkedin" /></a>
+</div>
+</div>
+</section>
+<section>
+<div class="container article-similar"> <span class="article-section-title">Similar Posts</span>
+<div class="blog-items">
+<a class="swiper-slide blog-item" href="cryptocurrency-vs-token.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/806/e65/324/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/943/479/72dthumb__240_140_0_0_crop__240.png" alt="Token creation on a blockchain. Cryptocurrency vs. Token" srcset="https://rocknblock.io//storage/temp/public/943/479/72dthumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/943/479/72dthumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Token creation on a blockchain. Cryptocurrency vs. Token</h3>
+<p class="blog-item-anonce">Many blockchain adoptions have a token creation. Many enterprises integrating tokens on their blockchain for many different purposes. Here we tell how they do that</p>
+</a>
+<a class="swiper-slide blog-item" href="smart-contract-audit.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/d66/596/1e5/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/f5e/4d4/e57thumb__240_140_0_0_crop__240.png" alt="Smart contract audit. The most important notes" srcset="https://rocknblock.io//storage/temp/public/f5e/4d4/e57thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/f5e/4d4/e57thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Smart contract audit. The most important notes</h3>
+<p class="blog-item-anonce">Proper smart contracts audits are immensely indispensable for blockchain and crypto projects. We decided to share the most important thing about smart contracts</p>
+</a>
+<a class="swiper-slide blog-item" href="tokena-more-just-liquidity-mining-dapp.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/cf5/001/91b/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/20c/ed5/a85thumb__240_140_0_0_crop__240.png" alt="Tokena: More than just a Liquidity Mining dAPP" srcset="https://rocknblock.io//storage/temp/public/20c/ed5/a85thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/20c/ed5/a85thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Tokena: More than just a Liquidity Mining dAPP</h3>
+<p class="blog-item-anonce">Rock’n’Block creates special decentralized applications, today we will talk about Tokena a large complex dAPP that is Liquidity Mining + Staking. Here we tell how we did that!</p>
+</a>
+<a class="swiper-slide blog-item" href="defi-token-development.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/4ea/468/17e/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/1ce/a4a/ecathumb__240_140_0_0_crop__240.png" alt="DeFi Token Development" srcset="https://rocknblock.io//storage/temp/public/1ce/a4a/ecathumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/1ce/a4a/ecathumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">DeFi Token Development</h3>
+<p class="blog-item-anonce">DeFi tools and DeFi tokens, how can you develop such tools being a blockchain developer?</p>
+</a>
+<a class="swiper-slide blog-item" href="what-are-hyper-deflationary-tokens-and-how-trade-them-effectively.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/3da/aed/38c/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/800/b92/2cfthumb__240_140_0_0_crop__240.png" alt="What are hyper-deflationary tokens, and how to trade them effectively?" srcset="https://rocknblock.io//storage/temp/public/800/b92/2cfthumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/800/b92/2cfthumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">What are hyper-deflationary tokens, and how to trade them effectively?</h3>
+<p class="blog-item-anonce">Deflationary tokens have been showing extraordinary demand lately. We are goin to show you how they work and why we’ll tell you below.</p>
+</a>
+<a class="swiper-slide blog-item" href="why-does-your-coin-need-cross-chain.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/389/568/0dc/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/d88/244/d8ethumb__240_140_0_0_crop__240.png" alt="Why does your coin need a Сross-Сhain?" srcset="https://rocknblock.io//storage/temp/public/d88/244/d8ethumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/d88/244/d8ethumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Why does your coin need a Сross-Сhain?</h3>
+<p class="blog-item-anonce">Each blockchain has its features, advantages, and useful options. But they also have some disadvantages. Participants can&#039;t change the rules, use tools from different blockchains, and interact in the way they would be comfortable with a cross-chain bridge</p>
+</a>
+</div>
+</div>
+</section>
+</section>
+<section class="form">
+<div class="container">
+<div class="contact-us container" id="contact-us">
+<div class="background-img">
+<picture>
+<source type="image/webp" srcset="../themes/rocknblock/assets/images/site/background/partners.html" />
+<img loading="lazy" src="../storage/temp/public/d5a/9db/096partners__98.png" alt="partners" srcset="https://rocknblock.io//storage/temp/public/d5a/9db/096partners__98.png 98w" sizes="(max-width: 98px) 100vw, 98px">
+</picture>
+</div>
+<div class="background-img">
+<picture>
+<source type="image/webp" srcset="../themes/rocknblock/assets/images/site/background/contact.html" />
+<img loading="lazy" src="../storage/temp/public/565/7bf/e43contact__116.png" alt="contact" srcset="https://rocknblock.io//storage/temp/public/565/7bf/e43contact__116.png 116w, https://rocknblock.io//storage/temp/public/565/7bf/e43contact__100.png 100w" sizes="(max-width: 116px) 100vw, 116px">
+</picture>
+</div>
+<div class="block-header">
+<h2 class="primary-header">Estimate your project now!</h2>
+<h3 class="secondary-header">Get free consultation and build your blockchain project with our highly qualified team!</h3>
+</div>
+<div class="form-social-links">
+<a href="https://t.me/rocknblock" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/telegram.svg" alt="telegram" />
+</a>
+<a href="https://api.whatsapp.com/send?phone=16232304354" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/whatsapp.svg" alt="whatsapp" />
+</a>
+<a class="form-social-links__book" href="https://calendly.com/rocknblock-io" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/book-call.svg" alt="book a call" />
+</a>
+</div>
+<div class="form-info-text">
+<span>Start a chat with us or fill this form</span>
+</div>
+<form method="POST" action="https://rocknblock.io/blog/how-create-token-safemoon" accept-charset="UTF-8" data-request="feedback::onForm" class="contact-us__form" data-request-loading="#loading-form" data-request-validate="1" data-request-update="&quot;forms\/main&quot;:&quot;#contact-us&quot;"><input name="_session_key" type="hidden" value="TDoY2tvG1o0xtZMCEoOBDNwnjINsdZB0U5qKif6m"><input name="_token" type="hidden" value="tzqrMj6CSUIY5mofJHeIk3iueabR8upP2HV01yGU">
+<div id="loading-form">
+<div class="load-form">
+<img class="load-form-icon" src="../themes/rocknblock/assets/images/site/icon-loader.svg" alt="rocknblock loading" />
+<span>Please wait...</span>
+</div>
+</div>
+<input class="contact-us__form__input" id="contact-us-input" type="text" name="id" placeholder="Name" value="all" required hidden="hidden" />
+<label class="visually-hidden" hidden="hidden" for="contact-us-input">Enter your name</label>
+<input class="contact-us__form__input" id="contact-us-input" type="text" name="name" placeholder="Name" required />
+<div class="form-group">
+<label hidden="hidden" for="contact-us-input-2">Your contact</label>
+<input class="contact-us__form__input" id="contact-us-input-2" name="contact" placeholder="Your contact" required />
+<div class="select-social">
+<select class="lm_input t-phone" name="type" required>
+<option value="telegram" default>Telegram</option>
+
+<option value="whatsapp">Whatsapp</option>
+</select>
+</div>
+</div>
+<div class="form-info-text" style="color:red;opacity: 1;" data-validate-for="contact"></div>
+<label class="visually-hidden" hidden="hidden" for="contact-us-textarea">Describe your project</label>
+<textarea class="contact-us__form__input contact-us__form__input-textarea" name="idea" id="contact-us-textarea" rows="1" placeholder="Briefly describe your project or idea" required></textarea>
+<p class="terms">By using the service, you accept the <a href="../terms-of-service.html" target="_blank">Terms of Service</a>
+</p>
+<input class="contact-us__form__submit-btn btn btn-orange btn-rounded" type="submit" value="Submit request" />
+</form>
+</div> </div>
+</section> </main>
+
+<footer id="layout-footer">
+<div class="container footer">
+<div class="sp-form-outer sp-force-hide">
+<div class="sp-form sp-form-regular sp-form-embed sp-form-horizontal sp-form-full-width" id="sp-form-213867" sp-id="213867" sp-hash="12ac849f63c2a031cbadb847c379704b51a7bf5903cc5b0d0de78bd1f8388438" sp-lang="en" sp-show-options="%7B%22satellite%22%3Afalse%2C%22maDomain%22%3A%22login.sendpulse.com%22%2C%22formsDomain%22%3A%22forms.sendpulse.com%22%2C%22condition%22%3A%22onEnter%22%2C%22scrollTo%22%3A25%2C%22delay%22%3A10%2C%22repeat%22%3A3%2C%22background%22%3A%22rgba(0%2C%200%2C%200%2C%200.5)%22%2C%22position%22%3A%22bottom-right%22%2C%22animation%22%3A%22%22%2C%22hideOnMobile%22%3Afalse%2C%22urlFilter%22%3Afalse%2C%22urlFilterConditions%22%3A%5B%7B%22force%22%3A%22hide%22%2C%22clause%22%3A%22contains%22%2C%22token%22%3A%22%22%7D%5D%2C%22analytics%22%3A%7B%22ga%22%3A%7B%22eventLabel%22%3Anull%2C%22send%22%3Afalse%7D%2C%22ym%22%3A%7B%22counterId%22%3Anull%2C%22eventLabel%22%3Anull%2C%22targetId%22%3Anull%2C%22send%22%3Afalse%7D%7D%2C%22utmEnable%22%3Afalse%7D">
+<div class="sp-form-fields-wrapper show-grid">
+<div class="form__wrapper">
+<label class="sp-control-label"><span>Stay Current With Our Latest Insights</span></label>
+<form class="sp-element-container" novalidate="">
+<div class="sp-field" sp-id="sp-a71e6fd1-9acf-4f41-b3dc-8f2152c749f8"><input class="sp-form-control" type="email" sp-type="email" name="sform[email]" placeholder="Enter Your Email" sp-tips="%7B%22required%22%3A%22Required%20field%22%2C%22wrong%22%3A%22Wrong%20email%22%7D" autocomplete="on" required="required"></div>
+<div class="sp-field sp-button-container" sp-id="sp-f63cba59-48d0-4248-babc-97587ed34c99"><button class="sp-button" id="sp-f63cba59-48d0-4248-babc-97587ed34c99">SUBSCRIBE</button></div>
+<div class="sp-field sp-field-full-width" sp-id="sp-7dd427e4-a8c3-4126-b02f-897742857dde">
+<div style="font-family: inherit; line-height: 1;"></div>
+</div>
+</form>
+<div class="sp-message">
+<div></div>
+</div>
+</div>
+<nav class="social-links">
+<span>Let's connect</span>
+<ul class="social-links__list">
+<li class="social-links__link">
+<a class="icon" href="https://twitter.com/rocknblockdev" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-tw-mask.svg" alt="twiter">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="telegram">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://www.facebook.com/RocknBlockDev/?ref=br_rs" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-fb-mask.svg" alt="facebook">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://rocknblock.medium.com/" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-medium-mask.svg" alt="medium">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://www.linkedin.com/authwall?trk=ripf&amp;trkInfo=AQHvgveZGbs93QAAAXggz85o2_gQEyTCero1KbSW_FNCIX1sjFUjvezZQqiUuu2cVmo2lj4adoTCg0J8Rvb-V8pKjpQj8U3C5-qT4igU957ofdXB7BvLt6ctemMUWideBHjsZLg=&amp;originalReferer=https://rocknblock.io/&amp;sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2F13060149" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-in-mask.svg" alt="linked in">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="../cdn-cgi/l/email-protection.html#09616c656566497b666a62676b65666a62276066" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-mail-mask.svg" alt="email">
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="footer-services">
+<div class="footer-services-list">
+<div class="footer-services-item">
+<span class="title">NFT Metaverse</span>
+<a class="link" href="../marketplace.html">NFT Marketplace</a>
+<a class="link" href="../10knft.html">10k NFT Generator</a>
+<a class="link" href="../gamefi.html">GameFi</a>
+<a class="link" href="../metaverse.html">Metaverse</a>
+</div>
+<div class="footer-services-item">
+<span class="title">De-Fi Experience</span>
+<a class="link" href="../farming.html">Yield Farming</a>
+<a class="link" href="../vesting.html">Vesting Contract</a>
+<a class="link" href="../staking.html">Staking Platfrom</a>
+<a class="link" href="../launchpad.html">Launchpad</a>
+<a class="link" href="../tools.html">Trading Tools</a>
+<a class="link" href="../dex.html">DEX/CEX</a>
+</div>
+<div class="footer-services-item">
+<span class="title">Token Assistance</span>
+<a class="link" href="../token-generator.html">Token Generator</a>
+<a class="link" href="../crowdsale.html">Crowdsale Pack</a>
+<a class="link" href="../bridge.html">Cross-Chain Bridge</a>
+<a class="link" href="../safemoon.html">Deflationary</a>
+<a class="link" href="../tokenization.html">Tokenized Property</a>
+</div>
+<div class="footer-services-item">
+<span class="title">Blockhain Expertise</span>
+<a class="link" href="../consulting.html">Consulting</a>
+<a class="link" href="../marketing.html">Web3 Marketing</a>
+<a class="link" href="../security-audit.html">Security Audit</a>
+<a class="link" href="../rust.html">Rust Development</a>
+</div>
+</div>
+</div>
+<div class="bottom">
+<div class="links">
+<p class="bottom__copyright-desktop">© Copyright Rock’n’Block 2022</p> <a href="../privacy-policy.html" target="_blank">Privacy
+Policy</a><a href="../terms-of-service.html" target="_blank">Terms
+of Service</a><a href="../company.html" target="_blank">Company</a>
+</div>
+<p class="bottom__copyright-mobile">© Copyright Rock’n’Block 2023</p>
+</div>
+</div>
+<div id="btnScrollToTop">
+<img src="../themes/rocknblock/assets/images/site/icons/icon-arrow-top-mask.svg" alt="arrow top">
+</div>
+<ul class="side-socials">
+<li class="side-socials__link side-socials__link_tg">
+<a class="icon" href="https://t.me/rocknblock" rel="noreferrer" target="_blank"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="tg">
+</a>
+</li>
+<li class="side-socials__link side-socials__link_whatsapp">
+<a class="icon" href="https://api.whatsapp.com/send?phone=16232304354" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-whatsapp-mask.svg" alt="whatsapp">
+ </a>
+</li>
+</ul> </footer>
+<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../themes/rocknblock/assets/javascript/jquery.js"></script>
+<script defer src="../themes/rocknblock/assets/javascript/main.min.js"></script>
+<script type="text/javascript" async src="../../web.webformscr.com/apps/fc3/build/default-handler79b6.js?1653643444289"></script>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(function(){
+      
+      window.__lc = window.__lc || {};
+      window.__lc.license = 9683030;
+      ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="../../cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+    
+    }, 3500); // время указано в мс = 0,001 секунды, изменить по вкусу
+  });
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/9683030/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+
+<script src="../modules/system/assets/js/framework.combined-min5cce.js?v=1.1.7"></script>
+<link rel="stylesheet" property="stylesheet" href="../modules/system/assets/css/framework.extras-min5cce.css?v=1.1.7">
+
+<scriptd type="text/javascript" id="amo_pixel_identifier_js" async="async" src="../../piper.amocrm.ru/pixel/js/identifier/pixel_identifier.js"></script>
+<script>window.AMOPIXEL_IDENTIFIER_PARAMS = window.AMOPIXEL_IDENTIFIER_PARAMS || { }; window.AMOPIXEL_IDENTIFIER_PARAMS.onload = function (pixel_identifier) { var visitor_uid = pixel_identifier.getVisitorUid ( ); if (visitor_uid) {document.getElementById ( 'visitor_uid' ).value = visitor_uid;}};</script> </body>
+
+<!-- Mirrored from rocknblock.io/blog/how-create-token-safemoon by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Apr 2023 16:35:45 GMT -->
+</html>

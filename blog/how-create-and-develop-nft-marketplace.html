@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from rocknblock.io/blog/how-create-and-develop-nft-marketplace by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Apr 2023 16:34:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', () => {
+		setTimeout(function(){
+			
+			   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+			   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+			   (window, document, "script", "../../mc.yandex.ru/metrika/tag.js", "ym");
+			
+			   ym(82964167, "init", {
+			        clickmap:true,
+			        trackLinks:true,
+			        accurateTrackBounce:true,
+			        webvisor:true
+			   });
+			   
+			   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','dataLayer','GTM-P548TMG');
+			   
+		}, 3500); // время указано в мс = 0,001 секунды, изменить по вкусу
+	});
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<meta name="author" content="Amary Filo">
+<meta name="generator" content="Rocknblock Developing">
+<meta name="application-name" content="Rocknblock Developing">
+<style>body{background-color: black;}</style>
+<link rel="stylesheet" href="../themes/rocknblock/assets/css/style.min.css" as="style">
+<link rel="preload" href="../themes/rocknblock/assets/javascript/main.min.js" as="script">
+<link rel="manifest" href="../themes/rocknblock/assets/images/manifest.html">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-96x96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="57x57" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../themes/rocknblock/assets/images/favicon/android-chrome-192x192.png" />
+<meta name="msapplication-square70x70logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/smalltile.png" />
+<meta name="msapplication-square150x150logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/mediumtile.png" />
+<meta name="msapplication-wide310x150logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/widetile.png" />
+<meta name="msapplication-square310x310logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/largetile.png" />
+<link rel="mask-icon" href="../themes/rocknblock/assets/images/favicon/safari-pinned-tab.svg" " color="#ff0000" />
+<meta name="msapplication-TileColor" content="#ff0000" />
+<meta name="theme-color" content="#1D1B21" />
+<style>
+    .tabs-case .content-item {
+        margin: 20px !important;    
+    }
+</style> <title>Kephi Gallery: How to create and develop an NFT Marketplace?</title>
+<meta name="title" content="Kephi Gallery: How to create and develop an NFT Marketplace?">
+<meta name="keywords" content="blockchain,nft,nft marketplace,nft collection,nft bid,nft development,blockchain development">
+<meta name="description" content="With the emergence of NFT, we started to derive more tools to manage them, and now marketplaces have great opportunities for it. So, how do we develop NFT marketplaces?">
+<meta name="generator" content="Rock`n`Block Developing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kephi Gallery: How to create and develop an NFT Marketplace?">
+<meta property="og:url" content="https://rocknblock.io/blog/how-create-and-develop-nft-marketplace">
+<meta property="og:image" content="https://rocknblock.io/storage/app/uploads/public/200/e15/ed3/thumb__1200_640_0_0_crop.png">
+<meta property="og:description" content="With the emergence of NFT, we started to derive more tools to manage them, and now marketplaces have great opportunities for it. So, how do we develop NFT marketplaces?">
+<meta property="article:author" content="Rock’n’Block">
+<meta property="article:published_time" content="2021-12-13 15:03:39">
+<meta property="article:modified_time" content="2022-08-18 08:42:55">
+<meta property="article:section" content="Technology">
+<meta property="article:tag" content="blockchain">
+<meta property="article:tag" content="nft">
+<meta property="article:tag" content="nft marketplace">
+<meta property="article:tag" content="nft collection">
+<meta property="article:tag" content="nft bid">
+<meta property="article:tag" content="nft development">
+<meta property="article:tag" content="blockchain development">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kephi Gallery: How to create and develop an NFT Marketplace?">
+<meta name="twitter:description" content="With the emergence of NFT, we started to derive more tools to manage it. And that’s why NFT Marketplace has irreducible opportunities for it. Here we tell how we develop an NFT Marketplace?">
+<meta name="twitter:site" content="@rocknblockdev">
+<meta name="twitter:url" content="https://rocknblock.io/blog/how-create-and-develop-nft-marketplace">
+<meta name="twitter:image" content="https://rocknblock.io/storage/app/uploads/public/200/e15/ed3/thumb__1200_640_0_0_crop.png">
+<meta name="twitter:image:alt" content="Kephi Gallery: How to create and develop an NFT Marketplace?">
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org/",
+		"@type": "Article",
+		"mainEntityOfPage": {
+			"@type": "WebPage",
+			"@id": "https://rocknblock.io/blog/how-create-and-develop-nft-marketplace"
+		},
+		"author": {
+			"@type": "Organization",
+			"name": "Rock`n`Block"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "Rock`n`Block",
+			"logo": {
+				"@type": "ImageObject",
+				"url": "https://rocknblock.io/themes/rocknblock/assets/images/site/logo.png"
+			}
+		},
+		"headline": "Kephi Gallery: How to create and develop an NFT Marketplace?",
+		"image": "https://rocknblock.io/storage/app/uploads/public/61c/07a/763/61c07a763e9ac261749508.png",
+		"datePublished": "2021-12-13 15:03:39",
+		"dateModified": "2022-08-18 08:42:55"
+	}
+	</script>
+
+<meta name="google-site-verification" content="7_6Fy-97nJ33Ve9stEFXjT4RUqNwIQj-vh9tYL22ZU0"> </head>
+<body>
+
+
+
+<noscript>
+  
+  <div><img src="https://mc.yandex.ru/watch/82964167" style="position:absolute; left:-9999px;" alt="" /></div>
+  
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P548TMG" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+
+</noscript>
+
+<div class="preloader"><div class="preloader__row"><div class="preloader__item"></div><div class="preloader__item"></div></div></div>
+
+<header id="layout-header">
+<div class="container">
+<nav class="main-nav">
+<section class="main-nav__mobile">
+<a class="logo" href="../index.html">
+<img src="../themes/rocknblock/assets/images/site/logo.svg" alt="Rock'n'Block logo">
+</a>
+<div class="burger icon">
+<img class="icon-burger ic-open" src="../themes/rocknblock/assets/images/site/icons/icon-header-burger-mask.svg" alt="burger menu">
+<img class="icon-burger ic-close" src="../themes/rocknblock/assets/images/site/icons/icon-header-burger-close-mask.svg" alt="burger close menu" hidden>
+</div>
+</section>
+<section class="nav-pages" id="nav-pages">
+<a class="nav-pages__link" href="../index.html#solutions">Services</a>
+<a class="nav-pages__link" href="../index.html#cases">Cases</a>
+<a class="nav-pages__link" href="../index.html#team">Team</a>
+<a class="nav-pages__link" href="../index.html#partners">Partners</a>
+<a class="nav-pages__link" href="../blog.html">Blog</a>
+<a class="nav-pages__contact-button nav-pages__link__contact-us" href="#contact-us">CONTACT US</a>
+</section>
+</nav>
+</div> </header>
+
+<main id="layout-content">
+<section class="pg pg-article">
+<section class="article container">
+<h1 class="article-title">Kephi Gallery: How to create and develop an NFT Marketplace?</h1>
+<span class="article-date" style="background-image: url('../themes/rocknblock/assets/images/site/blog/icon-clock.svg');">15 Dec 2021</span>
+<h4 data-selectable-paragraph="">NFT is booming rapidly, isn’t it? Simply because many people realized the broader abilities of blockchain technology and what it can bring to us.</h4>
+<p data-selectable-paragraph="">We are not limited only by trading cryptocurrencies or anything. NFT is doubtlessly a concept that we were needing for some time. And there is no surprise why a lot of investors are attracted to it. With the emergence of NFT, we started to derive more tools to manage it. And that’s why <a href="../marketplace.html">NFT marketplace&nbsp;</a>has irreducible opportunities for it.</p><img alt="The Kephi Gallery is a very promising NFT Marketplace among mastodons like Opensea and Rarible. They aim to create a space for creators and investors to expose digital art and exchange it sharing within many NFT communities. Another indispensable aim is to make gas fees lower, besides the aim of making artwork monetization simpler. " src="../storage/temp/public/011/064/b1dFrame%203041411__1200.png" srcset="https://miro.medium.com/max/552/1*CvN9ne_UyMc4kVMk2uBIcA.png 276w, https://miro.medium.com/max/1104/1*CvN9ne_UyMc4kVMk2uBIcA.png 552w, https://miro.medium.com/max/1280/1*CvN9ne_UyMc4kVMk2uBIcA.png 640w, https://miro.medium.com/max/1400/1*CvN9ne_UyMc4kVMk2uBIcA.png 700w" sizes="700px" class="fr-fic fr-dib" style="width: 100%;" data-result="success">
+<br>
+<h2 data-selectable-paragraph="">What is an NFT Marketplace?</h2>
+<p data-selectable-paragraph="">To fully understand what an NFT Marketplace is, we should know what NFT exactly is. However, in this article, we assume that you are already familiar with NFT.</p>
+<p data-selectable-paragraph=""><em>NFT — is a token that represents the unique identity and ownership of an artwork or an object in the real world that has a perceived value.</em></p>
+<p data-selectable-paragraph="">NFT stands for a non-fungible token, which means that it can not be reproduced, copied, or forged.</p>
+<p data-selectable-paragraph="">All the history of the transactions, ownership is stored in the code on a blockchain, and it cannot be changed back in time. In the case of an artwork, the token itself refers to the server, where an artwork stored this value can be assessed by a few subjective parameters as:</p>
+<ul>
+<li data-selectable-paragraph="">real-world value,</li>
+<li data-selectable-paragraph="">ownership history,</li>
+<li data-selectable-paragraph="">iniquity,</li>
+<li data-selectable-paragraph="">rarity</li>
+</ul>
+<p data-selectable-paragraph="">Not only a single piece of visual artwork can be an NFT.
+<br>But also, NFT can represent:</p>
+<ul>
+<li data-selectable-paragraph="">Music</li>
+<li data-selectable-paragraph="">Domains names</li>
+<li data-selectable-paragraph="">Digital world (enthusiasts digital 3D visual projects, most popular is Decentraland)</li>
+<li data-selectable-paragraph="">Collection items (as rare classic card games)</li>
+<li data-selectable-paragraph="">Digital sport branding items</li>
+<li data-selectable-paragraph="">Video artworks</li>
+</ul>
+<p data-selectable-paragraph="">When there was a situation when NFT started to be minted in enormous amounts, then it was logical to create a special place for it. A digital place where all of the NFT community, investors, and enthusiasts would come together, and trade it, bid it, and overview it as a high-end digital gallery.</p>
+<blockquote>
+<p data-selectable-paragraph="">So, summing up in plain English:
+<br><strong>NFT Marketplace — is a digital market, where you can bid, list NFT for sale, trade them, or even do other transactions.</strong></p>
+</blockquote>
+<p data-selectable-paragraph="">Similar to the crypto exchanges, NFT Marketplace is a place for trading digital tokens (NFT), and sometimes other digital assets.
+<br>Most NFT Marketplaces work via Ethereum networks because the majority of NFT is minted on the Ethereum chain. However, anyone can mint an NFT on other blockchain networks such as Polygon or Enjin, Binance Smart Chain, KardiaChain, etc.</p>
+<h2 data-selectable-paragraph=""><strong>Prominent features of NFT Marketplaces. What should you consider?</strong></h2>
+<p data-selectable-paragraph="">If you would dive into the discovery of the most popular NFT Marketplaces you are mostly going to encounter NFT Marketplaces like Opensea.io, SuperRare.com, Rarible.com, and also Binance NFT marketplace.</p>
+<p data-selectable-paragraph="">Binance NFT though is not a dedicated marketplace for NFT. However, it is expected that mastodont crypto exchanges such as Binance and Coinbase are going to launch their own NFT Marketplace, it makes a lot of sense when it comes to investors.</p>
+<p data-selectable-paragraph="">NFT marketplaces are one of the hottest topics for investors right now due to their high reward revenue potential.
+<br>If your project involves the development of NFT Marketplace, or even if it is the main target of your project, you must consider the essential features to be embedded in it.
+<br>We, at Rock’n’Block, can develop any customized project, even if you need to fully customize your NFT Marketplace. However, to succeed every NFT Marketplace should derive the same basic features. In the case of a platform like NFT Marketplace, it is essential to provide:</p>
+<ol>
+<li data-selectable-paragraph="">Store page/profile page.
+<br>
+<br>This is an essential and general feature, without it any marketplace would not be able to exist. It allows you to perform your items, and users of the marketplace check them out. Also, it contains valuable information about the item such as description, price fluctuations, ownership history, and so on. So, think about it as the juicy profile of a digital shop, or even the showcase of a real one.</li>
+<li data-selectable-paragraph="">NFT token global and specified search.
+<br>
+<br>Anyone who is intending to find or discover a desirable NFT should be able to find one.
+<br>
+<br>This feature should include a global search followed by the attributes of the name of a token, the nickname of a creator, tags, or categories. Search on an NFT Marketplace should include filters like Price range, Chains (Ethereum, Polygon, etc.), Categories.
+<br>
+<br>Optionally you can add other filters as Collections (mostly filters NFTs regarding presence in the most popular styled collections, for example as Crypto Punks) or Status (filters NFTs regarding its current status — On Sale, On auction, has offered, etc.).</li>
+<li data-selectable-paragraph="">Listings.
+<br>
+<br>Without listing nobody would be able to sell their items. When creating a listing, one who is intending to drop their NFT can adjust the price (Fixed or timed auction, sale duration, or even put an NFT in the bundle for sale).</li>
+<li data-selectable-paragraph="">Bidding feature.
+<br>
+<br>This feature performs an auction-like process for a potential collector of an NFT. Bidding hides behind a button “Place a bid”. After that, a system can offer to bid on a collector, therefore, placing a price that is above the reserved place that has been set by a creator or meeting it (in case a creator receives a very first bid).</li>
+<li data-selectable-paragraph="">Wallet.
+<br>
+<br>One of the key features of NFT Marketplace is a wallet. The best way to organize wallets is to derive a native wallet kind to all users of an NFT Marketplace. Native wallets can support better security for storing NFTs and other sensitive data such as deposit history, etc. However, these native wallets should be comprehensive enough for managing transactions. Many developers can integrate wallets by using SDK as Formatic to connect with Ethereum apps seamlessly.</li>
+<li data-selectable-paragraph="">Rankings.
+<br>
+<br>Another specific feature for an NFT Marketplace, similar to a market cap shown on a crypto exchange. The ranking is the page where you can find a listing rank of the creator’s collections sorted by volume traded, floor price, volume fluctuations in time frames of 24h or 7d, and other parameters. All the data can be sorted by categories and blockchains. So that’s how we now have the most booming collection of NFT. A very useful feature for an investor.</li>
+<li data-selectable-paragraph="">Gallery.
+<br>
+<br>Since we perceive an NFT Marketplace as a digital art gallery, we don’t doubt why a gallery is one of the essentials in such a place. Gallery server purposes of exploring the new unique tokens, trending ones, and showing outstanding drops. The galley is the focus of any NFT Marketplace.</li>
+</ol>
+<p>
+<br>
+</p>
+<h2 data-selectable-paragraph=""><strong>How do you develop an NFT Marketplace?</strong></h2>
+<p data-selectable-paragraph="">You can choose two ways to develop your NFT Marketplace.
+<br>The first one is to go all-in into the custom way of designing and developing one. From a brief and prototype to a completely tested and well-functioning marketplace. However, this way is more hustling, starting from a higher price of development for a project like that (depends on the number of customized features) to the continuous support on the side of a developer in case of modernization, upgrading, or even small adjustments.</p>
+<p data-selectable-paragraph="">Although, it is a straight way to gain more recognition and become a unique and stronger competitor among other existing NFT Marketplaces. We would say, if you are considering your project to be more serious and advanced, that also shows a level of expertise, then better to go for a fully customized development. There are more ways to optimize the downsides of full customization than losing the trust of your potential investors in your NFT Marketplace. Especially, because it is very critical for the blockchain market.</p>
+<p>
+<br>
+</p>
+<p data-selectable-paragraph="">The second way of developing an NFT Marketplace is to go for implementing already derived tools. For example, OpenSea SDK (software development kit) is the whole prepared toolset for an NFT Marketplace development. However, there are fewer chances to bring a unique and widely used platform of one of a kind. This way of development is for sure cheaper, faster, and almost hassle-free. And on the other side, you would be glued with OpenSea or any other third-party SDK for a lifetime.</p>
+<p data-selectable-paragraph="">There are plenty of NFT Marketplaces developed on OpenSea SDK, although not many of them are truly significant. Remember, that examples of the successfully prominent NFT Marketplaces out there are mostly built as fully-customized software. It might be tempting and in some cases reasonable to go for an SDK-based project because the total development process takes way less time.</p>
+<p data-selectable-paragraph="">Depending on your end target with your project, we would recommend you consider going for a fully customized product. Remember, that you can spend more time eventually if you decide to switch from SDK and customize the basis of the features.
+<br>Touching the development process everything depends on your niche.
+<br>Although, if you already have a clear vision and target niche, then it’s logical to start developing a design prototype and considering the list of essential features in the project.</p>
+<blockquote>
+<p data-selectable-paragraph="">If you have only a plain idea, we can guide you through the whole process straight from the start.</p>
+</blockquote>
+<ol>
+<li data-selectable-paragraph="">Design prototype and project documentation.
+<br>
+<br>Everything starts from the idea and design that you have and mind. Or maybe you have some references. Our team can guide you from this or even earlier stage. When it comes to a prototype, then we can cooperate on creating project documentation, which is necessary for consistent software development.</li>
+<li data-selectable-paragraph="">Framework.
+<br>
+<br>A framework is responsible for better performance of software and it is considered as the basic structure of your future product. There are plenty of frameworks existing, and the professional NFT developer can help you to choose what is going to be the best framework in the case of NFT Marketplace.</li>
+<li data-selectable-paragraph="">Establishing smart contracts generator.
+<br>
+<br>The core functioning of NFT contracts and Marketplaces with an ability to create NFT right there is the token generator. NFT works on smart contracts, so backend development should be done properly to complete successful verifications on the blockchain. Without that nothing is going to work. In the case of smart contracts, mostly the backend development is made on Solidity.</li>
+<li data-selectable-paragraph="">Testing functionality.
+<br>
+<br>When we completed the backend+frontend parts, the importance of the testing stage was in force. Testers are aiming to find insufficient code and eliminate bugs, so everything works properly and correctly how it is supposed to be. Testers are busy with the examination of usability, critical, and severe bugs. Fixing issues is one of the top priorities, especially when it’s related to the safety and reliability of any software developed with embedded blockchain technologies.</li>
+<li data-selectable-paragraph="">Production and Launch.
+<br>
+<br>The launch comes with ease when all the stages are completed correctly and all the participants are satisfied with the result. There might be some technical support on the launch stage of your project if it is necessary. The whole process including the development and launch mostly takes approximately 3–4 weeks from the moment of prototype to the moment of the project deployment. This time frame is individual, although you can estimate it to be around that.</li>
+</ol>
+<p>
+<br>
+</p>
+<h2 data-selectable-paragraph=""><strong>Kephi Gallery NFT Marketplace developed with Rock’n’Block</strong></h2>
+<p data-selectable-paragraph="">The Kephi Gallery is a very promising NFT Marketplace among mastodons like Opensea and Rarible. They aim to create a space for creators and investors to expose digital art and exchange it sharing within many NFT communities. Another indispensable aim is to make gas fees lower, besides the aim of making artwork monetization simpler. (when a single NFT minted it releases a gas fee, think of it as a minting cost) Since most NFTs are being minted within the Ethereum network, it makes these fees go higher when following the high demand.</p>
+<p data-selectable-paragraph="">Kephi Gallery is avoiding high gas fees, by minting their NFTs on KardiaChain’s blockchain. Cross-chain integration that Rock’n’Block successfully managed to implement for Kephi gallery and their NFT contracts allows better scaling not only when managing gas fees but also gives an opportunity for creators and investors to choose a blockchain for their NFT contract.
+<br>NFTs contracts that are being minted on Kephi Gallery are adopting the standard of the network, they all get KRC-721.</p>
+<p data-selectable-paragraph="">We, as the developers, made a whole NFT Marketplace platform for Kephi gallery based on their specific requirements as cross-chain integration Binance Smart Chain + KardiaChain conducting the transactions (follow the user preferences), wallets integration with Metamask and KardiaChain wallet. Furthermore, the ability to create NFT and listing was a must. No SDK was used in the development of the Kephi gallery, except from.
+<br>Kephi gallery was built on various stacks, in the backend we have</p>
+<ul>
+<li data-selectable-paragraph="">Django,</li>
+<li data-selectable-paragraph="">Celery,</li>
+<li data-selectable-paragraph="">Python</li>
+<li data-selectable-paragraph="">Redis,</li>
+<li data-selectable-paragraph="">PostgreSQL,</li>
+<li data-selectable-paragraph="">ipfs,</li>
+<li data-selectable-paragraph="">docker;</li>
+</ul>
+<p data-selectable-paragraph="">And in the Front stack:</p>
+<ul>
+<li data-selectable-paragraph="">React + Typescript, and more.</li>
+</ul>
+<p data-selectable-paragraph="">The fundamentals are always similar, however, we were engaged in embedding something that is going to work out in the best way for Kephi Gallery.
+<br>Kephi Gallery is a unique example of a promising NFT Marketplace that we were happy to develop.</p>
+<figure>
+<br>
+</figure>
+<p data-selectable-paragraph="">If you are looking for a development similar project like this, NFT related, <a href="../bridge.html">cross-chain</a> surely you can count on Rock’n’Block!</p>
+<p data-selectable-paragraph="">Rock’n’Block’s team can help you with:</p>
+<p data-selectable-paragraph="">⚡️<a href="../marketplace.html" rel="noopener ugc nofollow" target="_blank">NFT and NFT Marketplaces development</a> ;
+<br>⚡️<a href="../10knft.html" rel="noopener ugc nofollow" target="_blank">NFT 10K generator</a>;
+<br>⚡️<a href="../staking.html" rel="noopener ugc nofollow" target="_blank">Staking platforms</a>;
+<br>⚡️<a href="../vesting.html" rel="noopener ugc nofollow" target="_blank">Vesting platforms</a>;
+<br>⚡️<a href="../farming.html" rel="noopener ugc nofollow" target="_blank">Farming platforms</a>;
+<br>⚡️<a href="../crowdsale.html" rel="noopener noreferrer" target="_blank">Crowdsale</a>;
+<br>⚡️Any other custom request from a crypto wallet development to custom <a href="../index.html" rel="noopener ugc nofollow" target="_blank">blockchain development</a>.</p>
+<p data-selectable-paragraph="">If you’re interested in building your blockchain project, feel free to contact our team via the <a href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noopener ugc nofollow" target="_blank">Telegram channel</a> or<a href="https://calendly.com/alex-tka?_ga=2.125281484.774853951.1635149124-626771872.1633109778" rel="noopener noreferrer" target="_blank">&nbsp;book a call via Calendly</a>.</p>
+<p data-selectable-paragraph="">
+<br>
+</p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>We</strong>❤️<strong>Development</strong></p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>Rock</strong>⚡️<strong>Block</strong></p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>Follow us on social media to receive the hottest blockchain development Rock’n’Block updates</strong><a href="https://twitter.com/RocknBlockDev" rel="noopener ugc nofollow" target="_blank">&nbsp;Twitter</a>, <a href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noopener ugc nofollow" target="_blank">Telegram</a>, <a href="https://www.linkedin.com/company/13060149" rel="noopener ugc nofollow" target="_blank">LinkedIn</a>, <a href="https://www.facebook.com/RocknBlockDev" rel="noopener ugc nofollow" target="_blank">Facebook</a>, <a href="https://www.instagram.com/rocknblock.io/" rel="noopener ugc nofollow" target="_blank">Instagram</a></p>
+</section>
+<section class="article-share">
+<div class="container"><span class="article-section-title">Share it!</span>
+<div class="article-share-items">
+<a class="article-share-item" href="https://twitter.com/intent/tweet?text=Kephi%20Gallery:%20How%20to%20create%20and%20develop%20an%20NFT%20Marketplace?.%20With%20the%20emergence%20of%20NFT,%20we%20started%20to%20derive%20more%20tools%20to%20manage%20it.%20And%20that%e2%80%99s%20why%20NFT%20Marketplace%20has%20irreducible%20opportunities%20for%20it.%20Here%20we%20tell%20how%20we%20develop%20an%20NFT%20Marketplace?&amp;url=https://rocknblock.io/blog/how-create-and-develop-nft-marketplace&amp;hashtags=blockchain,nft,nft%20marketplace,nft%20collection,nft%20bid,nft%20development,blockchain%20development" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tw-mask.svg" alt="twitter" /></a>
+<a class="article-share-item" href="https://t.me/share/url?url=https://rocknblock.io/blog/how-create-and-develop-nft-marketplace&amp;text=With%20the%20emergence%20of%20NFT,%20we%20started%20to%20derive%20more%20tools%20to%20manage%20them,%20and%20now%20marketplaces%20have%20great%20opportunities%20for%20it.%20So,%20how%20do%20we%20develop%20NFT%20marketplaces?" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="telegram" /></a>
+<a class="article-share-item" href="https://www.facebook.com/sharer/sharer.php?u=https://rocknblock.io/blog/how-create-and-develop-nft-marketplace&amp;t=Kephi%20Gallery:%20How%20to%20create%20and%20develop%20an%20NFT%20Marketplace?&amp;text=With%20the%20emergence%20of%20NFT,%20we%20started%20to%20derive%20more%20tools%20to%20manage%20them,%20and%20now%20marketplaces%20have%20great%20opportunities%20for%20it.%20So,%20how%20do%20we%20develop%20NFT%20marketplaces?" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-fb-mask.svg" alt="facebook" /></a>
+<a class="article-share-item" href="https://www.linkedin.com/sharing/share-offsite/?url=https://rocknblock.io/blog/how-create-and-develop-nft-marketplace" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-in-mask.svg" alt="linkedin" /></a>
+</div>
+</div>
+</section>
+<section>
+<div class="container article-similar"> <span class="article-section-title">Similar Posts</span>
+<div class="blog-items">
+<a class="swiper-slide blog-item" href="smart-contract-audit.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/d66/596/1e5/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/f5e/4d4/e57thumb__240_140_0_0_crop__240.png" alt="Smart contract audit. The most important notes" srcset="https://rocknblock.io//storage/temp/public/f5e/4d4/e57thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/f5e/4d4/e57thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Smart contract audit. The most important notes</h3>
+<p class="blog-item-anonce">Proper smart contracts audits are immensely indispensable for blockchain and crypto projects. We decided to share the most important thing about smart contracts</p>
+</a>
+<a class="swiper-slide blog-item" href="all-you-wanted-know-about-nft-10k-collectibles.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/56a/009/f8c/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/c83/217/12athumb__240_140_0_0_crop__240.png" alt="All you wanted to know about NFT 10K collectibles" srcset="https://rocknblock.io//storage/temp/public/c83/217/12athumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/c83/217/12athumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">All you wanted to know about NFT 10K collectibles</h3>
+<p class="blog-item-anonce">We&#039;ve brought the full guide about NFT generative collections. NFT 10K and all you wanted to know about this from the perspective of blockchain developers</p>
+</a>
+<a class="swiper-slide blog-item" href="rocknblock-future-blockchain-summit-2021.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/539/3c5/37b/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/631/ab1/1e5thumb__240_140_0_0_crop__240.png" alt="Rock’n’Block at Future Blockchain Summit 2021 in Dubai. Our thoughts" srcset="https://rocknblock.io//storage/temp/public/631/ab1/1e5thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/631/ab1/1e5thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Rock’n’Block at Future Blockchain Summit 2021 in Dubai. Our thoughts</h3>
+<p class="blog-item-anonce">Rock&#039;n&#039;Block was a bright participant at the Future Blockchain Summit this year. We&#039;ve prepared the full digest about that event and why it&#039;s important for the whole blockchain industry</p>
+</a>
+<a class="swiper-slide blog-item" href="crypto-wallet-example-ducatus-wallet-developed-rocknblock.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/a91/cec/a60/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/894/d32/f52thumb__240_140_0_0_crop__240.png" alt="What is a crypto wallet? Сashless economy with Ducatus" srcset="https://rocknblock.io//storage/temp/public/894/d32/f52thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/894/d32/f52thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">What is a crypto wallet? Сashless economy with Ducatus</h3>
+<p class="blog-item-anonce">Example of Ducatus Wallet that developed by Rock’n’Block</p>
+</a>
+</div>
+</div>
+</section>
+</section>
+<section class="form">
+<div class="container">
+<div class="contact-us container" id="contact-us">
+<div class="background-img">
+<picture>
+<source type="image/webp" srcset="../themes/rocknblock/assets/images/site/background/partners.html" />
+<img loading="lazy" src="../storage/temp/public/d5a/9db/096partners__98.png" alt="partners" srcset="https://rocknblock.io//storage/temp/public/d5a/9db/096partners__98.png 98w" sizes="(max-width: 98px) 100vw, 98px">
+</picture>
+</div>
+<div class="background-img">
+<picture>
+<source type="image/webp" srcset="../themes/rocknblock/assets/images/site/background/contact.html" />
+<img loading="lazy" src="../storage/temp/public/565/7bf/e43contact__116.png" alt="contact" srcset="https://rocknblock.io//storage/temp/public/565/7bf/e43contact__116.png 116w, https://rocknblock.io//storage/temp/public/565/7bf/e43contact__100.png 100w" sizes="(max-width: 116px) 100vw, 116px">
+</picture>
+</div>
+<div class="block-header">
+<h2 class="primary-header">Estimate your project now!</h2>
+<h3 class="secondary-header">Get free consultation and build your blockchain project with our highly qualified team!</h3>
+</div>
+<div class="form-social-links">
+<a href="https://t.me/rocknblock" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/telegram.svg" alt="telegram" />
+</a>
+<a href="https://api.whatsapp.com/send?phone=16232304354" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/whatsapp.svg" alt="whatsapp" />
+</a>
+<a class="form-social-links__book" href="https://calendly.com/rocknblock-io" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/book-call.svg" alt="book a call" />
+</a>
+</div>
+<div class="form-info-text">
+<span>Start a chat with us or fill this form</span>
+</div>
+<form method="POST" action="https://rocknblock.io/blog/how-create-and-develop-nft-marketplace" accept-charset="UTF-8" data-request="feedback::onForm" class="contact-us__form" data-request-loading="#loading-form" data-request-validate="1" data-request-update="&quot;forms\/main&quot;:&quot;#contact-us&quot;"><input name="_session_key" type="hidden" value="lkRd0BhY5pLo2LPj0gIdC3hSN3YiZ3EHA8G9rARi"><input name="_token" type="hidden" value="tzqrMj6CSUIY5mofJHeIk3iueabR8upP2HV01yGU">
+<div id="loading-form">
+<div class="load-form">
+<img class="load-form-icon" src="../themes/rocknblock/assets/images/site/icon-loader.svg" alt="rocknblock loading" />
+<span>Please wait...</span>
+</div>
+</div>
+<input class="contact-us__form__input" id="contact-us-input" type="text" name="id" placeholder="Name" value="all" required hidden="hidden" />
+<label class="visually-hidden" hidden="hidden" for="contact-us-input">Enter your name</label>
+<input class="contact-us__form__input" id="contact-us-input" type="text" name="name" placeholder="Name" required />
+<div class="form-group">
+<label hidden="hidden" for="contact-us-input-2">Your contact</label>
+<input class="contact-us__form__input" id="contact-us-input-2" name="contact" placeholder="Your contact" required />
+<div class="select-social">
+<select class="lm_input t-phone" name="type" required>
+<option value="telegram" default>Telegram</option>
+
+<option value="whatsapp">Whatsapp</option>
+</select>
+</div>
+</div>
+<div class="form-info-text" style="color:red;opacity: 1;" data-validate-for="contact"></div>
+<label class="visually-hidden" hidden="hidden" for="contact-us-textarea">Describe your project</label>
+<textarea class="contact-us__form__input contact-us__form__input-textarea" name="idea" id="contact-us-textarea" rows="1" placeholder="Briefly describe your project or idea" required></textarea>
+<p class="terms">By using the service, you accept the <a href="../terms-of-service.html" target="_blank">Terms of Service</a>
+</p>
+<input class="contact-us__form__submit-btn btn btn-orange btn-rounded" type="submit" value="Submit request" />
+</form>
+</div> </div>
+</section> </main>
+
+<footer id="layout-footer">
+<div class="container footer">
+<div class="sp-form-outer sp-force-hide">
+<div class="sp-form sp-form-regular sp-form-embed sp-form-horizontal sp-form-full-width" id="sp-form-213867" sp-id="213867" sp-hash="12ac849f63c2a031cbadb847c379704b51a7bf5903cc5b0d0de78bd1f8388438" sp-lang="en" sp-show-options="%7B%22satellite%22%3Afalse%2C%22maDomain%22%3A%22login.sendpulse.com%22%2C%22formsDomain%22%3A%22forms.sendpulse.com%22%2C%22condition%22%3A%22onEnter%22%2C%22scrollTo%22%3A25%2C%22delay%22%3A10%2C%22repeat%22%3A3%2C%22background%22%3A%22rgba(0%2C%200%2C%200%2C%200.5)%22%2C%22position%22%3A%22bottom-right%22%2C%22animation%22%3A%22%22%2C%22hideOnMobile%22%3Afalse%2C%22urlFilter%22%3Afalse%2C%22urlFilterConditions%22%3A%5B%7B%22force%22%3A%22hide%22%2C%22clause%22%3A%22contains%22%2C%22token%22%3A%22%22%7D%5D%2C%22analytics%22%3A%7B%22ga%22%3A%7B%22eventLabel%22%3Anull%2C%22send%22%3Afalse%7D%2C%22ym%22%3A%7B%22counterId%22%3Anull%2C%22eventLabel%22%3Anull%2C%22targetId%22%3Anull%2C%22send%22%3Afalse%7D%7D%2C%22utmEnable%22%3Afalse%7D">
+<div class="sp-form-fields-wrapper show-grid">
+<div class="form__wrapper">
+<label class="sp-control-label"><span>Stay Current With Our Latest Insights</span></label>
+<form class="sp-element-container" novalidate="">
+<div class="sp-field" sp-id="sp-a71e6fd1-9acf-4f41-b3dc-8f2152c749f8"><input class="sp-form-control" type="email" sp-type="email" name="sform[email]" placeholder="Enter Your Email" sp-tips="%7B%22required%22%3A%22Required%20field%22%2C%22wrong%22%3A%22Wrong%20email%22%7D" autocomplete="on" required="required"></div>
+<div class="sp-field sp-button-container" sp-id="sp-f63cba59-48d0-4248-babc-97587ed34c99"><button class="sp-button" id="sp-f63cba59-48d0-4248-babc-97587ed34c99">SUBSCRIBE</button></div>
+<div class="sp-field sp-field-full-width" sp-id="sp-7dd427e4-a8c3-4126-b02f-897742857dde">
+<div style="font-family: inherit; line-height: 1;"></div>
+</div>
+</form>
+<div class="sp-message">
+<div></div>
+</div>
+</div>
+<nav class="social-links">
+<span>Let's connect</span>
+<ul class="social-links__list">
+<li class="social-links__link">
+<a class="icon" href="https://twitter.com/rocknblockdev" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-tw-mask.svg" alt="twiter">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="telegram">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://www.facebook.com/RocknBlockDev/?ref=br_rs" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-fb-mask.svg" alt="facebook">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://rocknblock.medium.com/" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-medium-mask.svg" alt="medium">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://www.linkedin.com/authwall?trk=ripf&amp;trkInfo=AQHvgveZGbs93QAAAXggz85o2_gQEyTCero1KbSW_FNCIX1sjFUjvezZQqiUuu2cVmo2lj4adoTCg0J8Rvb-V8pKjpQj8U3C5-qT4igU957ofdXB7BvLt6ctemMUWideBHjsZLg=&amp;originalReferer=https://rocknblock.io/&amp;sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2F13060149" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-in-mask.svg" alt="linked in">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="../cdn-cgi/l/email-protection.html#a1c9c4cdcdcee1d3cec2cacfc3cdcec2ca8fc8ce" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-mail-mask.svg" alt="email">
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="footer-services">
+<div class="footer-services-list">
+<div class="footer-services-item">
+<span class="title">NFT Metaverse</span>
+<a class="link" href="../marketplace.html">NFT Marketplace</a>
+<a class="link" href="../10knft.html">10k NFT Generator</a>
+<a class="link" href="../gamefi.html">GameFi</a>
+<a class="link" href="../metaverse.html">Metaverse</a>
+</div>
+<div class="footer-services-item">
+<span class="title">De-Fi Experience</span>
+<a class="link" href="../farming.html">Yield Farming</a>
+<a class="link" href="../vesting.html">Vesting Contract</a>
+<a class="link" href="../staking.html">Staking Platfrom</a>
+<a class="link" href="../launchpad.html">Launchpad</a>
+<a class="link" href="../tools.html">Trading Tools</a>
+<a class="link" href="../dex.html">DEX/CEX</a>
+</div>
+<div class="footer-services-item">
+<span class="title">Token Assistance</span>
+<a class="link" href="../token-generator.html">Token Generator</a>
+<a class="link" href="../crowdsale.html">Crowdsale Pack</a>
+<a class="link" href="../bridge.html">Cross-Chain Bridge</a>
+<a class="link" href="../safemoon.html">Deflationary</a>
+<a class="link" href="../tokenization.html">Tokenized Property</a>
+</div>
+<div class="footer-services-item">
+<span class="title">Blockhain Expertise</span>
+<a class="link" href="../consulting.html">Consulting</a>
+<a class="link" href="../marketing.html">Web3 Marketing</a>
+<a class="link" href="../security-audit.html">Security Audit</a>
+<a class="link" href="../rust.html">Rust Development</a>
+</div>
+</div>
+</div>
+<div class="bottom">
+<div class="links">
+<p class="bottom__copyright-desktop">© Copyright Rock’n’Block 2022</p> <a href="../privacy-policy.html" target="_blank">Privacy
+Policy</a><a href="../terms-of-service.html" target="_blank">Terms
+of Service</a><a href="../company.html" target="_blank">Company</a>
+</div>
+<p class="bottom__copyright-mobile">© Copyright Rock’n’Block 2023</p>
+</div>
+</div>
+<div id="btnScrollToTop">
+<img src="../themes/rocknblock/assets/images/site/icons/icon-arrow-top-mask.svg" alt="arrow top">
+</div>
+<ul class="side-socials">
+<li class="side-socials__link side-socials__link_tg">
+<a class="icon" href="https://t.me/rocknblock" rel="noreferrer" target="_blank"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="tg">
+</a>
+</li>
+<li class="side-socials__link side-socials__link_whatsapp">
+<a class="icon" href="https://api.whatsapp.com/send?phone=16232304354" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-whatsapp-mask.svg" alt="whatsapp">
+</a>
+</li>
+</ul> </footer>
+<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../themes/rocknblock/assets/javascript/jquery.js"></script>
+<script defer src="../themes/rocknblock/assets/javascript/main.min.js"></script>
+<script type="text/javascript" async src="../../web.webformscr.com/apps/fc3/build/default-handler79b6.js?1653643444289"></script>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(function(){
+      
+      window.__lc = window.__lc || {};
+      window.__lc.license = 9683030;
+      ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="../../cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+    
+    }, 3500); // время указано в мс = 0,001 секунды, изменить по вкусу
+  });
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/9683030/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+
+<script src="../modules/system/assets/js/framework.combined-min5cce.js?v=1.1.7"></script>
+<link rel="stylesheet" property="stylesheet" href="../modules/system/assets/css/framework.extras-min5cce.css?v=1.1.7">
+
+<scriptd type="text/javascript" id="amo_pixel_identifier_js" async="async" src="../../piper.amocrm.ru/pixel/js/identifier/pixel_identifier.js"></script>
+<script>window.AMOPIXEL_IDENTIFIER_PARAMS = window.AMOPIXEL_IDENTIFIER_PARAMS || { }; window.AMOPIXEL_IDENTIFIER_PARAMS.onload = function (pixel_identifier) { var visitor_uid = pixel_identifier.getVisitorUid ( ); if (visitor_uid) {document.getElementById ( 'visitor_uid' ).value = visitor_uid;}};</script> </body>
+
+<!-- Mirrored from rocknblock.io/blog/how-create-and-develop-nft-marketplace by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Apr 2023 16:34:58 GMT -->
+</html>

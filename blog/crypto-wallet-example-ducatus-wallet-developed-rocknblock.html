@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from rocknblock.io/blog/crypto-wallet-example-ducatus-wallet-developed-rocknblock by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Apr 2023 16:34:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', () => {
+		setTimeout(function(){
+			
+			   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+			   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+			   (window, document, "script", "../../mc.yandex.ru/metrika/tag.js", "ym");
+			
+			   ym(82964167, "init", {
+			        clickmap:true,
+			        trackLinks:true,
+			        accurateTrackBounce:true,
+			        webvisor:true
+			   });
+			   
+			   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','dataLayer','GTM-P548TMG');
+			   
+		}, 3500); // время указано в мс = 0,001 секунды, изменить по вкусу
+	});
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<meta name="author" content="Amary Filo">
+<meta name="generator" content="Rocknblock Developing">
+<meta name="application-name" content="Rocknblock Developing">
+<style>body{background-color: black;}</style>
+<link rel="stylesheet" href="../themes/rocknblock/assets/css/style.min.css" as="style">
+<link rel="preload" href="../themes/rocknblock/assets/javascript/main.min.js" as="script">
+<link rel="manifest" href="../themes/rocknblock/assets/images/manifest.html">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-96x96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="57x57" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../themes/rocknblock/assets/images/favicon/android-chrome-192x192.png" />
+<meta name="msapplication-square70x70logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/smalltile.png" />
+<meta name="msapplication-square150x150logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/mediumtile.png" />
+<meta name="msapplication-wide310x150logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/widetile.png" />
+<meta name="msapplication-square310x310logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/largetile.png" />
+<link rel="mask-icon" href="../themes/rocknblock/assets/images/favicon/safari-pinned-tab.svg" " color="#ff0000" />
+<meta name="msapplication-TileColor" content="#ff0000" />
+<meta name="theme-color" content="#1D1B21" />
+<style>
+    .tabs-case .content-item {
+        margin: 20px !important;    
+    }
+</style> <title>What is a crypto wallet? Example of Ducatus Wallet that developed by Rock’n’Block</title>
+<meta name="title" content="What is a crypto wallet? Example of Ducatus Wallet that developed by Rock’n’Block">
+<meta name="keywords" content="blockchain,crypto wallet,hot wallet,ducatus,ducx,defi,blockchain development">
+<meta name="description" content="Crypto wallet is the tool for those who want to interact with the blockchain by making transactions. Here we tell how we developed Ducatus Crypto Wallet?">
+<meta name="generator" content="Rock`n`Block Developing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is a crypto wallet? Example of Ducatus Wallet that developed by Rock’n’Block">
+<meta property="og:url" content="https://rocknblock.io/blog/crypto-wallet-example-ducatus-wallet-developed-rocknblock">
+<meta property="og:image" content="https://rocknblock.io/storage/app/uploads/public/1e9/578/bf9/thumb__1200_640_0_0_crop.png">
+<meta property="og:description" content="Crypto wallet is the tool for those who want to interact with the blockchain by making transactions. Here we tell how we developed Ducatus Crypto Wallet?">
+<meta property="article:author" content="Rock’n’Block">
+<meta property="article:published_time" content="2021-12-13 15:47:33">
+<meta property="article:modified_time" content="2022-09-02 10:21:12">
+<meta property="article:section" content="Technology">
+<meta property="article:tag" content="blockchain">
+<meta property="article:tag" content="crypto wallet">
+<meta property="article:tag" content="hot wallet">
+<meta property="article:tag" content="ducatus">
+<meta property="article:tag" content="ducx">
+<meta property="article:tag" content="defi">
+<meta property="article:tag" content="blockchain development">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What is a crypto wallet? Example of Ducatus Wallet that developed by Rock’n’Block">
+<meta name="twitter:description" content="Crypto wallet is the tool for those who want to interact with the blockchain by making transactions. Here we tell how we developed Ducatus Crypto Wallet?">
+<meta name="twitter:site" content="@rocknblockdev">
+<meta name="twitter:url" content="https://rocknblock.io/blog/crypto-wallet-example-ducatus-wallet-developed-rocknblock">
+<meta name="twitter:image" content="https://rocknblock.io/storage/app/uploads/public/1e9/578/bf9/thumb__1200_640_0_0_crop.png">
+<meta name="twitter:image:alt" content="What is a crypto wallet? Example of Ducatus Wallet that developed by Rock’n’Block">
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org/",
+		"@type": "Article",
+		"mainEntityOfPage": {
+			"@type": "WebPage",
+			"@id": "https://rocknblock.io/blog/crypto-wallet-example-ducatus-wallet-developed-rocknblock"
+		},
+		"author": {
+			"@type": "Organization",
+			"name": "Rock`n`Block"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "Rock`n`Block",
+			"logo": {
+				"@type": "ImageObject",
+				"url": "https://rocknblock.io/themes/rocknblock/assets/images/site/logo.png"
+			}
+		},
+		"headline": "What is a crypto wallet? Example of Ducatus Wallet that developed by Rock’n’Block",
+		"image": "https://rocknblock.io/storage/app/uploads/public/61c/07b/030/61c07b0306477491615281.png",
+		"datePublished": "2021-12-13 15:47:33",
+		"dateModified": "2022-09-02 10:21:12"
+	}
+	</script>
+
+<meta name="google-site-verification" content="7_6Fy-97nJ33Ve9stEFXjT4RUqNwIQj-vh9tYL22ZU0"> </head>
+<body>
+
+
+
+<noscript>
+  
+  <div><img src="https://mc.yandex.ru/watch/82964167" style="position:absolute; left:-9999px;" alt="" /></div>
+  
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P548TMG" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+
+</noscript>
+
+<div class="preloader"><div class="preloader__row"><div class="preloader__item"></div><div class="preloader__item"></div></div></div>
+
+<header id="layout-header">
+<div class="container">
+<nav class="main-nav">
+<section class="main-nav__mobile">
+<a class="logo" href="../index.html">
+<img src="../themes/rocknblock/assets/images/site/logo.svg" alt="Rock'n'Block logo">
+</a>
+<div class="burger icon">
+<img class="icon-burger ic-open" src="../themes/rocknblock/assets/images/site/icons/icon-header-burger-mask.svg" alt="burger menu">
+<img class="icon-burger ic-close" src="../themes/rocknblock/assets/images/site/icons/icon-header-burger-close-mask.svg" alt="burger close menu" hidden>
+</div>
+</section>
+<section class="nav-pages" id="nav-pages">
+<a class="nav-pages__link" href="../index.html#solutions">Services</a>
+<a class="nav-pages__link" href="../index.html#cases">Cases</a>
+<a class="nav-pages__link" href="../index.html#team">Team</a>
+<a class="nav-pages__link" href="../index.html#partners">Partners</a>
+<a class="nav-pages__link" href="../blog.html">Blog</a>
+<a class="nav-pages__contact-button nav-pages__link__contact-us" href="#contact-us">CONTACT US</a>
+</section>
+</nav>
+</div> </header>
+
+<main id="layout-content">
+<section class="pg pg-article">
+<section class="article container">
+<h1 class="article-title">What is a crypto wallet? Сashless economy with Ducatus</h1>
+<span class="article-date" style="background-image: url('../themes/rocknblock/assets/images/site/blog/icon-clock.svg');">22 Oct 2021</span>
+<h4>When it comes to crypto projects or any other projects related to the development of new digital assets or tokens, most of the projects owners and enthusiasts are thinking about <a href="../consulting.html">creating a crypto wallet</a>.</h4>
+<p>Crypto wallet is an ultimate tool for many users, who want to interact with the blockchain by receiving and sending payments, making transactions, or just keeping the digital assets in a safe place.
+<br>There are plenty of crypto wallets in the crypto world. However, they can serve different purposes sometimes.</p><img alt="Rock’n’Block blockchain software developers develop a Ducatus crypto wallet" src="../storage/temp/public/7da/491/2c9Frame%203041410__1200.png" class="fr-fic fr-dib" style="width: 100%;" data-result="success" srcset="https://rocknblock.io//storage/temp/public/7da/491/2c9Frame%203041410__1200.png 1200w, https://rocknblock.io//storage/temp/public/7da/491/2c9Frame%203041410__100.png 100w, https://rocknblock.io//storage/temp/public/7da/491/2c9Frame%203041410__250.png 250w, https://rocknblock.io//storage/temp/public/7da/491/2c9Frame%203041410__400.png 400w, https://rocknblock.io//storage/temp/public/7da/491/2c9Frame%203041410__768.png 768w, https://rocknblock.io//storage/temp/public/7da/491/2c9Frame%203041410__1024.png 1024w" sizes="(max-width: 1200px) 100vw, 1200px">
+<br>
+<h2 data-selectable-paragraph=""><strong>What is a crypto wallet?</strong></h2>
+<p data-selectable-paragraph="">A crypto wallet&nbsp;is a piece of software that is meant to facilitate financial transactions. Much like traditional wallets that come in different designs, crypto wallets can also be built on different wireframes. But unlike a traditional wallet that stores Central Bank-issued fiat money, crypto wallets interact with different blockchains.</p>
+<blockquote>
+<p data-selectable-paragraph=""><strong>Crypto wallet</strong> — is a software application that is built for serving the purposes of making transactions, receiving and sending payments, and storing digital assets (cryptocurrencies in case of a crypto wallet). The interaction with the Blockchain happens as each transaction is recorded on this public and transparent ledger.</p>
+</blockquote>
+<p>
+<br>
+</p>
+<h2 data-selectable-paragraph=""><strong>Types of crypto wallets</strong></h2>
+<p data-selectable-paragraph="">There are plenty of crypto wallet types. But the most difference between these types is the security input and output. Since some wallets are working only online, whereas others are completely offline and not connected to the Internet.</p>
+<p data-selectable-paragraph="">Different types of crypto wallets serve different purposes. When one can be useful for fast transactions and daily usage, others are meant to securely store digital assets.</p>
+<p data-selectable-paragraph=""><strong><em>To understand the clear difference, we should understand how any crypto wallet works:</em></strong></p>
+<blockquote>
+<p data-selectable-paragraph="">Each crypto wallet consists of it a private key, a public key, and a wallet address. All these properties together resemble a sequence of randomized numeric and alphanumeric characters.</p>
+</blockquote>
+<p data-selectable-paragraph=""><strong>Private key</strong> by its meaning should never be disclosed by anyone to anyone. It should be completely secure and protected from its reveal. A private key of a crypto wallet gives full access to its wallet funds. A private key usually contains approx. 50 alphanumeric characters aligned in a line.</p>
+<p data-selectable-paragraph=""><strong>Public key&nbsp;</strong>serves the functionality of a private key meanwhile “keeping” the private key hidden. A public key appears as a long and complex string of alphanumeric characters, so it’s harder to crack or forge.</p>
+<p data-selectable-paragraph=""><strong>Wallet address</strong> serves a function of a direction where other users can send and receive funds using this address. Wallet address by its nature a compressed and hashed type of a Public key. It is a unique sequence, so a wallet address can be completely dedicated to a particular user.</p>
+<p data-selectable-paragraph="">Sometimes, we can use a crypto wallet address that is encoded to a QR-code type.</p>
+<h2 data-selectable-paragraph=""><strong>Hot wallets</strong></h2>
+<p data-selectable-paragraph="">Hot wallets are functioning online and they are meant for fast transactions and managing digital assets with ease. Mostly, it is a digital application where we can send and receive cryptocurrencies.</p>
+<p data-selectable-paragraph=""><strong><em>The main point about a Hot Wallet is that it stores a private key online.</em></strong></p>
+<p data-selectable-paragraph="">Hot wallets are broadly used due to their simplicity and convenience. However, they are not suitable for long term storing of crypto. Examples:</p>
+<ul>
+<li data-selectable-paragraph="">Web wallet</li>
+<li data-selectable-paragraph="">Desktop wallet</li>
+<li data-selectable-paragraph="">Mobile app wallet (IOS, Android)</li>
+</ul>
+<h2 data-selectable-paragraph=""><strong>Cold wallets</strong></h2>
+<p data-selectable-paragraph="">Cold wallets are different from Hot ones in that they store a private key offline. Cold wallets are being considered to almost eliminate the chance of disclosing a private key because it is not online. Cold wallets may appear as digital applications as well as hardware tools. Hence, cold wallets are not suitable for fast and quick sending and receiving funds.</p>
+<p data-selectable-paragraph=""><strong>Paper and brain wallets</strong></p>
+<p data-selectable-paragraph="">These are the types of crypto wallets that literally represent their meaning. They don’t have any digital framework or application. A paper wallet is the cold wallet type when all the properties are written down on paper. It mostly looks like a QR-code that represents the address of a wallet and a private key, or a recovery phrase instead. Brain wallet means that all private keys and wallet addresses are mesmerized by the owner of a particular crypto wallet.</p>
+<p data-selectable-paragraph=""><strong>Hardware wallets</strong></p>
+<p data-selectable-paragraph="">This type of wallet represents hardware that stores private key information in a safe place. When people say cold storage, they mostly mean a hardware crypto wallet. Hardware wallets appear in a form of a ledger that resembles a flash memory card. When using a hardware wallet, a user initiates an export of existing wallets or creates a new one. Then the user’s digital assets can be stored on a hardware wallet in cold storage. Examples:</p>
+<ul>
+<li data-selectable-paragraph="">Ledger Nano X</li>
+<li data-selectable-paragraph="">Ledger Nano S</li>
+<li data-selectable-paragraph="">Trezor T</li>
+</ul>
+<p>
+<br>
+</p>
+<h2 data-selectable-paragraph=""><strong>The most important features of a crypto wallet</strong></h2>
+<p data-selectable-paragraph="">In the case of different crypto wallet types, the features of those may differ from one to one. For the hot wallets, the leading features are:</p>
+<ul>
+<li data-selectable-paragraph="">Simple and responsive interface for conducting transactions.
+<br>
+<br>
+<br>
+<br>
+<br>The transaction interface is the key to a successful and convenient crypto wallet that is going to be downloaded thousands of times. In this case, the main focus is to make the transactions faster and easier.
+<br>
+<br>
+<br>
+<br><strong>Besides the transactions, sometimes it is important to facilitate trading, swap, lending, or even derive payment services</strong>.</li>
+<li data-selectable-paragraph="">Balance tracking and transaction history.</li>
+<li data-selectable-paragraph="">Export existing wallet and wallet creation.</li>
+<li data-selectable-paragraph="">Managing the wallet address and private key information.</li>
+<li data-selectable-paragraph="">Security features.
+<br>
+<br>
+<br>
+<br>
+<br>Unequivocally, the security features should be a must when developing a crypto wallet. Besides basic features like
+<br>
+<br>
+<br>
+<br><strong>Password protection, PIN protection, Biometrical protection</strong> (FaceID, TouchID, etc.), 2FA Authentification.
+<br>
+<br>
+<br>
+<br><strong>A crypto wallet can be protected with a wallet backup, wallet encryption, recovery phrase, or Google Authenticator</strong>.</li>
+</ul>
+<p>
+<br>
+</p>
+<h2 data-selectable-paragraph="">DUCATUS Wallet developed by Rock’n’Block</h2>
+<p data-selectable-paragraph="">One of our most known projects is <strong>the Ducatus Wallet</strong>. Ducatus wallet was built for the Ducatus ecosystem as a tool that can help them reach their main aim of the decentralized economy.</p>
+<p data-selectable-paragraph="">The Ducatus crypto wallet is developed as the hot crypto wallet type (Web wallet and the Ducatus crypto wallet apps for devices on IOS and Android) and consists of many flexible features that are responsible for the user-oriented usability, transparency, and safety of the transactions that are going through.</p>
+<p data-selectable-paragraph="">With the idea of a cashless economy, Ducatus launched Ducatus Coin (DUC) and DucatusX (DUCX) in 2017 and 2020. Ducatus wallet is inherently one of the important steps into bringing the DUC and DUCX into its widespread usage.</p>
+<h2 data-selectable-paragraph=""><strong>DUC and DUCX</strong></h2>
+<p data-selectable-paragraph="">Both DUC and DUCX are designed to deliver the idea of transparent payments that are aligned with the convenience of online payments as we know them — achievable and comprehensive for anyone.</p>
+<p data-selectable-paragraph=""><strong>DUC and DUCX each exist on their own separate blockchains</strong>. The original Ducatus blockchain and the DucatusX blockchain, <strong>which was also developed with the help of Rock’N’Block.</strong> These blockchains have the fork properties combination of the Litecoin and Ethereum blockchains.</p>
+<p data-selectable-paragraph="">The Ducatus blockchain was designed to offer low transaction fees, fast throughput of transactions, and the ability to stake the Ducatus Coin. On the other hand, DucatusX supports smart contracts within its blockchain. It uses a Proof of Authority consensus algorithm which significantly reduces its maintenance cost. In the future, it is envisioned to switch to Proof of Stake, giving users even more confidence in choosing the DucatusX blockchain for their projects.</p>
+<p data-selectable-paragraph="">With the broader emergence of both Ducatus cryptocurrencies, the next step was to develop their own crypto wallet.</p>
+<p data-selectable-paragraph="">The Ducatus wallet.</p>
+<h2 data-selectable-paragraph=""><strong>The prominent features of the Ducatus wallet</strong></h2>
+<p data-selectable-paragraph="">One of the fundamental features that we added to highlight the functionality of the Ducatus Wallet was a simple interface.</p>
+<p data-selectable-paragraph="">In addition, we were also engaged in developing multiple non-trivial functions: essential features as key settings (private key management), crypto wallet settings (wallet addresses management, wallet exporting, wallet service URL, executed transaction history, and recovery phrase setting up).</p>
+<h2 data-selectable-paragraph=""><strong>Transactions functionality</strong></h2>
+<p data-selectable-paragraph="">In the development of Ducatus wallet transaction features, we were required to establish the following:</p>
+<p data-selectable-paragraph="">Secure storage of the digital assets within Ducatus Wallet,</p>
+<p data-selectable-paragraph="">The ability to send and receive the following digital assets:</p>
+<ul>
+<li data-selectable-paragraph="">Bitcoin (BTC),</li>
+<li data-selectable-paragraph="">Bitcoin Cash (BCH),</li>
+<li data-selectable-paragraph="">Ethereum (ETH),</li>
+<li data-selectable-paragraph="">Ethereum Classic (ETC),</li>
+<li data-selectable-paragraph="">Litecoin (LTC),</li>
+<li data-selectable-paragraph="">XRP (Ripple),</li>
+<li data-selectable-paragraph="">Stellar Lumens (XLM)</li>
+<li data-selectable-paragraph="">ERC20 tokens, ERC721 &amp; ERC1155 collectibles,</li>
+</ul>
+<p data-selectable-paragraph="">And of course the Ducatus coins:</p>
+<ul>
+<li data-selectable-paragraph="">Ducatus (DUC),</li>
+<li data-selectable-paragraph="">DucatusX (DUCX),</li>
+<li data-selectable-paragraph="">Wrapped DucatusX (WDUCX)</li>
+</ul>
+<p data-selectable-paragraph="">Support of the transactions in the following cryptocurrencies:</p>
+<ul>
+<li data-selectable-paragraph="">Bitcoin (BTC),</li>
+<li data-selectable-paragraph="">Bitcoin Cash (BCH),</li>
+<li data-selectable-paragraph="">Ripple (XRP),</li>
+<li data-selectable-paragraph="">Ethereum (ETH),</li>
+</ul>
+<p data-selectable-paragraph="">Including the transactions in the following tokens:</p>
+<ul>
+<li data-selectable-paragraph="">JAMASY (JAMASY),</li>
+<li data-selectable-paragraph="">NUYASA (NUYASA),</li>
+<li data-selectable-paragraph="">SUNOBA (SUNOBA),</li>
+<li data-selectable-paragraph="">DSCMED (DSCMED),</li>
+<li data-selectable-paragraph="">POG1 (POG1),</li>
+<li data-selectable-paragraph="">WupDE (WDE),</li>
+<li data-selectable-paragraph="">MarsaDXB (MDXB)</li>
+<li data-selectable-paragraph="">USD Coin (USDC),</li>
+<li data-selectable-paragraph="">Paxos stablecoin (PAX),</li>
+<li data-selectable-paragraph="">Gemini dollar (GUSD).</li>
+</ul>
+<p data-selectable-paragraph="">Now, we are at the moment of developing the embention of a higher amount of supported coins and digital assets to expand the Ducatus Wallet functionality.</p>
+<h2 data-selectable-paragraph=""><strong>Deposit functionality</strong></h2>
+<p data-selectable-paragraph="">The other indispensable feature that is related to the crypto wallet functionality <strong>was the ability to deposit fiat currency into the Ducatus crypto wallet.</strong></p>
+<p data-selectable-paragraph="">Many other wallets have been abbreviating this feature due to the different inherency of their wallet. For many other competitive wallets next to the Ducatus wallet, it is possible to create deposits only by topping up cryptocurrencies.</p>
+<blockquote>
+<p data-selectable-paragraph="">We were required to develop the secure interface of the fiat deposit to the Ducatus crypto wallet, that would allow a user to buy digital assets by using FIAT currencies through credit and debit cards (via <strong>Moonpay service</strong>), and also including bank transfers that were implemented via <strong>SEPA Bank transfer</strong>.</p>
+</blockquote>
+<h2 data-selectable-paragraph=""><strong>Simple wallet &amp; Shared wallet</strong></h2>
+<p data-selectable-paragraph="">Simple wallet features stand for the main functionality for an exclusive wallet owner. Those features were described above all available for every user of a <strong>simple wallet</strong>.</p>
+<p data-selectable-paragraph="">On the other hand, the team of Ducatus Global was also aiming to create a <strong>shared wallet</strong> to allow mutual funds management for users. Mutual funds management in Ducatus wallet implemented as a shared wallet with a minimum number of signatures and devices (i.e. participants).</p>
+<p data-selectable-paragraph="">We expanded the maximum number of the possible mutual signatures up to 6. So in other words, 6 users can manage the mutual funds simultaneously. Every user can join a shared wallet via a developed interface for the wallet invitations.</p>
+<blockquote>
+<p data-selectable-paragraph="">It is important to understand that each co-payer has its own recovery phrase, that can not be changed or forged by other users.</p>
+</blockquote>
+<h2 data-selectable-paragraph=""><strong>SWAP</strong></h2>
+<p data-selectable-paragraph="">The swap function represents the quick exchange of digital assets within the Ducatus Wallet interface. Swap is processing the conversation within the Ducatus blockchain. Any user can convert the following coin pairs:</p>
+<p data-selectable-paragraph="">SWAP-pairs in Ducatus coin (DUC):</p>
+<ul>
+<li data-selectable-paragraph="">DUCX → DUC</li>
+<li data-selectable-paragraph="">ETH → DUC</li>
+<li data-selectable-paragraph="">BTC → DUC</li>
+</ul>
+<p data-selectable-paragraph="">SWAP-pairs in Ducatus X (DUCX):</p>
+<ul>
+<li data-selectable-paragraph="">DUC → DUCX</li>
+</ul>
+<p data-selectable-paragraph="">SWAP-pairs in Wrapped DucatusX (WDUCX):</p>
+<ul>
+<li data-selectable-paragraph="">DUCX → WDUCX</li>
+</ul>
+<h2 data-selectable-paragraph=""><strong>Deposit dividends</strong></h2>
+<p data-selectable-paragraph="">Users of Ducatus wallet <strong>can earn a reward</strong> that is represented by the fixed interest calculated based on their deposit. That is a very promising feature for all the users and also, a feature that can provide a lot of liquidity to the Ducatus coin.</p>
+<p data-selectable-paragraph="">Dividends are being spread between 5, 13, and 34 months deposit time frame. The annual interest rates are fixed between 8%, 13%, and 21%.</p>
+<p data-selectable-paragraph="">Therefore, every user can choose the optional dividend deposit with the following reward scheme:</p>
+<ul>
+<li data-selectable-paragraph="">5 months as expected reward in 8% annually</li>
+<li data-selectable-paragraph="">13 months as expected reward in 13% annually</li>
+<li data-selectable-paragraph="">34 months as expected reward in 21% annually</li>
+</ul>
+<h2 data-selectable-paragraph=""><strong>The problems that were solved by Rock’n’Block</strong></h2>
+<ol>
+<li data-selectable-paragraph="">The Ducatus blockchain development.
+<br>
+<br>
+<br>
+<br>
+<br>Including the development and implementation of the customized Bitcoin hard fork for the Ducatus blockchain with the existing Ducatus coin. And in addition, implementation of the Ethereum hard fork for the DucatusX.</li>
+<li data-selectable-paragraph="">Mobile wallet application development.
+<br>
+<br>
+<br>
+<br>
+<br>Including building and developing the prototype, wireframe, and design of the Ducatus wallet web client, IOS, and Android apps. Establishing the connections to the blockchain networks including Ethereum, Binance Smart Chain, DUC Mainnet Testnet, and DUCX Mainnet Testnet.</li>
+<li data-selectable-paragraph="">Crowdfunding platform development.</li>
+<li data-selectable-paragraph="">Establishing the connection with the online stores that support crypto payments.</li>
+<li data-selectable-paragraph="">Implementation of the security and safety essential features.
+<br>
+<br>
+<br>
+<br>
+<br>Essential security solutions for a mobile wallet interface like 4-digits PIN protection against unauthorized access, Biometrics (as TouchID, FaceID) for the devices supporting the technology of biometrical data protection. On the side of the crypto wallet security: Keys Management, Crypto Wallet Encryption, Crypto Wallet Backup by setting a Recovery Phrase, and the ability to Export Key.</li>
+<li data-selectable-paragraph="">Testing of the functionality.
+<br>
+<br>
+<br>
+<br>
+<br>With our team of QA Engineers and software testers, we put a lot of effort into eliminating bugs, errors, and all possible code inconsistencies.</li>
+</ol>
+<p data-selectable-paragraph="">Ducatus wallet is built on the following stacks:</p>
+<ul>
+<li data-selectable-paragraph="">Web3js,</li>
+<li data-selectable-paragraph="">Solidity,</li>
+<li data-selectable-paragraph="">JavaScript,</li>
+<li data-selectable-paragraph="">Openzeppelin,</li>
+<li data-selectable-paragraph="">Truffle.</li>
+</ul>
+<h2 data-selectable-paragraph=""><strong>Outcome</strong></h2>
+<p data-selectable-paragraph="">At the moment, <strong>Ducatus Wallet counts around 100,000 users</strong>. It is valued for its comprehensive usability, working with multiple blockchain networks, fast swaps and transactions, and simple management. In addition, the key advantage that Ducatus Wallet brings to the market is the ability to be broadly used by people around the world by making daily common payments at HORECA, shops, fuel stations, and other businesses that already facilitate crypto payments.</p>
+<p data-selectable-paragraph="">The Ducatus Wallet’s decentralized nature and in combination with the concept of a cash-free society attracts more users and investors daily.</p>
+<p data-selectable-paragraph=""><strong>Rock’n’Block</strong> as the software developer, that is imposing the idea of adopting blockchain technology in many industries, we did our best in contributing the best product for Ducatus Global. And hopefully, it became real — Ducatus wallet is a promising tool in our era of DeFi.</p>
+<p data-selectable-paragraph="">Furthermore, we are continuously working on implementing more and more exclusive features for newer versions of Ducatus Wallet. In the upcoming upgrade of the Ducatus Wallet, we are going to implement more of the demanding features, and of course, support the reliability of all the future versions.</p>
+<h2 data-selectable-paragraph=""><strong>Why&nbsp;</strong><a href="../consulting.html"><strong>develop a crypto wallet</strong></a><strong>&nbsp;with Rock’n’Block?</strong></h2>
+<p data-selectable-paragraph="">Crypto wallets are one of the most leading products in the fintech market right now. We were explicitly engaged in implementing all the Ducatus Wallet features in the right way, correlating with the exact requirements of the product prototype.</p>
+<p data-selectable-paragraph="">Ducatus Wallet is earning success among its users also due to our passionate contribution on the side of software development. <strong>From roadmap to production.</strong> <strong>No matter the complexity and the number of features</strong> that you would intend to implement, we can develop a competitive and strong product that supports the must-have features.</p>
+<p data-selectable-paragraph="">Furthermore, as you see we are not limited by developing the features only for a crypto wallet. <strong>Developing blockchain, embedding the deposit functionally, integrations between multiple blockchains, and even crowdfunding platforms.</strong> All and even more it’s possible to be developed with the help of the <strong>Rock’n’Block’s team</strong>!</p>
+<p data-selectable-paragraph="">If you are looking for a development similar project like this, crypto wallet, blockchain development, surely you can count on Rock’n’Block!</p>
+<figure>
+<figcaption data-selectable-paragraph="">Ducatus wallet is being developed by Rock’n’Block</figcaption>
+</figure>
+<p data-selectable-paragraph="">Rock’n’Block’s team can help you with:</p>
+<p data-selectable-paragraph="">⚡️<a href="../marketplace.html" rel="noopener ugc nofollow" target="_blank">NFT and NFT Marketplaces development</a> ;
+<br>⚡️<a href="../10knft.html" rel="noopener ugc nofollow" target="_blank">NFT 10K generator</a>;
+<br>⚡️<a href="../staking.html" rel="noopener ugc nofollow" target="_blank">Staking platforms</a>;
+<br>⚡️<a href="../vesting.html" rel="noopener ugc nofollow" target="_blank">Vesting platforms</a>;
+<br>⚡️<a href="../farming.html" rel="noopener ugc nofollow" target="_blank">Farming platforms</a>;
+<br>⚡️<a href="../crowdsale.html" rel="noopener noreferrer" target="_blank">Crowdsale</a>;
+<br>⚡️Any other custom request from a crypto wallet development to custom <a href="../index.html" rel="noopener ugc nofollow" target="_blank">blockchain development</a>.</p>
+<p data-selectable-paragraph="">If you’re interested in building your blockchain project, feel free to contact our team via the <a href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noopener ugc nofollow" target="_blank">Telegram channel</a> or<a href="https://calendly.com/alex-tka?_ga=2.125281484.774853951.1635149124-626771872.1633109778" rel="noopener noreferrer" target="_blank">&nbsp;book a call via Calendly</a>.</p>
+<p data-selectable-paragraph="">
+<br>
+</p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>We</strong>❤️<strong>Development</strong></p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>Rock</strong>⚡️<strong>Block</strong></p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>Follow us on social media to receive the hottest blockchain development Rock’n’Block updates</strong><a href="https://twitter.com/RocknBlockDev" rel="noopener ugc nofollow" target="_blank">&nbsp;Twitter</a>, <a href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noopener ugc nofollow" target="_blank">Telegram</a>, <a href="https://www.linkedin.com/company/13060149" rel="noopener ugc nofollow" target="_blank">LinkedIn</a>, <a href="https://www.facebook.com/RocknBlockDev" rel="noopener ugc nofollow" target="_blank">Facebook</a>, <a href="https://www.instagram.com/rocknblock.io/" rel="noopener ugc nofollow" target="_blank">Instagram</a></p>
+</section>
+<section class="article-share">
+<div class="container"><span class="article-section-title">Share it!</span>
+<div class="article-share-items">
+<a class="article-share-item" href="https://twitter.com/intent/tweet?text=What%20is%20a%20crypto%20wallet?%20Example%20of%20Ducatus%20Wallet%20that%20developed%20by%20Rock%e2%80%99n%e2%80%99Block.%20Crypto%20wallet%20is%20the%20tool%20for%20those%20who%20want%20to%20interact%20with%20the%20blockchain%20by%20making%20transactions.%20Here%20we%20tell%20how%20we%20developed%20Ducatus%20Crypto%20Wallet?&amp;url=https://rocknblock.io/blog/crypto-wallet-example-ducatus-wallet-developed-rocknblock&amp;hashtags=blockchain,crypto%20wallet,hot%20wallet,ducatus,ducx,defi,blockchain%20development" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tw-mask.svg" alt="twitter" /></a>
+<a class="article-share-item" href="https://t.me/share/url?url=https://rocknblock.io/blog/crypto-wallet-example-ducatus-wallet-developed-rocknblock&amp;text=Crypto%20wallet%20is%20the%20tool%20for%20those%20who%20want%20to%20interact%20with%20the%20blockchain%20by%20making%20transactions.%20Here%20we%20tell%20how%20we%20developed%20Ducatus%20Crypto%20Wallet?" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="telegram" /></a>
+<a class="article-share-item" href="https://www.facebook.com/sharer/sharer.php?u=https://rocknblock.io/blog/crypto-wallet-example-ducatus-wallet-developed-rocknblock&amp;t=What%20is%20a%20crypto%20wallet?%20Example%20of%20Ducatus%20Wallet%20that%20developed%20by%20Rock%e2%80%99n%e2%80%99Block&amp;text=Crypto%20wallet%20is%20the%20tool%20for%20those%20who%20want%20to%20interact%20with%20the%20blockchain%20by%20making%20transactions.%20Here%20we%20tell%20how%20we%20developed%20Ducatus%20Crypto%20Wallet?" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-fb-mask.svg" alt="facebook" /></a>
+<a class="article-share-item" href="https://www.linkedin.com/sharing/share-offsite/?url=https://rocknblock.io/blog/crypto-wallet-example-ducatus-wallet-developed-rocknblock" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-in-mask.svg" alt="linkedin" /></a>
+</div>
+</div>
+</section>
+<section>
+<div class="container article-similar"> <span class="article-section-title">Similar Posts</span>
+<div class="blog-items">
+<a class="swiper-slide blog-item" href="blockchain-consensus-mechanism-for-enterprises.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/502/c3b/fc3/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/093/1c3/362thumb__240_140_0_0_crop__240.png" alt="Which blockchain consensus mechanism is the best fit for enterprises?" srcset="https://rocknblock.io//storage/temp/public/093/1c3/362thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/093/1c3/362thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Which blockchain consensus mechanism is the best fit for enterprises?</h3>
+<p class="blog-item-anonce">Recently we had been discussing the differences and nuances of existing blockchain consensus mechanisms. But what is the best blockchain consensus mechanism for enterprises?</p>
+</a>
+<a class="swiper-slide blog-item" href="cryptocurrency-vs-token.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/806/e65/324/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/943/479/72dthumb__240_140_0_0_crop__240.png" alt="Token creation on a blockchain. Cryptocurrency vs. Token" srcset="https://rocknblock.io//storage/temp/public/943/479/72dthumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/943/479/72dthumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Token creation on a blockchain. Cryptocurrency vs. Token</h3>
+<p class="blog-item-anonce">Many blockchain adoptions have a token creation. Many enterprises integrating tokens on their blockchain for many different purposes. Here we tell how they do that</p>
+</a>
+<a class="swiper-slide blog-item" href="anonymous-crypto-exchange-vs-dex.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/183/98f/22c/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/30e/893/b14thumb__240_140_0_0_crop__240.png" alt="Rock’n’Block notes: Anonymous crypto exchange vs. DEX?" srcset="https://rocknblock.io//storage/temp/public/30e/893/b14thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/30e/893/b14thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Rock’n’Block notes: Anonymous crypto exchange vs. DEX?</h3>
+<p class="blog-item-anonce">What is the better alternative for an anonymized crypto exchange? What are the advantages and inherences of DEXs? Here we are finding out the two different ways to exchange digital assets</p>
+</a>
+<a class="swiper-slide blog-item" href="full-guide-about-all-blockchain-consensus-mechanisms.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/101/c88/3fe/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/409/77a/bdethumb__240_140_0_0_crop__240.png" alt="Full guide about all Blockchain consensus mechanisms" srcset="https://rocknblock.io//storage/temp/public/409/77a/bdethumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/409/77a/bdethumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Full guide about all Blockchain consensus mechanisms</h3>
+<p class="blog-item-anonce">The unfolding of all blockchain consensus mechanisms, how do different blockchain work? All the mechanics, advantages, and problem solving of every consensus mechanism are in this article</p>
+</a>
+<a class="swiper-slide blog-item" href="smart-contract-audit.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/d66/596/1e5/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/f5e/4d4/e57thumb__240_140_0_0_crop__240.png" alt="Smart contract audit. The most important notes" srcset="https://rocknblock.io//storage/temp/public/f5e/4d4/e57thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/f5e/4d4/e57thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Smart contract audit. The most important notes</h3>
+<p class="blog-item-anonce">Proper smart contracts audits are immensely indispensable for blockchain and crypto projects. We decided to share the most important thing about smart contracts</p>
+</a>
+<a class="swiper-slide blog-item" href="what-crowdsale-is-exactly.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/c25/60f/05f/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/3a4/631/d67thumb__240_140_0_0_crop__240.png" alt="What is a crowdsale? A pack for CratD2c" srcset="https://rocknblock.io//storage/temp/public/3a4/631/d67thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/3a4/631/d67thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">What is a crowdsale? A pack for CratD2c</h3>
+<p class="blog-item-anonce">Crowdsale is becoming more and more popular among entrepreneurs not only in the crypto field. In fact, many of them are considering a Crowdsale as the better version of Crowdfunding</p>
+</a>
+<a class="swiper-slide blog-item" href="how-choose-blockchain-platform-your-business.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/d5a/1bb/dab/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/58e/7fa/b22thumb__240_140_0_0_crop__240.png" alt="How to choose a blockchain platform for your business?" srcset="https://rocknblock.io//storage/temp/public/58e/7fa/b22thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/58e/7fa/b22thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">How to choose a blockchain platform for your business?</h3>
+<p class="blog-item-anonce">The rapid development of digital technology leads to the need for rapid adaptation of business and technological processes. There is a professional interest in IT developments that can remove the issues that have arisen. When choosing a blockchain platfor</p>
+</a>
+</div>
+</div>
+</section>
+</section>
+<section class="form">
+<div class="container">
+<div class="contact-us container" id="contact-us">
+<div class="background-img">
+<picture>
+<source type="image/webp" srcset="../themes/rocknblock/assets/images/site/background/partners.html" />
+<img loading="lazy" src="../storage/temp/public/d5a/9db/096partners__98.png" alt="partners" srcset="https://rocknblock.io//storage/temp/public/d5a/9db/096partners__98.png 98w" sizes="(max-width: 98px) 100vw, 98px">
+</picture>
+</div>
+<div class="background-img">
+<picture>
+<source type="image/webp" srcset="../themes/rocknblock/assets/images/site/background/contact.html" />
+<img loading="lazy" src="../storage/temp/public/565/7bf/e43contact__116.png" alt="contact" srcset="https://rocknblock.io//storage/temp/public/565/7bf/e43contact__116.png 116w, https://rocknblock.io//storage/temp/public/565/7bf/e43contact__100.png 100w" sizes="(max-width: 116px) 100vw, 116px">
+</picture>
+</div>
+<div class="block-header">
+<h2 class="primary-header">Estimate your project now!</h2>
+<h3 class="secondary-header">Get free consultation and build your blockchain project with our highly qualified team!</h3>
+</div>
+<div class="form-social-links">
+<a href="https://t.me/rocknblock" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/telegram.svg" alt="telegram" />
+</a>
+<a href="https://api.whatsapp.com/send?phone=16232304354" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/whatsapp.svg" alt="whatsapp" />
+</a>
+<a class="form-social-links__book" href="https://calendly.com/rocknblock-io" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/book-call.svg" alt="book a call" />
+</a>
+</div>
+<div class="form-info-text">
+<span>Start a chat with us or fill this form</span>
+</div>
+<form method="POST" action="https://rocknblock.io/blog/crypto-wallet-example-ducatus-wallet-developed-rocknblock" accept-charset="UTF-8" data-request="feedback::onForm" class="contact-us__form" data-request-loading="#loading-form" data-request-validate="1" data-request-update="&quot;forms\/main&quot;:&quot;#contact-us&quot;"><input name="_session_key" type="hidden" value="ESSLDPQFJNSUW7OONSVFMNKpUBImZLfzm6XH5t66"><input name="_token" type="hidden" value="tzqrMj6CSUIY5mofJHeIk3iueabR8upP2HV01yGU">
+<div id="loading-form">
+<div class="load-form">
+<img class="load-form-icon" src="../themes/rocknblock/assets/images/site/icon-loader.svg" alt="rocknblock loading" />
+<span>Please wait...</span>
+</div>
+</div>
+<input class="contact-us__form__input" id="contact-us-input" type="text" name="id" placeholder="Name" value="all" required hidden="hidden" />
+<label class="visually-hidden" hidden="hidden" for="contact-us-input">Enter your name</label>
+<input class="contact-us__form__input" id="contact-us-input" type="text" name="name" placeholder="Name" required />
+<div class="form-group">
+<label hidden="hidden" for="contact-us-input-2">Your contact</label>
+<input class="contact-us__form__input" id="contact-us-input-2" name="contact" placeholder="Your contact" required />
+<div class="select-social">
+<select class="lm_input t-phone" name="type" required>
+<option value="telegram" default>Telegram</option>
+
+<option value="whatsapp">Whatsapp</option>
+</select>
+</div>
+</div>
+<div class="form-info-text" style="color:red;opacity: 1;" data-validate-for="contact"></div>
+<label class="visually-hidden" hidden="hidden" for="contact-us-textarea">Describe your project</label>
+<textarea class="contact-us__form__input contact-us__form__input-textarea" name="idea" id="contact-us-textarea" rows="1" placeholder="Briefly describe your project or idea" required></textarea>
+<p class="terms">By using the service, you accept the <a href="../terms-of-service.html" target="_blank">Terms of Service</a>
+</p>
+<input class="contact-us__form__submit-btn btn btn-orange btn-rounded" type="submit" value="Submit request" />
+</form>
+</div> </div>
+</section> </main>
+
+<footer id="layout-footer">
+<div class="container footer">
+<div class="sp-form-outer sp-force-hide">
+<div class="sp-form sp-form-regular sp-form-embed sp-form-horizontal sp-form-full-width" id="sp-form-213867" sp-id="213867" sp-hash="12ac849f63c2a031cbadb847c379704b51a7bf5903cc5b0d0de78bd1f8388438" sp-lang="en" sp-show-options="%7B%22satellite%22%3Afalse%2C%22maDomain%22%3A%22login.sendpulse.com%22%2C%22formsDomain%22%3A%22forms.sendpulse.com%22%2C%22condition%22%3A%22onEnter%22%2C%22scrollTo%22%3A25%2C%22delay%22%3A10%2C%22repeat%22%3A3%2C%22background%22%3A%22rgba(0%2C%200%2C%200%2C%200.5)%22%2C%22position%22%3A%22bottom-right%22%2C%22animation%22%3A%22%22%2C%22hideOnMobile%22%3Afalse%2C%22urlFilter%22%3Afalse%2C%22urlFilterConditions%22%3A%5B%7B%22force%22%3A%22hide%22%2C%22clause%22%3A%22contains%22%2C%22token%22%3A%22%22%7D%5D%2C%22analytics%22%3A%7B%22ga%22%3A%7B%22eventLabel%22%3Anull%2C%22send%22%3Afalse%7D%2C%22ym%22%3A%7B%22counterId%22%3Anull%2C%22eventLabel%22%3Anull%2C%22targetId%22%3Anull%2C%22send%22%3Afalse%7D%7D%2C%22utmEnable%22%3Afalse%7D">
+<div class="sp-form-fields-wrapper show-grid">
+<div class="form__wrapper">
+<label class="sp-control-label"><span>Stay Current With Our Latest Insights</span></label>
+<form class="sp-element-container" novalidate="">
+ <div class="sp-field" sp-id="sp-a71e6fd1-9acf-4f41-b3dc-8f2152c749f8"><input class="sp-form-control" type="email" sp-type="email" name="sform[email]" placeholder="Enter Your Email" sp-tips="%7B%22required%22%3A%22Required%20field%22%2C%22wrong%22%3A%22Wrong%20email%22%7D" autocomplete="on" required="required"></div>
+<div class="sp-field sp-button-container" sp-id="sp-f63cba59-48d0-4248-babc-97587ed34c99"><button class="sp-button" id="sp-f63cba59-48d0-4248-babc-97587ed34c99">SUBSCRIBE</button></div>
+<div class="sp-field sp-field-full-width" sp-id="sp-7dd427e4-a8c3-4126-b02f-897742857dde">
+<div style="font-family: inherit; line-height: 1;"></div>
+</div>
+</form>
+<div class="sp-message">
+<div></div>
+</div>
+</div>
+<nav class="social-links">
+<span>Let's connect</span>
+<ul class="social-links__list">
+<li class="social-links__link">
+<a class="icon" href="https://twitter.com/rocknblockdev" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-tw-mask.svg" alt="twiter">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="telegram">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://www.facebook.com/RocknBlockDev/?ref=br_rs" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-fb-mask.svg" alt="facebook">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://rocknblock.medium.com/" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-medium-mask.svg" alt="medium">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://www.linkedin.com/authwall?trk=ripf&amp;trkInfo=AQHvgveZGbs93QAAAXggz85o2_gQEyTCero1KbSW_FNCIX1sjFUjvezZQqiUuu2cVmo2lj4adoTCg0J8Rvb-V8pKjpQj8U3C5-qT4igU957ofdXB7BvLt6ctemMUWideBHjsZLg=&amp;originalReferer=https://rocknblock.io/&amp;sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2F13060149" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-in-mask.svg" alt="linked in">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="../cdn-cgi/l/email-protection.html#3c54595050537c4e535f57525e50535f57125553" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-mail-mask.svg" alt="email">
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="footer-services">
+<div class="footer-services-list">
+<div class="footer-services-item">
+<span class="title">NFT Metaverse</span>
+<a class="link" href="../marketplace.html">NFT Marketplace</a>
+<a class="link" href="../10knft.html">10k NFT Generator</a>
+<a class="link" href="../gamefi.html">GameFi</a>
+<a class="link" href="../metaverse.html">Metaverse</a>
+</div>
+<div class="footer-services-item">
+<span class="title">De-Fi Experience</span>
+<a class="link" href="../farming.html">Yield Farming</a>
+<a class="link" href="../vesting.html">Vesting Contract</a>
+<a class="link" href="../staking.html">Staking Platfrom</a>
+<a class="link" href="../launchpad.html">Launchpad</a>
+<a class="link" href="../tools.html">Trading Tools</a>
+<a class="link" href="../dex.html">DEX/CEX</a>
+</div>
+<div class="footer-services-item">
+<span class="title">Token Assistance</span>
+<a class="link" href="../token-generator.html">Token Generator</a>
+<a class="link" href="../crowdsale.html">Crowdsale Pack</a>
+<a class="link" href="../bridge.html">Cross-Chain Bridge</a>
+<a class="link" href="../safemoon.html">Deflationary</a>
+<a class="link" href="../tokenization.html">Tokenized Property</a>
+</div>
+<div class="footer-services-item">
+<span class="title">Blockhain Expertise</span>
+<a class="link" href="../consulting.html">Consulting</a>
+<a class="link" href="../marketing.html">Web3 Marketing</a>
+<a class="link" href="../security-audit.html">Security Audit</a>
+<a class="link" href="../rust.html">Rust Development</a>
+</div>
+</div>
+</div>
+<div class="bottom">
+<div class="links">
+<p class="bottom__copyright-desktop">© Copyright Rock’n’Block 2022</p> <a href="../privacy-policy.html" target="_blank">Privacy
+Policy</a><a href="../terms-of-service.html" target="_blank">Terms
+of Service</a><a href="../company.html" target="_blank">Company</a>
+</div>
+<p class="bottom__copyright-mobile">© Copyright Rock’n’Block 2023</p>
+</div>
+</div>
+<div id="btnScrollToTop">
+<img src="../themes/rocknblock/assets/images/site/icons/icon-arrow-top-mask.svg" alt="arrow top">
+</div>
+<ul class="side-socials">
+<li class="side-socials__link side-socials__link_tg">
+<a class="icon" href="https://t.me/rocknblock" rel="noreferrer" target="_blank"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="tg">
+</a>
+</li>
+<li class="side-socials__link side-socials__link_whatsapp">
+<a class="icon" href="https://api.whatsapp.com/send?phone=16232304354" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-whatsapp-mask.svg" alt="whatsapp">
+</a>
+</li>
+</ul> </footer>
+<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../themes/rocknblock/assets/javascript/jquery.js"></script>
+<script defer src="../themes/rocknblock/assets/javascript/main.min.js"></script>
+<script type="text/javascript" async src="../../web.webformscr.com/apps/fc3/build/default-handler79b6.js?1653643444289"></script>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(function(){
+      
+      window.__lc = window.__lc || {};
+      window.__lc.license = 9683030;
+      ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="../../cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+    
+    }, 3500); // время указано в мс = 0,001 секунды, изменить по вкусу
+  });
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/9683030/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+
+<script src="../modules/system/assets/js/framework.combined-min5cce.js?v=1.1.7"></script>
+<link rel="stylesheet" property="stylesheet" href="../modules/system/assets/css/framework.extras-min5cce.css?v=1.1.7">
+
+<scriptd type="text/javascript" id="amo_pixel_identifier_js" async="async" src="../../piper.amocrm.ru/pixel/js/identifier/pixel_identifier.js"></script>
+<script>window.AMOPIXEL_IDENTIFIER_PARAMS = window.AMOPIXEL_IDENTIFIER_PARAMS || { }; window.AMOPIXEL_IDENTIFIER_PARAMS.onload = function (pixel_identifier) { var visitor_uid = pixel_identifier.getVisitorUid ( ); if (visitor_uid) {document.getElementById ( 'visitor_uid' ).value = visitor_uid;}};</script> </body>
+
+<!-- Mirrored from rocknblock.io/blog/crypto-wallet-example-ducatus-wallet-developed-rocknblock by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Apr 2023 16:34:55 GMT -->
+</html>

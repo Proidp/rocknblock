@@ -1,0 +1,531 @@
+
+/* OTHER */
+
+.pg-tok .solution .button, .pg-dex .solution .pg-farming .sectionBuild__link, .pg-farming .pg-dex .solution .sectionBuild__link {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.pg-tok .hero .block-head .button img, .pg-dex .hero .block-head .pg-farming .sectionBuild__link img, .pg-farming .pg-dex .hero .block-head .sectionBuild__link img {
+    margin-left: 10px;
+}
+
+.pg-tok .solution .button img, .pg-dex .solution .pg-farming .sectionBuild__link img, .pg-farming .pg-dex .solution .sectionBuild__link img {
+    margin-left: 10px;
+}
+
+
+/* REAL ESTATE TOKENIZATION (1) */
+
+.pg-tok .hero {
+    min-height: 700px;
+    display: block;
+    background: none;
+    align-items: center;
+    margin: 0;
+}
+
+.pg-tok .hero .container {
+    position: relative;
+    padding: 100px 15px;
+}
+
+.pg-tok .hero .container::before {
+    content: '';
+    position: absolute;
+    display: flex;
+    width: 1400px;
+    height: 680px;
+    top: 0;
+    z-index: -1;
+    right: -250px;    
+}
+
+.pg-tok .hero .block-head {
+    max-width: 600px;
+    width: 100%;
+    align-items: baseline;
+    margin: 0;
+    text-align: left;
+}
+
+.pg-tok .hero .block-head .title {
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 60px;
+    text-transform: uppercase;
+}
+
+.pg-tok .block-head .title span {
+    color: #dc2c2c;
+    font-size: 60px;
+}
+
+.pg-tok .hero .block-head .text {
+    max-width: 500px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 34px;
+    color: #FFFFFF;
+    margin: 0;
+    text-align: left;
+}
+
+.pg-tok .hero .block-head .button {
+    font-size: 15.5378px;
+    font-feature-settings: 'kern' off, 'liga' off;   
+}
+
+
+/* The real estate (2) */
+
+.pg-tok .the-real-estate {
+    margin: 40px 0;
+}
+
+.pg-tok .block-head .text {
+    font: 300 20px/1.3 TTCommons,sans-serif;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 34px;
+    text-align: center;
+    max-width: 800px;
+}
+
+
+/* Tokenization change (3) */
+
+.pg-tok .solution {
+    height: 770px;
+}
+
+.pg-tok .solution .container .block-head .title {
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 60px;
+}
+
+.pg-tok .solution .container .block-head .text {
+    font: 300 20px/1.3 TTCommons,sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.pg-tok .solution .button {
+    margin-bottom: 80px !important;
+}
+
+.pg-tok .solution .img {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 425px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.pg-tok .solution .img img {
+    max-width: none;
+}
+
+
+/* Tokenization change (4) */
+
+.pg-tok section {
+
+    margin: 100px 0;
+    display: inline-block;
+    width: 100%;
+    
+}
+
+.pg-tok .container {
+    max-width: 1130px;
+}
+
+.pg-tok .block-head {
+    max-width: 850px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.pg-tok .block-head .title {
+    font: 700 55px TTNorms,sans-serif;
+    text-transform: uppercase;
+}
+
+.pg-tok .tracking .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 40px;
+    justify-content: space-between;
+}
+
+.pg-tok .tracking-item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+    background: linear-gradient(30.15deg,#000 14.13%,#272525 79.31%);
+    padding: 35px 20px;
+}
+
+.pg-tok .tracking-item .title {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.pg-tok .tracking-item .img {
+    height: 80px;
+    margin-right: 15px;
+}
+
+.pg-tok .tracking-item .text {
+    font: 300 20px/1.2 TTCommons,sans-serif;
+    margin-top: 20px;
+    opacity: .5;
+    font-weight: 400;
+    line-height: 23px;
+}
+
+
+/* Tokenization change (5) */
+
+.pg-tok .sure {
+    margin-top: 200px;
+}
+
+.pg-tok .container {
+    max-width: 1130px;
+}
+
+.pg-tok .sure .container .block-head::after {
+
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 225px;
+    z-index: 1;
+    left: 0;
+    top: -95px;
+    right: -20px;
+    
+}
+
+.pg-tok .block-head {
+    max-width: 850px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.pg-tok .sure .container .block-head {
+    background: radial-gradient(131.92% 131.92% at 47.45% -23.56%, #393737 0%, #0C0909 38.42%, #B60000 98.27%);
+    border-radius: 30px;
+    padding: 195px 15px 100px;
+    max-width: 100%;
+    position: relative;
+}
+
+.pg-tok .sure .container .block-head p {
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 46px;
+    text-align: center;
+    width: 800px;
+}
+
+
+/* Compete with Propy (6) */
+
+.pg-tok .use {
+    margin: 0 0 100px 0;
+}
+
+.pg-tok .propy-contaner {
+
+    box-sizing: border-box;
+    width: 1100px;
+    border-radius: 30px;
+    margin: 0 auto;
+    border: 2px solid;
+    border-image-slice: 5;
+    
+}
+
+.pg-tok .use .content {
+    padding-top: 80px;
+    padding-left: 227px;
+    padding-right: 227px;
+    padding-bottom: 60px;
+    display: flex;
+    grid-gap: 30px;
+    justify-content: space-between;
+}
+
+.pg-tok .use-item {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #3d3d3d;
+    text-align: center;
+    width: 145px;
+    height: 60px;
+    border-radius: 24px;
+    padding: 0px;
+    min-height: 20px;
+}
+
+.pg-tok .use-item img {
+    padding: 20px 27px;
+}
+
+.pg-tok .propy-contaner p {
+    font-weight: 400;
+    font-size: 35px;
+    width: 800px;
+    line-height: 46px;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 80px
+}
+
+
+/* Mobile version */
+
+@media (max-width: 769px) {
+    
+    
+    /* REAL ESTATE TOKENIZATION (1) */
+    
+    .pg-tok .hero .container {
+        padding: 0;
+    }
+    
+    .pg-tok .hero {
+        min-height: 550px;
+    }
+    
+    .pg-tok .hero .container::before {
+        position: relative;
+        width: 100%;
+        right: 0;
+        height: 350px;
+        background-size: cover;
+        background-position: center;
+        margin-bottom: -50px;
+    }
+    
+    .pg-tok .hero .block-head {
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+        padding: 0 15px;
+    }
+    
+    .pg-tok .hero .block-head .text {
+        font-size: 22px;
+        margin: 0 auto;
+        line-height: 1;
+        text-align: center;
+    }
+    
+    .pg-tok .hero .block-head .title {
+        font-size: 40px;
+        line-height: 40px;
+        margin: 20px;
+    }
+    
+    
+    /* The real estate (2) */
+    
+    .pg-tok .block-head .text {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;    
+    }
+    
+    .pg-tok .block-head {
+        margin-bottom: 0px;
+    }
+    
+    .pg-tok .solution .container .block-head .title {
+        font-size: 40px;    
+    }
+    
+    /* Tokenization change (4) */
+    
+    .pg-tok .scroll {
+        overflow-x: auto;
+    }
+    
+    .pg-tok .scroll .scroll-block {
+        display: inline-flex;
+        overflow-x: scroll;
+        justify-content: space-evenly;
+    }
+    
+    .pg-tok .tracking .content {
+        display: flex;
+        grid-gap: 20px;
+    }
+    
+    .pg-tok .tracking-item {
+        min-width: 300px    
+    }
+    
+    
+    /* Tokenization change (5) */
+    
+    .pg-tok .sure .container .block-head::after {
+        height: 160px;
+        top: -70px;
+    }
+    
+    .pg-tok .sure .container .block-head p {
+        min-width: 300px;
+        font-size: 22px;
+        line-height: 32px;
+        max-width: 100%;
+    }
+    
+    
+    /* Compete with Propy (6) */
+    
+    .pg-tok .propy-contaner {
+        min-width: 335px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .pg-tok .use .content {
+        width: 260px;
+        margin: 0px auto;
+        padding: 0px;
+        margin-bottom: 40px;
+        margin-top: 40px;
+        grid-template-rows: auto auto;
+        grid-template-columns: 120px 120px;
+        display: grid;
+        grid-gap: 15px;
+    }
+    
+    .pg-tok .use-item {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #3d3d3d;
+        text-align: center;
+        width: 120px;
+        height: 50px;
+        border-radius: 24px;
+        padding: 0px;
+        min-height: 20px;
+    }
+    
+    .pg-tok .propy-contaner p {
+        text-align: center;
+        font-weight: 400;
+        font-size: 22px;
+        min-width: 270px;
+        max-width: 100%;
+        margin: 0 auto;
+        padding-bottom: 40px;
+        line-height: 32px;
+    }
+    
+    .pg-tok .use {
+        padding: 20px;
+    }
+    
+    .pg-tok .use-item img {
+        padding: 0 20px;    
+    }
+    
+}
+
+@media (max-width: 1200px) {
+    .pg-tok .hero .block-head .title {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 769px) {
+    
+    .pg-tok .hero .block-head .title {
+        font-size: 35px;
+    }
+    
+    .pg-dex .hero .block-head .button, .pg-dex .hero .block-head .pg-farming .sectionBuild__link, .pg-farming .pg-dex .hero .block-head .sectionBuild__link {
+        margin: 20px auto;
+    }
+    
+    .pg-tok .block-head .title span {
+        font-size: 40px;
+    }
+    
+    .pg-tok .solution .container .block-head .title {
+        font-size: 40px;
+    }
+    
+    .pg-tok .solution .container .block-head .text {
+        margin-bottom: 20px;    
+    }
+    
+    .pg-tok section {
+        margin: 40px 0;
+    }
+    
+    .pg-tok .tracking {
+        margin-top: 80px;
+    }
+    
+    .pg-tok .tracking .content {
+        margin-top: 60px;
+    }
+    
+    .pg-tok .sure {
+        margin-top: 100px;
+    }
+    
+    .pg-tok .block-head .title {
+        font-size: 40px;
+    }
+    
+}
+
+@media (max-width: 650px) {
+    
+    .pg-tok .hero .block-head .button, .pg-dex .hero .block-head .pg-farming .sectionBuild__link, .pg-farming .pg-dex .hero .block-head .sectionBuild__link {
+        font-size: 12px;
+        margin-top: 20px;
+    }
+    
+    .pg-tok .hero .block-head .text {
+        font-size: 22px;
+    }
+}

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from rocknblock.io/blog/tech-spec-part-and-parcel-blockchain-project-launch by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Apr 2023 16:31:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', () => {
+		setTimeout(function(){
+			
+			   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+			   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+			   (window, document, "script", "../../mc.yandex.ru/metrika/tag.js", "ym");
+			
+			   ym(82964167, "init", {
+			        clickmap:true,
+			        trackLinks:true,
+			        accurateTrackBounce:true,
+			        webvisor:true
+			   });
+			   
+			   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','dataLayer','GTM-P548TMG');
+			   
+		}, 3500); // время указано в мс = 0,001 секунды, изменить по вкусу
+	});
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<meta name="author" content="Amary Filo">
+<meta name="generator" content="Rocknblock Developing">
+<meta name="application-name" content="Rocknblock Developing">
+<style>body{background-color: black;}</style>
+<link rel="stylesheet" href="../themes/rocknblock/assets/css/style.min.css" as="style">
+<link rel="preload" href="../themes/rocknblock/assets/javascript/main.min.js" as="script">
+<link rel="manifest" href="../themes/rocknblock/assets/images/manifest.html">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-96x96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="57x57" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../themes/rocknblock/assets/images/favicon/android-chrome-192x192.png" />
+<meta name="msapplication-square70x70logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/smalltile.png" />
+<meta name="msapplication-square150x150logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/mediumtile.png" />
+<meta name="msapplication-wide310x150logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/widetile.png" />
+<meta name="msapplication-square310x310logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/largetile.png" />
+<link rel="mask-icon" href="../themes/rocknblock/assets/images/favicon/safari-pinned-tab.svg" " color="#ff0000" />
+<meta name="msapplication-TileColor" content="#ff0000" />
+<meta name="theme-color" content="#1D1B21" />
+<style>
+    .tabs-case .content-item {
+        margin: 20px !important;    
+    }
+</style> <title>Tech spec: part and parcel of a blockchain project launch</title>
+<meta name="title" content="Tech spec: part and parcel of a blockchain project launch">
+<meta name="keywords" content="blockhain development,tech spec,technical specification,blockchain documentation">
+<meta name="description" content="Any solid project has proper documentation. Otherwise, it doesn’t work.">
+<meta name="generator" content="Rock`n`Block Developing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tech spec: part and parcel of a blockchain project launch">
+<meta property="og:url" content="https://rocknblock.io/blog/tech-spec-part-and-parcel-blockchain-project-launch">
+<meta property="og:image" content="https://rocknblock.io/storage/app/uploads/public/69b/e96/52c/thumb__1200_640_0_0_crop.png">
+<meta property="og:description" content="Any solid project has proper documentation. Otherwise, it doesn’t work.">
+<meta property="article:author" content="Rock’n’Block">
+<meta property="article:published_time" content="2022-05-11 08:30:15">
+<meta property="article:modified_time" content="2022-08-17 11:52:06">
+<meta property="article:section" content="Technology">
+<meta property="article:tag" content="blockhain development">
+<meta property="article:tag" content="tech spec">
+<meta property="article:tag" content="technical specification">
+<meta property="article:tag" content="blockchain documentation">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tech spec: part and parcel of a blockchain project launch">
+<meta name="twitter:description" content="Any solid project has proper documentation. Otherwise, it doesn’t work.">
+<meta name="twitter:site" content="@rocknblockdev">
+<meta name="twitter:url" content="https://rocknblock.io/blog/tech-spec-part-and-parcel-blockchain-project-launch">
+<meta name="twitter:image" content="https://rocknblock.io/storage/app/uploads/public/69b/e96/52c/thumb__1200_640_0_0_crop.png">
+<meta name="twitter:image:alt" content="">
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org/",
+		"@type": "Article",
+		"mainEntityOfPage": {
+			"@type": "WebPage",
+			"@id": "https://rocknblock.io/blog/tech-spec-part-and-parcel-blockchain-project-launch"
+		},
+		"author": {
+			"@type": "Organization",
+			"name": "Rock`n`Block"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "Rock`n`Block",
+			"logo": {
+				"@type": "ImageObject",
+				"url": "https://rocknblock.io/themes/rocknblock/assets/images/site/logo.png"
+			}
+		},
+		"headline": "Tech spec: part and parcel of a blockchain project launch",
+		"image": "https://rocknblock.io/storage/app/uploads/public/627/b72/bcf/627b72bcf1366820938927.png",
+		"datePublished": "2022-05-11 08:30:15",
+		"dateModified": "2022-08-17 11:52:06"
+	}
+	</script>
+
+<meta name="google-site-verification" content="7_6Fy-97nJ33Ve9stEFXjT4RUqNwIQj-vh9tYL22ZU0"> </head>
+<body>
+
+
+
+<noscript>
+  
+  <div><img src="https://mc.yandex.ru/watch/82964167" style="position:absolute; left:-9999px;" alt="" /></div>
+  
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P548TMG" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+
+</noscript>
+
+<div class="preloader"><div class="preloader__row"><div class="preloader__item"></div><div class="preloader__item"></div></div></div>
+
+<header id="layout-header">
+<div class="container">
+<nav class="main-nav">
+<section class="main-nav__mobile">
+<a class="logo" href="../index.html">
+<img src="../themes/rocknblock/assets/images/site/logo.svg" alt="Rock'n'Block logo">
+</a>
+<div class="burger icon">
+<img class="icon-burger ic-open" src="../themes/rocknblock/assets/images/site/icons/icon-header-burger-mask.svg" alt="burger menu">
+<img class="icon-burger ic-close" src="../themes/rocknblock/assets/images/site/icons/icon-header-burger-close-mask.svg" alt="burger close menu" hidden>
+</div>
+</section>
+<section class="nav-pages" id="nav-pages">
+<a class="nav-pages__link" href="../index.html#solutions">Services</a>
+<a class="nav-pages__link" href="../index.html#cases">Cases</a>
+<a class="nav-pages__link" href="../index.html#team">Team</a>
+<a class="nav-pages__link" href="../index.html#partners">Partners</a>
+<a class="nav-pages__link" href="../blog.html">Blog</a>
+<a class="nav-pages__contact-button nav-pages__link__contact-us" href="#contact-us">CONTACT US</a>
+</section>
+</nav>
+</div> </header>
+
+<main id="layout-content">
+<section class="pg pg-article">
+<section class="article container">
+<h1 class="article-title">Tech spec: part and parcel of a blockchain project launch</h1>
+<span class="article-date" style="background-image: url('../themes/rocknblock/assets/images/site/blog/icon-clock.svg');">06 May 2022</span>
+<h4 dir="ltr">Any solid project has proper documentation. Otherwise, it doesn’t work.</h4>
+<p dir="ltr">
+<a href="../consulting.html"><img src="../storage/temp/public/ea9/ab0/8f11652257702236__1600.jpg" class="fr-fic fr-dii" data-result="success" style="width: 100%;" srcset="https://rocknblock.io//storage/temp/public/ea9/ab0/8f11652257702236__1600.jpeg 1600w, https://rocknblock.io//storage/temp/public/ea9/ab0/8f11652257702236__100.jpeg 100w, https://rocknblock.io//storage/temp/public/ea9/ab0/8f11652257702236__250.jpeg 250w, https://rocknblock.io//storage/temp/public/ea9/ab0/8f11652257702236__400.jpeg 400w, https://rocknblock.io//storage/temp/public/ea9/ab0/8f11652257702236__768.jpeg 768w, https://rocknblock.io//storage/temp/public/ea9/ab0/8f11652257702236__1024.jpeg 1024w" sizes="(max-width: 1600px) 100vw, 1600px"></a></p>
+<p dir="ltr">The blockchain business is a relatively new field, and it works according to its own rules. A creator should think not only about the idea but about the related documentation too. That’s how you get sure of what you're doing and how users find reasons to trust the project. This article is dedicated to tech spec: it’s an incredibly important part that many overlook.</p>
+<p dir="ltr"><strong>The most well-known documents are</strong> the white paper, the lite paper, and the roadmap. Probably, you’ve seen them, read them, and got used to them. For those who are not:</p>
+<p dir="ltr">The white paper tells users about the project, shows its core, and clarifies it for the audience.</p>
+<p dir="ltr">The lite paper does the same thing but is less complex.</p>
+<p dir="ltr">The roadmap shows the plans of a project: what and when they tend to do.</p>
+<h2 dir="ltr">What is a tech spec?</h2>
+<blockquote>
+<p dir="ltr">It’s short for «technical specification». It's a document that consists of a set of requirements related to the implementation of the project.</p>
+</blockquote>
+<p dir="ltr">Let’s take an example: you want to launch a blockchain project. From this point of view, no matter what you are - a startup or a running business. You begin with an idea of something that can solve the user’s tasks. You know exactly how this intended product should work, but what’s next? The next point is to make a tech spec.</p>
+<h2 dir="ltr">Why does your business need it?</h2>
+<p dir="ltr">Shortly it saves you time because you don’t communicate extra to get what you need and don’t spend extra money on working hours when you start the development process. Now we will show you the process of its creation to see how useful it is in terms of practice.</p>
+<h2 dir="ltr">Creation process</h2>
+<p dir="ltr">This document is going to look like an article with a table of contents followed by the necessary information. To create it you communicate with a manager who is responsible for the project. His task is to collect all your business requirements, process them and forward them to the system analyst as the development requirements. This specialist speaks the language of developers and knows how to build a structure for any kind of project — this exact person will create the tech spec. System analyst takes all the details of the development into account and formalizes the requirements for developers.</p>
+<p dir="ltr">The content of a tech spec depicts all the backend processes and some of the frontend ones. For example, a website prototype and a user flow (how users will go through the website and what they will do).</p>
+<p dir="ltr">Also, it’s crucial to eliminate double requirements in the first place. Some clients want “a usual <a href="../launchpad.html">launchpad</a>”, but are not happy with the result. The reason is they didn’t tell the development team what exact options they needed. Imagine a standard token contract and ask your colleagues to do the same. You’ll be amazed at how much the answers can differ.</p>
+<h2 dir="ltr">Rock’n’Block’s tech specs</h2>
+<p dir="ltr">We’ve created 6+ just this month, and it proves their demand on the market. A tech spec is also a way to test your developer: you can see how the team works, how your manager treats you, and so on. If you think that you can find a better contractor, you can easily take the document and bring it to someone new.</p>
+<p dir="ltr">Our team is experienced enough to create huge projects, but we’re happy to work with you even if you ask us about something small. <a href="../consulting.html">Create a tech spec</a> with us or at least get a free consultation your project!</p>
+<p dir="ltr">Rock’n’Block’s team is not limited in development. We can help with:</p>
+<p dir="ltr">⚡️<a href="../marketplace.html">NFT and NFT Marketplaces development</a> ;&nbsp;</p>
+<p dir="ltr">⚡️<a href="../10knft.html">NFT 10K generator</a>;&nbsp;</p>
+<p dir="ltr">⚡️<a href="../staking.html">Staking platforms</a>;&nbsp;</p>
+<p dir="ltr">⚡️<a href="../vesting.html">Vesting platforms</a>;&nbsp;</p>
+<p dir="ltr">⚡️<a href="../farming.html">Farming platforms</a>;&nbsp;</p>
+<p dir="ltr">⚡️Any other custom request from a crypto wallet development to custom <a href="../index.html">blockchain development</a>.</p>
+<p dir="ltr">If you’re interested in building your blockchain project, feel free to contact our team via the <a href="https://t.me/joinchat/WG1xLuqY2uUgc_HH">Telegram channel</a> or<a href="https://calendly.com/alex-tka?_ga=2.125281484.774853951.1635149124-626771872.1633109778">&nbsp;book a call via Calendly</a>.</p>
+<p dir="ltr">
+<br>
+</p>
+<p dir="ltr" style="text-align: center;">We❤️Development</p>
+<p dir="ltr" style="text-align: center;">Rock⚡️Block</p>
+<p dir="ltr" style="text-align: center;">Follow us on social media to receive the hottest blockchain development Rock’n’Block updates</p>
+<p dir="ltr" style="text-align: center;"><a href="https://twitter.com/RocknBlockDev">Twitter</a>, <a href="https://t.me/joinchat/WG1xLuqY2uUgc_HH">Telegram</a>, <a href="https://www.linkedin.com/company/13060149">LinkedIn</a>, <a href="https://www.facebook.com/RocknBlockDev">Facebook</a>, <a href="https://www.instagram.com/rocknblock.io/">Instagram</a></p>
+<p dir="ltr">
+<br>
+</p>
+</section>
+<section class="article-share">
+<div class="container"><span class="article-section-title">Share it!</span>
+<div class="article-share-items">
+<a class="article-share-item" href="https://twitter.com/intent/tweet?text=Tech%20spec:%20part%20and%20parcel%20of%20a%20blockchain%20project%20launch.%20Any%20solid%20project%20has%20proper%20documentation.%20Otherwise,%20it%20doesn%e2%80%99t%20work.&amp;url=https://rocknblock.io/blog/tech-spec-part-and-parcel-blockchain-project-launch&amp;hashtags=blockhain%20development,tech%20spec,technical%20specification,blockchain%20documentation" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tw-mask.svg" alt="twitter" /></a>
+<a class="article-share-item" href="https://t.me/share/url?url=https://rocknblock.io/blog/tech-spec-part-and-parcel-blockchain-project-launch&amp;text=Any%20solid%20project%20has%20proper%20documentation.%20Otherwise,%20it%20doesn%e2%80%99t%20work." target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="telegram" /></a>
+<a class="article-share-item" href="https://www.facebook.com/sharer/sharer.php?u=https://rocknblock.io/blog/tech-spec-part-and-parcel-blockchain-project-launch&amp;t=Tech%20spec:%20part%20and%20parcel%20of%20a%20blockchain%20project%20launch&amp;text=Any%20solid%20project%20has%20proper%20documentation.%20Otherwise,%20it%20doesn%e2%80%99t%20work." target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-fb-mask.svg" alt="facebook" /></a>
+<a class="article-share-item" href="https://www.linkedin.com/sharing/share-offsite/?url=https://rocknblock.io/blog/tech-spec-part-and-parcel-blockchain-project-launch" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-in-mask.svg" alt="linkedin" /></a>
+</div>
+</div>
+</section>
+<section>
+<div class="container article-similar"> <span class="article-section-title">Similar Posts</span>
+<div class="blog-items">
+<a class="swiper-slide blog-item" href="how-find-and-hire-blockchain-developers.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/95f/fe9/907/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/aeb/d76/1b0thumb__240_140_0_0_crop__240.png" alt="How To Find And Hire BLOCKCHAIN DEVELOPERS" srcset="https://rocknblock.io//storage/temp/public/aeb/d76/1b0thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/aeb/d76/1b0thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">How To Find And Hire BLOCKCHAIN DEVELOPERS</h3>
+<p class="blog-item-anonce">We are going to figure out what you need to pay attention to when choosing a contractor, find the pros and cons of freelancers, as well as the advantages of professional companies</p>
+</a>
+<a class="swiper-slide blog-item" href="how-choose-blockchain-platform-your-business.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/d5a/1bb/dab/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/58e/7fa/b22thumb__240_140_0_0_crop__240.png" alt="How to choose a blockchain platform for your business?" srcset="https://rocknblock.io//storage/temp/public/58e/7fa/b22thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/58e/7fa/b22thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">How to choose a blockchain platform for your business?</h3>
+<p class="blog-item-anonce">The rapid development of digital technology leads to the need for rapid adaptation of business and technological processes. There is a professional interest in IT developments that can remove the issues that have arisen. When choosing a blockchain platfor</p>
+</a>
+<a class="swiper-slide blog-item" href="rocknblock-top-blockchain-development-company.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/19f/761/113/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/a88/ed4/442thumb__240_140_0_0_crop__240.png" alt="Rock’n’Block is a Top Blockchain Development Company" srcset="https://rocknblock.io//storage/temp/public/a88/ed4/442thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/a88/ed4/442thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Rock’n’Block is a Top Blockchain Development Company</h3>
+<p class="blog-item-anonce">Rock’n’Block is Recognized by Techreviewer as a Top Blockchain Development Company in 2021</p>
+</a>
+</div>
+</div>
+</section>
+</section>
+<section class="form">
+<div class="container">
+<div class="contact-us container" id="contact-us">
+<div class="background-img">
+<picture>
+<source type="image/webp" srcset="../themes/rocknblock/assets/images/site/background/partners.html" />
+<img loading="lazy" src="../storage/temp/public/d5a/9db/096partners__98.png" alt="partners" srcset="https://rocknblock.io//storage/temp/public/d5a/9db/096partners__98.png 98w" sizes="(max-width: 98px) 100vw, 98px">
+</picture>
+</div>
+<div class="background-img">
+<picture>
+<source type="image/webp" srcset="../themes/rocknblock/assets/images/site/background/contact.html" />
+<img loading="lazy" src="../storage/temp/public/565/7bf/e43contact__116.png" alt="contact" srcset="https://rocknblock.io//storage/temp/public/565/7bf/e43contact__116.png 116w, https://rocknblock.io//storage/temp/public/565/7bf/e43contact__100.png 100w" sizes="(max-width: 116px) 100vw, 116px">
+</picture>
+</div>
+<div class="block-header">
+<h2 class="primary-header">Estimate your project now!</h2>
+<h3 class="secondary-header">Get free consultation and build your blockchain project with our highly qualified team!</h3>
+</div>
+<div class="form-social-links">
+<a href="https://t.me/rocknblock" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/telegram.svg" alt="telegram" />
+</a>
+<a href="https://api.whatsapp.com/send?phone=16232304354" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/whatsapp.svg" alt="whatsapp" />
+ </a>
+<a class="form-social-links__book" href="https://calendly.com/rocknblock-io" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/book-call.svg" alt="book a call" />
+</a>
+</div>
+<div class="form-info-text">
+<span>Start a chat with us or fill this form</span>
+</div>
+<form method="POST" action="https://rocknblock.io/blog/tech-spec-part-and-parcel-blockchain-project-launch" accept-charset="UTF-8" data-request="feedback::onForm" class="contact-us__form" data-request-loading="#loading-form" data-request-validate="1" data-request-update="&quot;forms\/main&quot;:&quot;#contact-us&quot;"><input name="_session_key" type="hidden" value="n0q0NCzewrIfCsmzZwP26u2xdQvMIDGxI2FCd9ov"><input name="_token" type="hidden" value="tzqrMj6CSUIY5mofJHeIk3iueabR8upP2HV01yGU">
+<div id="loading-form">
+<div class="load-form">
+<img class="load-form-icon" src="../themes/rocknblock/assets/images/site/icon-loader.svg" alt="rocknblock loading" />
+<span>Please wait...</span>
+</div>
+</div>
+<input class="contact-us__form__input" id="contact-us-input" type="text" name="id" placeholder="Name" value="all" required hidden="hidden" />
+<label class="visually-hidden" hidden="hidden" for="contact-us-input">Enter your name</label>
+<input class="contact-us__form__input" id="contact-us-input" type="text" name="name" placeholder="Name" required />
+<div class="form-group">
+<label hidden="hidden" for="contact-us-input-2">Your contact</label>
+<input class="contact-us__form__input" id="contact-us-input-2" name="contact" placeholder="Your contact" required />
+<div class="select-social">
+<select class="lm_input t-phone" name="type" required>
+<option value="telegram" default>Telegram</option>
+
+<option value="whatsapp">Whatsapp</option>
+</select>
+</div>
+</div>
+<div class="form-info-text" style="color:red;opacity: 1;" data-validate-for="contact"></div>
+<label class="visually-hidden" hidden="hidden" for="contact-us-textarea">Describe your project</label>
+<textarea class="contact-us__form__input contact-us__form__input-textarea" name="idea" id="contact-us-textarea" rows="1" placeholder="Briefly describe your project or idea" required></textarea>
+<p class="terms">By using the service, you accept the <a href="../terms-of-service.html" target="_blank">Terms of Service</a>
+</p>
+<input class="contact-us__form__submit-btn btn btn-orange btn-rounded" type="submit" value="Submit request" />
+</form>
+</div> </div>
+</section> </main>
+
+<footer id="layout-footer">
+<div class="container footer">
+<div class="sp-form-outer sp-force-hide">
+<div class="sp-form sp-form-regular sp-form-embed sp-form-horizontal sp-form-full-width" id="sp-form-213867" sp-id="213867" sp-hash="12ac849f63c2a031cbadb847c379704b51a7bf5903cc5b0d0de78bd1f8388438" sp-lang="en" sp-show-options="%7B%22satellite%22%3Afalse%2C%22maDomain%22%3A%22login.sendpulse.com%22%2C%22formsDomain%22%3A%22forms.sendpulse.com%22%2C%22condition%22%3A%22onEnter%22%2C%22scrollTo%22%3A25%2C%22delay%22%3A10%2C%22repeat%22%3A3%2C%22background%22%3A%22rgba(0%2C%200%2C%200%2C%200.5)%22%2C%22position%22%3A%22bottom-right%22%2C%22animation%22%3A%22%22%2C%22hideOnMobile%22%3Afalse%2C%22urlFilter%22%3Afalse%2C%22urlFilterConditions%22%3A%5B%7B%22force%22%3A%22hide%22%2C%22clause%22%3A%22contains%22%2C%22token%22%3A%22%22%7D%5D%2C%22analytics%22%3A%7B%22ga%22%3A%7B%22eventLabel%22%3Anull%2C%22send%22%3Afalse%7D%2C%22ym%22%3A%7B%22counterId%22%3Anull%2C%22eventLabel%22%3Anull%2C%22targetId%22%3Anull%2C%22send%22%3Afalse%7D%7D%2C%22utmEnable%22%3Afalse%7D">
+<div class="sp-form-fields-wrapper show-grid">
+<div class="form__wrapper">
+<label class="sp-control-label"><span>Stay Current With Our Latest Insights</span></label>
+<form class="sp-element-container" novalidate="">
+<div class="sp-field" sp-id="sp-a71e6fd1-9acf-4f41-b3dc-8f2152c749f8"><input class="sp-form-control" type="email" sp-type="email" name="sform[email]" placeholder="Enter Your Email" sp-tips="%7B%22required%22%3A%22Required%20field%22%2C%22wrong%22%3A%22Wrong%20email%22%7D" autocomplete="on" required="required"></div>
+<div class="sp-field sp-button-container" sp-id="sp-f63cba59-48d0-4248-babc-97587ed34c99"><button class="sp-button" id="sp-f63cba59-48d0-4248-babc-97587ed34c99">SUBSCRIBE</button></div>
+<div class="sp-field sp-field-full-width" sp-id="sp-7dd427e4-a8c3-4126-b02f-897742857dde">
+<div style="font-family: inherit; line-height: 1;"></div>
+</div>
+</form>
+<div class="sp-message">
+<div></div>
+</div>
+</div>
+<nav class="social-links">
+<span>Let's connect</span>
+<ul class="social-links__list">
+<li class="social-links__link">
+<a class="icon" href="https://twitter.com/rocknblockdev" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-tw-mask.svg" alt="twiter">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="telegram">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://www.facebook.com/RocknBlockDev/?ref=br_rs" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-fb-mask.svg" alt="facebook">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://rocknblock.medium.com/" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-medium-mask.svg" alt="medium">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://www.linkedin.com/authwall?trk=ripf&amp;trkInfo=AQHvgveZGbs93QAAAXggz85o2_gQEyTCero1KbSW_FNCIX1sjFUjvezZQqiUuu2cVmo2lj4adoTCg0J8Rvb-V8pKjpQj8U3C5-qT4igU957ofdXB7BvLt6ctemMUWideBHjsZLg=&amp;originalReferer=https://rocknblock.io/&amp;sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2F13060149" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-in-mask.svg" alt="linked in">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="../cdn-cgi/l/email-protection.html#046c6168686b44766b676f6a66686b676f2a6d6b" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-mail-mask.svg" alt="email">
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="footer-services">
+<div class="footer-services-list">
+<div class="footer-services-item">
+<span class="title">NFT Metaverse</span>
+<a class="link" href="../marketplace.html">NFT Marketplace</a>
+<a class="link" href="../10knft.html">10k NFT Generator</a>
+<a class="link" href="../gamefi.html">GameFi</a>
+<a class="link" href="../metaverse.html">Metaverse</a>
+</div>
+<div class="footer-services-item">
+<span class="title">De-Fi Experience</span>
+<a class="link" href="../farming.html">Yield Farming</a>
+<a class="link" href="../vesting.html">Vesting Contract</a>
+<a class="link" href="../staking.html">Staking Platfrom</a>
+<a class="link" href="../launchpad.html">Launchpad</a>
+<a class="link" href="../tools.html">Trading Tools</a>
+<a class="link" href="../dex.html">DEX/CEX</a>
+</div>
+<div class="footer-services-item">
+<span class="title">Token Assistance</span>
+<a class="link" href="../token-generator.html">Token Generator</a>
+<a class="link" href="../crowdsale.html">Crowdsale Pack</a>
+<a class="link" href="../bridge.html">Cross-Chain Bridge</a>
+<a class="link" href="../safemoon.html">Deflationary</a>
+<a class="link" href="../tokenization.html">Tokenized Property</a>
+</div>
+<div class="footer-services-item">
+<span class="title">Blockhain Expertise</span>
+<a class="link" href="../consulting.html">Consulting</a>
+<a class="link" href="../marketing.html">Web3 Marketing</a>
+<a class="link" href="../security-audit.html">Security Audit</a>
+<a class="link" href="../rust.html">Rust Development</a>
+</div>
+</div>
+</div>
+<div class="bottom">
+<div class="links">
+<p class="bottom__copyright-desktop">© Copyright Rock’n’Block 2022</p> <a href="../privacy-policy.html" target="_blank">Privacy
+Policy</a><a href="../terms-of-service.html" target="_blank">Terms
+of Service</a><a href="../company.html" target="_blank">Company</a>
+</div>
+<p class="bottom__copyright-mobile">© Copyright Rock’n’Block 2023</p>
+</div>
+</div>
+<div id="btnScrollToTop">
+<img src="../themes/rocknblock/assets/images/site/icons/icon-arrow-top-mask.svg" alt="arrow top">
+</div>
+<ul class="side-socials">
+<li class="side-socials__link side-socials__link_tg">
+<a class="icon" href="https://t.me/rocknblock" rel="noreferrer" target="_blank"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="tg">
+</a>
+</li>
+<li class="side-socials__link side-socials__link_whatsapp">
+<a class="icon" href="https://api.whatsapp.com/send?phone=16232304354" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-whatsapp-mask.svg" alt="whatsapp">
+</a>
+</li>
+</ul> </footer>
+<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../themes/rocknblock/assets/javascript/jquery.js"></script>
+<script defer src="../themes/rocknblock/assets/javascript/main.min.js"></script>
+<script type="text/javascript" async src="../../web.webformscr.com/apps/fc3/build/default-handler79b6.js?1653643444289"></script>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(function(){
+      
+      window.__lc = window.__lc || {};
+      window.__lc.license = 9683030;
+      ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="../../cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+    
+    }, 3500); // время указано в мс = 0,001 секунды, изменить по вкусу
+  });
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/9683030/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+
+<script src="../modules/system/assets/js/framework.combined-min5cce.js?v=1.1.7"></script>
+<link rel="stylesheet" property="stylesheet" href="../modules/system/assets/css/framework.extras-min5cce.css?v=1.1.7">
+
+<scriptd type="text/javascript" id="amo_pixel_identifier_js" async="async" src="../../piper.amocrm.ru/pixel/js/identifier/pixel_identifier.js"></script>
+<script>window.AMOPIXEL_IDENTIFIER_PARAMS = window.AMOPIXEL_IDENTIFIER_PARAMS || { }; window.AMOPIXEL_IDENTIFIER_PARAMS.onload = function (pixel_identifier) { var visitor_uid = pixel_identifier.getVisitorUid ( ); if (visitor_uid) {document.getElementById ( 'visitor_uid' ).value = visitor_uid;}};</script> </body>
+
+<!-- Mirrored from rocknblock.io/blog/tech-spec-part-and-parcel-blockchain-project-launch by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Apr 2023 16:31:47 GMT -->
+</html>

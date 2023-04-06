@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from rocknblock.io/blog/what-exactly-yield-farming-is by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Apr 2023 16:34:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', () => {
+		setTimeout(function(){
+			
+			   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+			   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+			   (window, document, "script", "../../mc.yandex.ru/metrika/tag.js", "ym");
+			
+			   ym(82964167, "init", {
+			        clickmap:true,
+			        trackLinks:true,
+			        accurateTrackBounce:true,
+			        webvisor:true
+			   });
+			   
+			   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','dataLayer','GTM-P548TMG');
+			   
+		}, 3500); // время указано в мс = 0,001 секунды, изменить по вкусу
+	});
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<meta name="author" content="Amary Filo">
+<meta name="generator" content="Rocknblock Developing">
+<meta name="application-name" content="Rocknblock Developing">
+<style>body{background-color: black;}</style>
+<link rel="stylesheet" href="../themes/rocknblock/assets/css/style.min.css" as="style">
+<link rel="preload" href="../themes/rocknblock/assets/javascript/main.min.js" as="script">
+<link rel="manifest" href="../themes/rocknblock/assets/images/manifest.html">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-96x96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="57x57" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../themes/rocknblock/assets/images/favicon/android-chrome-192x192.png" />
+<meta name="msapplication-square70x70logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/smalltile.png" />
+<meta name="msapplication-square150x150logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/mediumtile.png" />
+<meta name="msapplication-wide310x150logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/widetile.png" />
+<meta name="msapplication-square310x310logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/largetile.png" />
+<link rel="mask-icon" href="../themes/rocknblock/assets/images/favicon/safari-pinned-tab.svg" " color="#ff0000" />
+<meta name="msapplication-TileColor" content="#ff0000" />
+<meta name="theme-color" content="#1D1B21" />
+<style>
+    .tabs-case .content-item {
+        margin: 20px !important;    
+    }
+</style> <title>What exactly Yield Farming is? YDragon: How do we develop a DeFi cross-chain platform?</title>
+<meta name="title" content="What exactly Yield Farming is? YDragon: How do we develop a DeFi cross-chain platform?">
+<meta name="keywords" content="yield farming,blockchain,defi,liquidity pool,cross chain,blockchain development,mining pool">
+<meta name="description" content="A full guide about all Yield Farming mechanics and its development showcases. Here is how we developed the YDragon, the powerful DeFi cross-chain platform.">
+<meta name="generator" content="Rock`n`Block Developing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What exactly Yield Farming is? YDragon: How do we develop a DeFi cross-chain platform?">
+<meta property="og:url" content="https://rocknblock.io/blog/what-exactly-yield-farming-is">
+<meta property="og:image" content="https://rocknblock.io/storage/app/uploads/public/70e/2b1/d5e/thumb__1200_640_0_0_crop.png">
+<meta property="og:description" content="A full guide about all Yield Farming mechanics and its development showcases. Here is how we developed the YDragon, the powerful DeFi cross-chain platform.">
+<meta property="article:author" content="Rock’n’Block">
+<meta property="article:published_time" content="2021-12-14 15:06:12">
+<meta property="article:modified_time" content="2022-09-02 10:17:56">
+<meta property="article:section" content="Technology">
+<meta property="article:tag" content="yield farming">
+<meta property="article:tag" content="blockchain">
+<meta property="article:tag" content="defi">
+<meta property="article:tag" content="liquidity pool">
+<meta property="article:tag" content="mining pool">
+<meta property="article:tag" content="cross chain">
+<meta property="article:tag" content="blockchain development">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What exactly Yield Farming is? YDragon: How do we develop a DeFi cross-chain platform?">
+<meta name="twitter:description" content="Full comprehensive guide about all Yield Farming mechanics and the development cases of Yield Framing platforms. Here is how we developed the YDragon, the powerful DeFi cross-chain platform">
+<meta name="twitter:site" content="@rocknblockdev">
+<meta name="twitter:url" content="https://rocknblock.io/blog/what-exactly-yield-farming-is">
+<meta name="twitter:image" content="https://rocknblock.io/storage/app/uploads/public/70e/2b1/d5e/thumb__1200_640_0_0_crop.png">
+<meta name="twitter:image:alt" content="What exactly Yield Farming is? YDragon: How do we develop a DeFi cross-chain platform?">
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org/",
+		"@type": "Article",
+		"mainEntityOfPage": {
+			"@type": "WebPage",
+			"@id": "https://rocknblock.io/blog/what-exactly-yield-farming-is"
+		},
+		"author": {
+			"@type": "Organization",
+			"name": "Rock`n`Block"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "Rock`n`Block",
+			"logo": {
+				"@type": "ImageObject",
+				"url": "https://rocknblock.io/themes/rocknblock/assets/images/site/logo.png"
+			}
+		},
+		"headline": "What exactly Yield Farming is? YDragon: How do we develop a DeFi cross-chain platform?",
+		"image": "https://rocknblock.io/storage/app/uploads/public/61c/07c/770/61c07c7709f46759812023.png",
+		"datePublished": "2021-12-14 15:06:12",
+		"dateModified": "2022-09-02 10:17:56"
+	}
+	</script>
+
+<meta name="google-site-verification" content="7_6Fy-97nJ33Ve9stEFXjT4RUqNwIQj-vh9tYL22ZU0"> </head>
+<body>
+
+
+
+<noscript>
+  
+  <div><img src="https://mc.yandex.ru/watch/82964167" style="position:absolute; left:-9999px;" alt="" /></div>
+  
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P548TMG" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+
+</noscript>
+
+<div class="preloader"><div class="preloader__row"><div class="preloader__item"></div><div class="preloader__item"></div></div></div>
+
+<header id="layout-header">
+<div class="container">
+<nav class="main-nav">
+<section class="main-nav__mobile">
+<a class="logo" href="../index.html">
+<img src="../themes/rocknblock/assets/images/site/logo.svg" alt="Rock'n'Block logo">
+</a>
+<div class="burger icon">
+<img class="icon-burger ic-open" src="../themes/rocknblock/assets/images/site/icons/icon-header-burger-mask.svg" alt="burger menu">
+<img class="icon-burger ic-close" src="../themes/rocknblock/assets/images/site/icons/icon-header-burger-close-mask.svg" alt="burger close menu" hidden>
+</div>
+</section>
+<section class="nav-pages" id="nav-pages">
+<a class="nav-pages__link" href="../index.html#solutions">Services</a>
+<a class="nav-pages__link" href="../index.html#cases">Cases</a>
+<a class="nav-pages__link" href="../index.html#team">Team</a>
+<a class="nav-pages__link" href="../index.html#partners">Partners</a>
+<a class="nav-pages__link" href="../blog.html">Blog</a>
+<a class="nav-pages__contact-button nav-pages__link__contact-us" href="#contact-us">CONTACT US</a>
+</section>
+</nav>
+</div> </header>
+
+<main id="layout-content">
+<section class="pg pg-article">
+<section class="article container">
+<h1 class="article-title">What exactly Yield Farming is? YDragon</h1>
+<span class="article-date" style="background-image: url('../themes/rocknblock/assets/images/site/blog/icon-clock.svg');">12 Nov 2021</span>
+<p data-selectable-paragraph="">Yield farming is one of the most complex topics in the blockchain world to grasp. Among all the educational materials about it is still sometimes hard to get the grasp of the whole potential behind it. Before diving into this material, we suggest you read more related articles about DeFi tools<a href="defi-token-development.html" rel="noopener noreferrer" target="_blank">&nbsp;like this one</a>. And also articles about the consensus mechanisms of blockchain<a href="full-guide-about-all-blockchain-consensus-mechanisms.html" rel="noopener noreferrer" target="_blank">&nbsp;in this article</a>.</p><img alt="" src="../storage/temp/public/d10/584/51eFrame%203041409__1200.png" srcset="https://miro.medium.com/max/552/1*etKwiBWt51gAViG5PqpeMQ.jpeg 276w, https://miro.medium.com/max/1104/1*etKwiBWt51gAViG5PqpeMQ.jpeg 552w, https://miro.medium.com/max/1280/1*etKwiBWt51gAViG5PqpeMQ.jpeg 640w, https://miro.medium.com/max/1400/1*etKwiBWt51gAViG5PqpeMQ.jpeg 700w" sizes="700px" class="fr-fic fr-dib" style="width: 100%;" data-result="success">
+<p data-selectable-paragraph="">However, <a href="../farming.html">Yield Farming</a> is might be confusing in its definitions, first of all, it is one of the most interesting DeFi (decentralized finances) tools to explain.</p>
+<h2 data-selectable-paragraph=""><strong>What is Yield Farming?</strong></h2>
+<blockquote>
+<p data-selectable-paragraph="">Yield Farming is the concept of lending or providing liquidity in a form of a cryptocurrency, so holders of these assets (investors) can get certain reward returns.</p>
+</blockquote>
+<p data-selectable-paragraph="">Yield&nbsp;Farming has become immensely popular since investors while putting their crypto into a DeFi platform so-called liquidity pools, can expect way higher returns in comparison with traditional financial practices.</p>
+<blockquote>
+<p data-selectable-paragraph="">Anyone who possesses a crypto asset can start the practice of <strong>Yield Farming</strong>.</p>
+</blockquote>
+<p data-selectable-paragraph="">Inherently, Yield Farming resembles the process when a lender (a participator in the financial activity) like in traditional finances — a bank or a private institution, is lending money to a borrower and sets the interest on lending this money. In that case, a lender is getting a financial reward — interest from a borrower paying off that loan.</p>
+<p data-selectable-paragraph="">However, Yield Farming is not exactly only about borrowing or lending. There are a few methods of Yield Farming, so-called <strong>Y</strong><strong>ield Farming types including Staking, Providing liquidity (liquidity mining), and Leveraged lending</strong>. Different methods can potentially bring a Yield Farming participator higher returns. Although, higher returns are always connected with higher risks.</p>
+<blockquote>
+<p data-selectable-paragraph=""><strong>It is important to understand that Yield Farming as any financial activity is connected with risks</strong>.</p>
+</blockquote>
+<h2 data-selectable-paragraph=""><strong>Where do the returns come from?</strong></h2>
+<p data-selectable-paragraph="">A Yield Farming participator can expect the different types of returns from Yield Farming. Depending on a DeFi platform, the returns come from the gas fees (Ethereum blockchain transaction fees), or in a form of a crypto-asset reward (an investor gets a native coin back as the reward), or LP-tokens (liquidity pool tokens).</p>
+<p data-selectable-paragraph="">In some cases, DeFi platforms can offer a liquidity provider (in the case of the Yield Farming method as the Liquidity provider) up to 500% APR (annual percentage rate) reward, since these platforms earn a massive amount of funds from the trade fees. However, that is not always the case.</p>
+<blockquote>
+<p data-selectable-paragraph="">Beware of scammers: some DeFi platforms can offer so-called Degenerative Yield Farming when a liquidity provider (investor) is earning back a continuously mintable token. Most of those tokens do not have a real value and no solid project behind them. There were some cases of a Rug Pull when a platform and liquidity pool went offline (hiding the source of a smart contract) in order to switch the code of a smart contract and get away with the investor’s assets. These platforms usually promise extremely unrealistic returns and highly volatile doubtful tokens.</p>
+</blockquote>
+<h2 data-selectable-paragraph=""><strong>How does Yield Farming work? Liquidity pools, Liquidity Providers and Automated Market Maker (AMM) model</strong></h2>
+<p data-selectable-paragraph="">As we mentioned earlier, there are a few ways of Yield Farming that can offer different types of rewards.</p>
+<p data-selectable-paragraph="">In all cases of Yield Farming DEXs and DeFi platforms where that practice is occurring are using the AMM (automated market maker) to conduct trades. That model is the opposite of the Order Book system, which is widely used in centralized crypto exchanges, and in the classical stock markets too. Order book fulfills the trades by matching appearing orders. When two sides of “buy” and “sell” in an order book-match between two parties, then a trade takes place.</p>
+<h2 data-selectable-paragraph=""><strong>AMM work explanation</strong></h2>
+<p data-selectable-paragraph="">With AMM all the trades are automated with the help of an algorithm, that allows avoiding price slippage and unfair price influence. AMM doesn’t require a match with another market participator (seller/buyer) in order to conduct a trade. Instead, AMM communicates with a smart contract and liquidity pool that can fulfill your order.</p>
+<p data-selectable-paragraph="">However, the price of a particular asset is dependent so much on liquidity, so when there is a higher demand for a particular asset in a liquidity pool, the price of it slowly goes higher on a platform. And in the other way, when there is an abundance of another asset in a liquidity pool, the price is lower, that it could be somewhere else. With that being said, it is important to understand that the AMM algorithm is set to continuously aim for a balance in a liquidity pool. Particularly to a ratio of 50:50 of the total assets in it.</p>
+<p data-selectable-paragraph="">AMM works with the help of complex mathematical algorithms that can work differently per each DEX (decentralized exchange) but the essence stays the same.</p>
+<blockquote>
+<p data-selectable-paragraph="">If we talk about DEXs like Uniswap that implements the AMM model along with all other DEXs, <strong>we can see that the inherency of AMM is always dependent on liquidity</strong>. In plain words, AMM works with math that governs multiple variables and constants. <strong>For AMM, the basics will be looking like this&nbsp;</strong>— an algorithm contains a formula where one variable is representing the number of digital assets in a liquidity pool and it multiplies to the other variable of different assets in the same liquidity pool. The result of this operation always should be constant to the total liquidity pool amount.</p>
+</blockquote>
+<p data-selectable-paragraph="">A custom AMM algorithm can be claimed ad DEX protocol, like Uniswap V3 that runs on Ethereum network, Pancakeswap protocol that runs on Binance Smart Chain, and etc.</p>
+<h2 data-selectable-paragraph=""><strong>Yield Farming in the face of Liquidity providing and so-called Liquidity mining</strong></h2>
+<p data-selectable-paragraph="">DEXs like Uniswap and other DeFi platforms always need liquidity in order to operate properly. Subsequently, liquidity providers can earn passive income (the Yield Farming rewards) while providing liquidity, borrowing, and lending or staking their crypto by locking it in a platform’s liquidity pool.</p>
+<p data-selectable-paragraph="">When putting assets in a liquidity pool, a liquidity provider becomes owning a proportional percentage of that pool, hence the reward spread proportionally. So, if we imagine that someone has deposited a 3000$ in one of the DEX liquidity pools like Uniswap, the rewards will be calculated from the number of fees that were collected by a DEX from the trades. Then, a reward is going to be spread accordingly to the percentage of pool owning. In plain words, if one owns 1% of the pool, that means the expected rewards are going to be equal to 1% from the fees fund.</p>
+<h2 data-selectable-paragraph=""><strong>What are the liquidity pools and how can it be safe to provide liquidity?</strong></h2>
+<p data-selectable-paragraph="">It is very important for this process to be safe and transparent, that’s why all the liquidity pools are basically a smart contract code that governs the process of Yield farming practices.</p>
+<p data-selectable-paragraph="">All the Liquitidy pools and similar tools are required smart contracts to be implemented for transparent regulation of the DeFi functioning tools as a whole.</p>
+<p data-selectable-paragraph=""><strong>All smart contracts should be open-source. It means that a smart-contract code can be reproduced on any other machine and run properly.</strong></p>
+<p data-selectable-paragraph="">Quite commonly smart contracts on the most prominent DEXs can resemble a hierarchical smart contract system for all the functions of a DEX.</p>
+<p data-selectable-paragraph="">For example, in Uniswap V3 we have the Core smart contract which is guaranteeing fundamental safety for all DEX users, liquidity providers, and Uniswap protocol participators. That code governs a pool deployer and the pools that are going to be created by the factory.</p>
+<p data-selectable-paragraph="">Factory smart contract that governs the logic and pool generating algorithms on the platform.</p>
+<p data-selectable-paragraph="">Pools smart contracts that are managing the AMM model.</p>
+<p data-selectable-paragraph="">And the Periphery contracts that are responsible for interacting and communicating with the Core smart contracts, and other smart contracts of outside protocols in order to make possible a swap routing (Swap Routing is the way of swapping digital assets on DEX when a DEX has to communicate with different pools outside its network in order to give the different asset from other pools, that an initial DEX doesn’t have in its liquidity pool).</p>
+<blockquote>
+<p data-selectable-paragraph="">All code is open source and verified. So anyone can check it out, audit, and be sure that the Yield Farming activities on Uniswap are secured by a real and trustable smart contracts system.</p>
+</blockquote>
+<h2 data-selectable-paragraph=""><strong>Borrowing and Lending</strong></h2>
+<p data-selectable-paragraph="">Depending on the properties of the DeFi platform, many users can earn interest while borrowing or lending crypto assets. Due to the regulation of the process by smart contracts, the system provides trust by having borrowers’ collateral at stake. With the lending of digital assets, investors can earn a variable interest on the number of funds that they’ve lent. Many different DeFi platforms show the actual rates for every digital asset and the expected amount of returns.</p>
+<p data-selectable-paragraph="">The safety of this deal is guaranteed by smart contracts again. Due to the fact that lending&amp;borrowing in Yield Farming is always collateralized an investor always knows that he can expect his funds back even if a borrower couldn’t pay off his loan. In that case, a borrower would be liquidated, and the platform would pay the amount of lent funds to an investor back, while he has already earned the interstate over that operation.</p>
+<blockquote>
+<p data-selectable-paragraph="">Whereas platforms as Uniswap offer a role of a liquidity provider, platforms like Compound can offer borrowing and lending methods.</p>
+</blockquote>
+<p data-selectable-paragraph="">Hence, there is a different type of reward from the investor. In that case, the reward is coming from the interest, and from transaction fees as with the liquidity provided.</p>
+<p data-selectable-paragraph="">Borrowing as the Yield Farming type is profitable when one is borrowing a certain asset that is predictably going to raise in price. While putting collateral of the equal amount of different assets, one can expect to earn over the price pump with the initial asset that was borrowed and still pays off the first loan.</p>
+<h2 data-selectable-paragraph=""><strong>Staking</strong></h2>
+<p data-selectable-paragraph="">Many times, staking is being considered an independent activity. However, technically staking is a form of Yield Farming when one can provide a liquidity pool to one of the DeFi platforms and receive an LP Token or a fraction of a native token/coin as the reward.</p>
+<p data-selectable-paragraph="">LP token is a liquidity pool token, that is minted every time when an investor provides liquidity (deposits funds) to a pool. Subsequently, LP-tokens can be exchanged, transferred, or traded in order to retrieve the end reward after paying a small fee. In the case of Uniswap, the fee is 0.3%.</p>
+<p data-selectable-paragraph="">Staking the world with the help of smart contracts, when putting a certain amount of digital assets into a staking pool a smart contract locks them up and rushes them up into the blockchain network in order to verify transactions and create the new blocks.</p>
+<p data-selectable-paragraph="">Not every digital asset can support staking options, mostly it is implemented at the stage of development. Those digital assets that can support staking should be existing on a blockchain <strong>with a Proof of Stake blockchain consensus mechanism. If that sounds confusing,&nbsp;</strong><a href="full-guide-about-all-blockchain-consensus-mechanisms.html" rel="noopener noreferrer" target="_blank"><strong>read this article about PoS on a blockchain here</strong></a><strong>.</strong></p>
+<h2 data-selectable-paragraph=""><strong>The risks of Yield Farming</strong></h2>
+<p data-selectable-paragraph="">Without any doubt, Yield Farming involves a lot of financial risks as any other investment activity. The main rule to understand the potential risk is when assuming high rewards, consequently expecting high risks.</p>
+<h2 data-selectable-paragraph=""><strong>Impermanent loss</strong></h2>
+<p data-selectable-paragraph="">Due to the fact that all the digital assets are extremely volatile at this moment, there is always a high chance of experiencing an impermanent loss for a trader. Impermanent loss is entirely connected with the Yield Farming activities and the AMM model.</p>
+<p data-selectable-paragraph="">Impermanent loss is a chance of eventually losing the potential profits from providing liquidity to a liquidity pool. However, the impermanent loss doesn’t occur in the final instance. Otherwise, it is going to be a permanent loss. Conversely, impermanent loss occurs in the moment of a digital asset price drop after proving liquidity into a liquidity pool. Impermanent loss is recoverable when that price bounces back, so a trader doesn’t acquire a loss.</p>
+<p data-selectable-paragraph="">The chance of experiencing the impermanent loss, in many cases, depends on a supply&amp;demand flow that is represented by the AMM.</p>
+<p data-selectable-paragraph="">Impermanent loss is a pitiful risk since one of the simplest ways to avoid carrying it, is to not provide liquidity into a liquidity pool. So, a trader can expect greater profits by just holding the assets rather than providing liquidity when the price of an asset is significantly raised.</p>
+<h2 data-selectable-paragraph=""><strong>Rug Pull</strong></h2>
+<p data-selectable-paragraph="">Rug Pull is inherent can be the greatest risk when engaging in Yield Farming. Due to the fact that it’s causing permanent and great losses of funds, and no ability to recover them. There are many types of Rug Pulls, but basically, they are all some sorts of scamming activity when a DeFi platform pretends to be very legit and offers tremendous rewards that can not only double, but triple, quadruple, and multiple increases the investments of a trader.</p>
+<p data-selectable-paragraph="">The most common Rug Pull cases are happening when a DeFi platform incentivizes investors to provide valuable digital assets into their liquidity pools like Ethereum or Cardano. But, that platform is giving zero-worth liquidity pool tokens in a return, that hardly can be exchanged into something equally valuable somewhere else. Eventually, the price of those zero-worth tokens goes down to the actual zero and never recovers, because the platform keeps on minting them again and again.</p>
+<p data-selectable-paragraph="">The other Rug Pull cases can be connected with a faulty smart contract code so that at a certain point when a not legit platform has collected enough amount of funds, they decided to switch their smart contracts offline and cheatingly change them and eventually fade away.</p>
+<blockquote>
+<p data-selectable-paragraph="">Beware of scammers: some DeFi platforms can offer so-called Degenerative Yield Farming when a liquidity provider (investor) is earning back a continuously mintable token. Most of those tokens do not have a real value and no solid project behind them. There were some cases of a Rug Pull when a platform and liquidity pool went offline (hiding the source of a smart contract) in order to switch the code of a smart contract and get away with the investor’s assets. These platforms usually promise extremely unrealistic returns and highly volatile doubtful tokens.</p>
+</blockquote>
+<p data-selectable-paragraph=""><strong>As blockchain software developers, we are strictly against those activities, and always encourage our clients to verify their projects by conducting the smart contract audit.&nbsp;</strong><a href="smart-contract-audit.html" rel="noopener noreferrer" target="_blank"><strong>You can read more about our smart contract audit here</strong></a><strong>.</strong></p>
+<p data-selectable-paragraph="">We do not take the projects that have traits of the Rug Pull at the brief stage into the development. We recommend everyone to do Yield Farming only with the trusted DeFi platforms and DEXs, and conduct their own research.</p>
+<h2 data-selectable-paragraph=""><strong>Prominent Yield Farming platforms</strong></h2>
+<ul>
+<li data-selectable-paragraph=""><strong>Uniswap</strong></li>
+<li data-selectable-paragraph=""><strong>Compound</strong></li>
+<li data-selectable-paragraph=""><strong>Yearn.finance</strong></li>
+<li data-selectable-paragraph=""><strong>AAVE</strong></li>
+<li data-selectable-paragraph=""><strong>CURVE</strong></li>
+<li data-selectable-paragraph=""><strong>ALGEBRA.finance</strong></li>
+</ul>
+<h2 data-selectable-paragraph=""><strong>How do we develop Yield Farming projects?</strong></h2>
+<p data-selectable-paragraph="">As blockchain software developers, we are receiving plenty of requests to create new DeFi platforms for Yield Farming and other DeFi tools. As we mentioned earlier, we research every project idea and we are not engaged in a potentially Rug Pull platform.</p>
+<p data-selectable-paragraph="">A lot of requests and projects around DeFi in one way or another are inspired by the most prominent existing platforms and DEXs.</p>
+<p data-selectable-paragraph="">At the current moment, there is a situation when a lot of project ideas demand to develop a fork of existing Uniswap or Pancake swap. Even though we can easily do that, we are truly fascinated by the innovative ideas of our clients around DeFi. Since the potential of DeFi tools is limitless and just started to evolve greater and greater.</p>
+<p data-selectable-paragraph="">We are truly inspired by the project of our friends from ALGEBRA.finance. <a href="https://algebra.finance/" rel="noopener ugc nofollow" target="_blank">ALGEBRA.finance</a> is a fully decentralized exchange that offers algorithmic fees for swapping tokens. The unique idea of the trading fees curve for pools is allowing to automatically adjust the price of an asset that is based on trading volume, pool volume, and volatility. And not just on the available liquidity in the pool. If you are interested in details, we highly recommend you to check out the project <a href="https://algebra.finance/" rel="noopener ugc nofollow" target="_blank">here</a>.</p>
+<p data-selectable-paragraph=""><strong>But now, we are very excited to tell you about our big milestone in the development of a very promising DeFi platform with unique features for returns diversification and cross-chain integrations.&nbsp;</strong><a href="https://ydragon.io/" rel="noopener ugc nofollow" target="_blank"><strong>Visit the YDragon platform</strong></a><strong>.</strong></p>
+<h2 data-selectable-paragraph=""><strong>YDragon is the DeFi cross-chain platform that provides advanced Yield farming and staking of indexes powered by Rock’n’Block blockchain developers</strong></h2>
+<p data-selectable-paragraph="">YDragon is the innovative DeFi tool platform that offers cross-chain index exposure to different DeFi tools and assets. Diversification is the key aim for YDragon creators in order to solve, and at least minimize the current DeFi issues like complex management of an asset portfolio, the high risks that can occur in the face of impermanent loss when a trade use DeFi tools and engage in Yield Farming activities. Indexes have come to solve many of those issues.</p>
+<p data-selectable-paragraph="">YDragon creates opportunities for investing in index tokens, that are representing the bundle of profitable blockchain projects assets. That gives the DeFi market participants the ability to own index tokens that offer cross-chain yield generation, auto-rebalancing, and a comprehensive way of managing the asset portfolio using the YDragon platform.</p>
+<p data-selectable-paragraph="">Cross-chain and Bridges. Diversification wouldn’t have been possible without <a href="../farming.html">cross-chain integration</a> due to the fact that most of the promising and worthy assets are existing on either the Ethereum blockchain or the Binance Smart Chain.</p>
+
+<p data-selectable-paragraph="">Our team has been dedicatedly involved in the development of all the complex features and systems for the YDragon platform. The most fundamental of them are:</p>
+<ul>
+<li data-selectable-paragraph=""><strong>YDragon indexes. Indexpad</strong></li>
+<li data-selectable-paragraph=""><strong>Automated Yield generation</strong></li>
+<li data-selectable-paragraph=""><strong>Native YDR Staking. Stakepad</strong></li>
+<li data-selectable-paragraph=""><strong>YDR Governance token</strong></li>
+</ul>
+<p data-selectable-paragraph=""><strong>We kindly&nbsp;</strong><a href="https://ydragon.io/static/media/YD_WP.db30cb0b.pdf" rel="noopener ugc nofollow" target="_blank"><strong>encourage you to check out YDragon whitepaper</strong></a><strong>&nbsp;in order to realize the whole potential of the platform!</strong></p>
+<p data-selectable-paragraph="">Rock’n’Block’s team can help you with:</p>
+<p data-selectable-paragraph="">⚡️<a href="../marketplace.html" rel="noopener ugc nofollow" target="_blank">NFT and NFT Marketplaces development</a> ;
+<br>⚡️<a href="../10knft.html" rel="noopener ugc nofollow" target="_blank">NFT 10K generator</a>;
+<br>⚡️<a href="../staking.html" rel="noopener ugc nofollow" target="_blank">Staking platforms</a>;
+<br>⚡️<a href="../vesting.html" rel="noopener ugc nofollow" target="_blank">Vesting platforms</a>;
+<br>⚡️<a href="../farming.html" rel="noopener ugc nofollow" target="_blank">Farming platforms</a>;
+<br>⚡️<a href="../crowdsale.html" rel="noopener noreferrer" target="_blank">Crowdsale</a>;
+<br>⚡️Any other custom request from a crypto wallet development to custom <a href="../index.html" rel="noopener ugc nofollow" target="_blank">blockchain development</a>.</p>
+<p data-selectable-paragraph="">If you’re interested in building your blockchain project, feel free to contact our team via the <a href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noopener ugc nofollow" target="_blank">Telegram channel</a> or<a href="https://calendly.com/alex-tka?_ga=2.125281484.774853951.1635149124-626771872.1633109778" rel="noopener noreferrer" target="_blank">&nbsp;book a call via Calendly</a>.</p>
+<p data-selectable-paragraph="">
+<br>
+</p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>We</strong>❤️<strong>Development</strong></p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>Rock</strong>⚡️<strong>Block</strong></p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>Follow us on social media to receive the hottest blockchain development Rock’n’Block updates</strong><a href="https://twitter.com/RocknBlockDev" rel="noopener ugc nofollow" target="_blank">&nbsp;Twitter</a>, <a href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noopener ugc nofollow" target="_blank">Telegram</a>, <a href="https://www.linkedin.com/company/13060149" rel="noopener ugc nofollow" target="_blank">LinkedIn</a>, <a href="https://www.facebook.com/RocknBlockDev" rel="noopener ugc nofollow" target="_blank">Facebook</a>, <a href="https://www.instagram.com/rocknblock.io/" rel="noopener ugc nofollow" target="_blank">Instagram</a></p>
+</section>
+<section class="article-share">
+<div class="container"><span class="article-section-title">Share it!</span>
+<div class="article-share-items">
+<a class="article-share-item" href="https://twitter.com/intent/tweet?text=What%20exactly%20Yield%20Farming%20is?%20YDragon:%20How%20do%20we%20develop%20a%20DeFi%20cross-chain%20platform?.%20Full%20comprehensive%20guide%20about%20all%20Yield%20Farming%20mechanics%20and%20the%20development%20cases%20of%20Yield%20Framing%20platforms.%20Here%20is%20how%20we%20developed%20the%20YDragon,%20the%20powerful%20DeFi%20cross-chain%20platform&amp;url=https://rocknblock.io/blog/what-exactly-yield-farming-is&amp;hashtags=yield%20farming,blockchain,defi,liquidity%20pool,cross%20chain,blockchain%20development,mining%20pool" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tw-mask.svg" alt="twitter" /></a>
+<a class="article-share-item" href="https://t.me/share/url?url=https://rocknblock.io/blog/what-exactly-yield-farming-is&amp;text=A%20full%20guide%20about%20all%20Yield%20Farming%20mechanics%20and%20its%20development%20showcases.%20Here%20is%20how%20we%20developed%20the%20YDragon,%20the%20powerful%20DeFi%20cross-chain%20platform." target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="telegram" /></a>
+<a class="article-share-item" href="https://www.facebook.com/sharer/sharer.php?u=https://rocknblock.io/blog/what-exactly-yield-farming-is&amp;t=What%20exactly%20Yield%20Farming%20is?%20YDragon:%20How%20do%20we%20develop%20a%20DeFi%20cross-chain%20platform?&amp;text=A%20full%20guide%20about%20all%20Yield%20Farming%20mechanics%20and%20its%20development%20showcases.%20Here%20is%20how%20we%20developed%20the%20YDragon,%20the%20powerful%20DeFi%20cross-chain%20platform." target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-fb-mask.svg" alt="facebook" /></a>
+<a class="article-share-item" href="https://www.linkedin.com/sharing/share-offsite/?url=https://rocknblock.io/blog/what-exactly-yield-farming-is" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-in-mask.svg" alt="linkedin" /></a>
+</div>
+</div>
+</section>
+<section>
+<div class="container article-similar"> <span class="article-section-title">Similar Posts</span>
+<div class="blog-items">
+<a class="swiper-slide blog-item" href="cryptocurrency-vs-token.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/806/e65/324/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/943/479/72dthumb__240_140_0_0_crop__240.png" alt="Token creation on a blockchain. Cryptocurrency vs. Token" srcset="https://rocknblock.io//storage/temp/public/943/479/72dthumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/943/479/72dthumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Token creation on a blockchain. Cryptocurrency vs. Token</h3>
+<p class="blog-item-anonce">Many blockchain adoptions have a token creation. Many enterprises integrating tokens on their blockchain for many different purposes. Here we tell how they do that</p>
+</a>
+<a class="swiper-slide blog-item" href="full-guide-about-all-blockchain-consensus-mechanisms.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/101/c88/3fe/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/409/77a/bdethumb__240_140_0_0_crop__240.png" alt="Full guide about all Blockchain consensus mechanisms" srcset="https://rocknblock.io//storage/temp/public/409/77a/bdethumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/409/77a/bdethumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Full guide about all Blockchain consensus mechanisms</h3>
+<p class="blog-item-anonce">The unfolding of all blockchain consensus mechanisms, how do different blockchain work? All the mechanics, advantages, and problem solving of every consensus mechanism are in this article</p>
+</a>
+<a class="swiper-slide blog-item" href="what-crowdsale-is-exactly.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/c25/60f/05f/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/3a4/631/d67thumb__240_140_0_0_crop__240.png" alt="What is a crowdsale? A pack for CratD2c" srcset="https://rocknblock.io//storage/temp/public/3a4/631/d67thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/3a4/631/d67thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">What is a crowdsale? A pack for CratD2c</h3>
+<p class="blog-item-anonce">Crowdsale is becoming more and more popular among entrepreneurs not only in the crypto field. In fact, many of them are considering a Crowdsale as the better version of Crowdfunding</p>
+</a>
+<a class="swiper-slide blog-item" href="how-build-vesting-contract.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/7d8/6ec/a61/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/8af/8eb/589thumb__240_140_0_0_crop__240.png" alt="Quarashi ecosystem: How we built a vesting smart contract" srcset="https://rocknblock.io//storage/temp/public/8af/8eb/589thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/8af/8eb/589thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Quarashi ecosystem: How we built a vesting smart contract</h3>
+<p class="blog-item-anonce">Rock’n’Block developers created the vesting smart contract for the Quarashi ecosystem. Here we explain what is vesting contract and we develop projects like that</p>
+</a>
+<a class="swiper-slide blog-item" href="tokena-more-just-liquidity-mining-dapp.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/cf5/001/91b/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/20c/ed5/a85thumb__240_140_0_0_crop__240.png" alt="Tokena: More than just a Liquidity Mining dAPP" srcset="https://rocknblock.io//storage/temp/public/20c/ed5/a85thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/20c/ed5/a85thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Tokena: More than just a Liquidity Mining dAPP</h3>
+<p class="blog-item-anonce">Rock’n’Block creates special decentralized applications, today we will talk about Tokena a large complex dAPP that is Liquidity Mining + Staking. Here we tell how we did that!</p>
+</a>
+<a class="swiper-slide blog-item" href="how-run-your-launchpad-and-get-new-projects.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/e6a/cca/388/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/abb/d5e/3eathumb__240_140_0_0_crop__240.png" alt="LessPad: How to run your launchpad and get new projects" srcset="https://rocknblock.io//storage/temp/public/abb/d5e/3eathumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/abb/d5e/3eathumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">LessPad: How to run your launchpad and get new projects</h3>
+<p class="blog-item-anonce">Rock’n’Block development team has added to its expert portfolio plus one case in demand in the new technology market. DeFi less network! Read about how we did that</p>
+</a>
+<a class="swiper-slide blog-item" href="rocknblock-development-case-aggregator-crypto-defi.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/c34/0f0/043/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/7e3/080/547thumb__240_140_0_0_crop__240.png" alt="Bitgear: Rock’n’Block development case of an aggregator for crypto DeFi" srcset="https://rocknblock.io//storage/temp/public/7e3/080/547thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/7e3/080/547thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Bitgear: Rock’n’Block development case of an aggregator for crypto DeFi</h3>
+<p class="blog-item-anonce">How do the crypto DeFi aggregators work? Here we tell you how we did develop a project like that</p>
+</a>
+<a class="swiper-slide blog-item" href="defi-token-development.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/4ea/468/17e/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/1ce/a4a/ecathumb__240_140_0_0_crop__240.png" alt="DeFi Token Development" srcset="https://rocknblock.io//storage/temp/public/1ce/a4a/ecathumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/1ce/a4a/ecathumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">DeFi Token Development</h3>
+<p class="blog-item-anonce">DeFi tools and DeFi tokens, how can you develop such tools being a blockchain developer?</p>
+</a>
+</div>
+</div>
+</section>
+</section>
+<section class="form">
+<div class="container">
+<div class="contact-us container" id="contact-us">
+<div class="background-img">
+<picture>
+<source type="image/webp" srcset="../themes/rocknblock/assets/images/site/background/partners.html" />
+<img loading="lazy" src="../storage/temp/public/d5a/9db/096partners__98.png" alt="partners" srcset="https://rocknblock.io//storage/temp/public/d5a/9db/096partners__98.png 98w" sizes="(max-width: 98px) 100vw, 98px">
+</picture>
+</div>
+<div class="background-img">
+<picture>
+<source type="image/webp" srcset="../themes/rocknblock/assets/images/site/background/contact.html" />
+<img loading="lazy" src="../storage/temp/public/565/7bf/e43contact__116.png" alt="contact" srcset="https://rocknblock.io//storage/temp/public/565/7bf/e43contact__116.png 116w, https://rocknblock.io//storage/temp/public/565/7bf/e43contact__100.png 100w" sizes="(max-width: 116px) 100vw, 116px">
+</picture>
+</div>
+<div class="block-header">
+<h2 class="primary-header">Estimate your project now!</h2>
+<h3 class="secondary-header">Get free consultation and build your blockchain project with our highly qualified team!</h3>
+</div>
+<div class="form-social-links">
+<a href="https://t.me/rocknblock" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/telegram.svg" alt="telegram" />
+</a>
+<a href="https://api.whatsapp.com/send?phone=16232304354" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/whatsapp.svg" alt="whatsapp" />
+</a>
+<a class="form-social-links__book" href="https://calendly.com/rocknblock-io" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/book-call.svg" alt="book a call" />
+</a>
+</div>
+<div class="form-info-text">
+<span>Start a chat with us or fill this form</span>
+</div>
+<form method="POST" action="https://rocknblock.io/blog/what-exactly-yield-farming-is" accept-charset="UTF-8" data-request="feedback::onForm" class="contact-us__form" data-request-loading="#loading-form" data-request-validate="1" data-request-update="&quot;forms\/main&quot;:&quot;#contact-us&quot;"><input name="_session_key" type="hidden" value="tDHqLXsi8t4Efco3qiJeBaffYpTN4aYjArS4pqjp"><input name="_token" type="hidden" value="tzqrMj6CSUIY5mofJHeIk3iueabR8upP2HV01yGU">
+<div id="loading-form">
+<div class="load-form">
+<img class="load-form-icon" src="../themes/rocknblock/assets/images/site/icon-loader.svg" alt="rocknblock loading" />
+<span>Please wait...</span>
+</div>
+</div>
+<input class="contact-us__form__input" id="contact-us-input" type="text" name="id" placeholder="Name" value="all" required hidden="hidden" />
+<label class="visually-hidden" hidden="hidden" for="contact-us-input">Enter your name</label>
+<input class="contact-us__form__input" id="contact-us-input" type="text" name="name" placeholder="Name" required />
+<div class="form-group">
+<label hidden="hidden" for="contact-us-input-2">Your contact</label>
+<input class="contact-us__form__input" id="contact-us-input-2" name="contact" placeholder="Your contact" required />
+<div class="select-social">
+<select class="lm_input t-phone" name="type" required>
+<option value="telegram" default>Telegram</option>
+
+<option value="whatsapp">Whatsapp</option>
+</select>
+</div>
+</div>
+<div class="form-info-text" style="color:red;opacity: 1;" data-validate-for="contact"></div>
+<label class="visually-hidden" hidden="hidden" for="contact-us-textarea">Describe your project</label>
+<textarea class="contact-us__form__input contact-us__form__input-textarea" name="idea" id="contact-us-textarea" rows="1" placeholder="Briefly describe your project or idea" required></textarea>
+<p class="terms">By using the service, you accept the <a href="../terms-of-service.html" target="_blank">Terms of Service</a>
+</p>
+<input class="contact-us__form__submit-btn btn btn-orange btn-rounded" type="submit" value="Submit request" />
+</form>
+</div> </div>
+</section> </main>
+
+<footer id="layout-footer">
+<div class="container footer">
+<div class="sp-form-outer sp-force-hide">
+<div class="sp-form sp-form-regular sp-form-embed sp-form-horizontal sp-form-full-width" id="sp-form-213867" sp-id="213867" sp-hash="12ac849f63c2a031cbadb847c379704b51a7bf5903cc5b0d0de78bd1f8388438" sp-lang="en" sp-show-options="%7B%22satellite%22%3Afalse%2C%22maDomain%22%3A%22login.sendpulse.com%22%2C%22formsDomain%22%3A%22forms.sendpulse.com%22%2C%22condition%22%3A%22onEnter%22%2C%22scrollTo%22%3A25%2C%22delay%22%3A10%2C%22repeat%22%3A3%2C%22background%22%3A%22rgba(0%2C%200%2C%200%2C%200.5)%22%2C%22position%22%3A%22bottom-right%22%2C%22animation%22%3A%22%22%2C%22hideOnMobile%22%3Afalse%2C%22urlFilter%22%3Afalse%2C%22urlFilterConditions%22%3A%5B%7B%22force%22%3A%22hide%22%2C%22clause%22%3A%22contains%22%2C%22token%22%3A%22%22%7D%5D%2C%22analytics%22%3A%7B%22ga%22%3A%7B%22eventLabel%22%3Anull%2C%22send%22%3Afalse%7D%2C%22ym%22%3A%7B%22counterId%22%3Anull%2C%22eventLabel%22%3Anull%2C%22targetId%22%3Anull%2C%22send%22%3Afalse%7D%7D%2C%22utmEnable%22%3Afalse%7D">
+<div class="sp-form-fields-wrapper show-grid">
+<div class="form__wrapper">
+<label class="sp-control-label"><span>Stay Current With Our Latest Insights</span></label>
+<form class="sp-element-container" novalidate="">
+<div class="sp-field" sp-id="sp-a71e6fd1-9acf-4f41-b3dc-8f2152c749f8"><input class="sp-form-control" type="email" sp-type="email" name="sform[email]" placeholder="Enter Your Email" sp-tips="%7B%22required%22%3A%22Required%20field%22%2C%22wrong%22%3A%22Wrong%20email%22%7D" autocomplete="on" required="required"></div>
+<div class="sp-field sp-button-container" sp-id="sp-f63cba59-48d0-4248-babc-97587ed34c99"><button class="sp-button" id="sp-f63cba59-48d0-4248-babc-97587ed34c99">SUBSCRIBE</button></div>
+<div class="sp-field sp-field-full-width" sp-id="sp-7dd427e4-a8c3-4126-b02f-897742857dde">
+<div style="font-family: inherit; line-height: 1;"></div>
+</div>
+</form>
+<div class="sp-message">
+<div></div>
+</div>
+</div>
+<nav class="social-links">
+<span>Let's connect</span>
+ <ul class="social-links__list">
+<li class="social-links__link">
+<a class="icon" href="https://twitter.com/rocknblockdev" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-tw-mask.svg" alt="twiter">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="telegram">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://www.facebook.com/RocknBlockDev/?ref=br_rs" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-fb-mask.svg" alt="facebook">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://rocknblock.medium.com/" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-medium-mask.svg" alt="medium">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://www.linkedin.com/authwall?trk=ripf&amp;trkInfo=AQHvgveZGbs93QAAAXggz85o2_gQEyTCero1KbSW_FNCIX1sjFUjvezZQqiUuu2cVmo2lj4adoTCg0J8Rvb-V8pKjpQj8U3C5-qT4igU957ofdXB7BvLt6ctemMUWideBHjsZLg=&amp;originalReferer=https://rocknblock.io/&amp;sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2F13060149" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-in-mask.svg" alt="linked in">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="../cdn-cgi/l/email-protection.html#ff979a939390bf8d909c94919d93909c94d19690" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-mail-mask.svg" alt="email">
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="footer-services">
+<div class="footer-services-list">
+<div class="footer-services-item">
+<span class="title">NFT Metaverse</span>
+<a class="link" href="../marketplace.html">NFT Marketplace</a>
+<a class="link" href="../10knft.html">10k NFT Generator</a>
+<a class="link" href="../gamefi.html">GameFi</a>
+<a class="link" href="../metaverse.html">Metaverse</a>
+</div>
+<div class="footer-services-item">
+<span class="title">De-Fi Experience</span>
+<a class="link" href="../farming.html">Yield Farming</a>
+<a class="link" href="../vesting.html">Vesting Contract</a>
+<a class="link" href="../staking.html">Staking Platfrom</a>
+<a class="link" href="../launchpad.html">Launchpad</a>
+<a class="link" href="../tools.html">Trading Tools</a>
+<a class="link" href="../dex.html">DEX/CEX</a>
+</div>
+<div class="footer-services-item">
+<span class="title">Token Assistance</span>
+<a class="link" href="../token-generator.html">Token Generator</a>
+<a class="link" href="../crowdsale.html">Crowdsale Pack</a>
+<a class="link" href="../bridge.html">Cross-Chain Bridge</a>
+<a class="link" href="../safemoon.html">Deflationary</a>
+<a class="link" href="../tokenization.html">Tokenized Property</a>
+</div>
+<div class="footer-services-item">
+<span class="title">Blockhain Expertise</span>
+<a class="link" href="../consulting.html">Consulting</a>
+<a class="link" href="../marketing.html">Web3 Marketing</a>
+<a class="link" href="../security-audit.html">Security Audit</a>
+<a class="link" href="../rust.html">Rust Development</a>
+</div>
+</div>
+</div>
+<div class="bottom">
+<div class="links">
+<p class="bottom__copyright-desktop">© Copyright Rock’n’Block 2022</p> <a href="../privacy-policy.html" target="_blank">Privacy
+Policy</a><a href="../terms-of-service.html" target="_blank">Terms
+of Service</a><a href="../company.html" target="_blank">Company</a>
+</div>
+<p class="bottom__copyright-mobile">© Copyright Rock’n’Block 2023</p>
+</div>
+</div>
+<div id="btnScrollToTop">
+<img src="../themes/rocknblock/assets/images/site/icons/icon-arrow-top-mask.svg" alt="arrow top">
+</div>
+<ul class="side-socials">
+<li class="side-socials__link side-socials__link_tg">
+<a class="icon" href="https://t.me/rocknblock" rel="noreferrer" target="_blank"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="tg">
+</a>
+</li>
+<li class="side-socials__link side-socials__link_whatsapp">
+<a class="icon" href="https://api.whatsapp.com/send?phone=16232304354" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-whatsapp-mask.svg" alt="whatsapp">
+</a>
+</li>
+</ul> </footer>
+<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../themes/rocknblock/assets/javascript/jquery.js"></script>
+<script defer src="../themes/rocknblock/assets/javascript/main.min.js"></script>
+<script type="text/javascript" async src="../../web.webformscr.com/apps/fc3/build/default-handler79b6.js?1653643444289"></script>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(function(){
+      
+      window.__lc = window.__lc || {};
+      window.__lc.license = 9683030;
+      ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="../../cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+    
+    }, 3500); // время указано в мс = 0,001 секунды, изменить по вкусу
+  });
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/9683030/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+
+<script src="../modules/system/assets/js/framework.combined-min5cce.js?v=1.1.7"></script>
+<link rel="stylesheet" property="stylesheet" href="../modules/system/assets/css/framework.extras-min5cce.css?v=1.1.7">
+
+<scriptd type="text/javascript" id="amo_pixel_identifier_js" async="async" src="../../piper.amocrm.ru/pixel/js/identifier/pixel_identifier.js"></script>
+<script>window.AMOPIXEL_IDENTIFIER_PARAMS = window.AMOPIXEL_IDENTIFIER_PARAMS || { }; window.AMOPIXEL_IDENTIFIER_PARAMS.onload = function (pixel_identifier) { var visitor_uid = pixel_identifier.getVisitorUid ( ); if (visitor_uid) {document.getElementById ( 'visitor_uid' ).value = visitor_uid;}};</script> </body>
+
+<!-- Mirrored from rocknblock.io/blog/what-exactly-yield-farming-is by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Apr 2023 16:34:16 GMT -->
+</html>

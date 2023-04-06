@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from rocknblock.io/blog/everything-you-need-know-about-blockchain-bridges-and-cross-chain by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Apr 2023 16:33:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', () => {
+		setTimeout(function(){
+			
+			   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+			   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+			   (window, document, "script", "../../mc.yandex.ru/metrika/tag.js", "ym");
+			
+			   ym(82964167, "init", {
+			        clickmap:true,
+			        trackLinks:true,
+			        accurateTrackBounce:true,
+			        webvisor:true
+			   });
+			   
+			   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','dataLayer','GTM-P548TMG');
+			   
+		}, 3500); // время указано в мс = 0,001 секунды, изменить по вкусу
+	});
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<meta name="author" content="Amary Filo">
+<meta name="generator" content="Rocknblock Developing">
+<meta name="application-name" content="Rocknblock Developing">
+<style>body{background-color: black;}</style>
+<link rel="stylesheet" href="../themes/rocknblock/assets/css/style.min.css" as="style">
+<link rel="preload" href="../themes/rocknblock/assets/javascript/main.min.js" as="script">
+<link rel="manifest" href="../themes/rocknblock/assets/images/manifest.html">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="shortcut icon" href="../themes/rocknblock/assets/images/favicon/favicon-96x96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="57x57" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../themes/rocknblock/assets/images/favicon/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../themes/rocknblock/assets/images/favicon/android-chrome-192x192.png" />
+<meta name="msapplication-square70x70logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/smalltile.png" />
+<meta name="msapplication-square150x150logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/mediumtile.png" />
+<meta name="msapplication-wide310x150logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/widetile.png" />
+<meta name="msapplication-square310x310logo" content="https://rocknblock.io/themes/rocknblock/assets/images/favicon/largetile.png" />
+<link rel="mask-icon" href="../themes/rocknblock/assets/images/favicon/safari-pinned-tab.svg" " color="#ff0000" />
+<meta name="msapplication-TileColor" content="#ff0000" />
+<meta name="theme-color" content="#1D1B21" />
+<style>
+    .tabs-case .content-item {
+        margin: 20px !important;    
+    }
+</style> <title>Mind the gap! Everything you need to know about blockchain bridges and cross-chain</title>
+<meta name="title" content="Mind the gap! Everything you need to know about blockchain bridges and cross-chain">
+<meta name="keywords" content="blockchain,cross-chain,blockchain bridges">
+<meta name="description" content="What are blockchain bridges? How can a bridge be an ultimate solution to enhance interoperability, NFT transfers, and network scalability? Learn more here.">
+<meta name="generator" content="Rock`n`Block Developing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mind the gap! Everything you need to know about blockchain bridges and cross-chain">
+<meta property="og:url" content="https://rocknblock.io/blog/everything-you-need-know-about-blockchain-bridges-and-cross-chain">
+<meta property="og:image" content="https://rocknblock.io/storage/app/uploads/public/9e0/8ff/750/thumb__1200_640_0_0_crop.png">
+<meta property="og:description" content="What are blockchain bridges? How can a bridge be an ultimate solution to enhance interoperability, NFT transfers, and network scalability? Learn more here.">
+<meta property="article:author" content="Rock’n’Block">
+<meta property="article:published_time" content="2022-01-23 22:22:23">
+<meta property="article:modified_time" content="2022-11-07 14:56:45">
+<meta property="article:section" content="Technology">
+<meta property="article:tag" content="blockchain">
+<meta property="article:tag" content="cross-chain">
+<meta property="article:tag" content="blockchain bridges">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mind the gap! Everything you need to know about blockchain bridges and cross-chain">
+<meta name="twitter:description" content="Mind the gap! Everything you need to know about blockchain bridges and cross-chain">
+<meta name="twitter:site" content="@rocknblockdev">
+<meta name="twitter:url" content="https://rocknblock.io/blog/everything-you-need-know-about-blockchain-bridges-and-cross-chain">
+<meta name="twitter:image" content="https://rocknblock.io/storage/app/uploads/public/9e0/8ff/750/thumb__1200_640_0_0_crop.png">
+<meta name="twitter:image:alt" content="">
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org/",
+		"@type": "Article",
+		"mainEntityOfPage": {
+			"@type": "WebPage",
+			"@id": "https://rocknblock.io/blog/everything-you-need-know-about-blockchain-bridges-and-cross-chain"
+		},
+		"author": {
+			"@type": "Organization",
+			"name": "Rock`n`Block"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "Rock`n`Block",
+			"logo": {
+				"@type": "ImageObject",
+				"url": "https://rocknblock.io/themes/rocknblock/assets/images/site/logo.png"
+			}
+		},
+		"headline": "Mind the gap! Everything you need to know about blockchain bridges and cross-chain",
+		"image": "https://rocknblock.io/storage/app/uploads/public/61e/dd4/85e/61edd485ebef2350116680.png",
+		"datePublished": "2022-01-23 22:22:23",
+		"dateModified": "2022-11-07 14:56:45"
+	}
+	</script>
+
+<meta name="google-site-verification" content="7_6Fy-97nJ33Ve9stEFXjT4RUqNwIQj-vh9tYL22ZU0"> </head>
+<body>
+
+
+
+<noscript>
+  
+  <div><img src="https://mc.yandex.ru/watch/82964167" style="position:absolute; left:-9999px;" alt="" /></div>
+  
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P548TMG" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+
+</noscript>
+
+<div class="preloader"><div class="preloader__row"><div class="preloader__item"></div><div class="preloader__item"></div></div></div>
+
+<header id="layout-header">
+<div class="container">
+<nav class="main-nav">
+<section class="main-nav__mobile">
+<a class="logo" href="../index.html">
+<img src="../themes/rocknblock/assets/images/site/logo.svg" alt="Rock'n'Block logo">
+</a>
+<div class="burger icon">
+<img class="icon-burger ic-open" src="../themes/rocknblock/assets/images/site/icons/icon-header-burger-mask.svg" alt="burger menu">
+<img class="icon-burger ic-close" src="../themes/rocknblock/assets/images/site/icons/icon-header-burger-close-mask.svg" alt="burger close menu" hidden>
+</div>
+</section>
+<section class="nav-pages" id="nav-pages">
+<a class="nav-pages__link" href="../index.html#solutions">Services</a>
+<a class="nav-pages__link" href="../index.html#cases">Cases</a>
+<a class="nav-pages__link" href="../index.html#team">Team</a>
+<a class="nav-pages__link" href="../index.html#partners">Partners</a>
+<a class="nav-pages__link" href="../blog.html">Blog</a>
+<a class="nav-pages__contact-button nav-pages__link__contact-us" href="#contact-us">CONTACT US</a>
+</section>
+</nav>
+</div> </header>
+
+<main id="layout-content">
+<section class="pg pg-article">
+<section class="article container">
+<h1 class="article-title">Mind the gap! Blockchain bridges &amp; cross-chain</h1>
+<span class="article-date" style="background-image: url('../themes/rocknblock/assets/images/site/blog/icon-clock.svg');">20 Jan 2022</span>
+<h3 name="2db4">In 2022, more and more innovative blockchains are still emerging. While the concept of distributed ledger is rapidly becoming mainstream, many adopters and projects tend to concentrate on the few biggest chains.</h3>
+<p name="2db4"><img src="../storage/temp/public/9ea/205/e0bimage_2022-01-23_23-07-50__2489.png" style="width: 100%;" class="fr-fic fr-dib" data-result="success" srcset="https://rocknblock.io//storage/temp/public/9ea/205/e0bimage_2022-01-23_23-07-50__2489.png 2489w, https://rocknblock.io//storage/temp/public/9ea/205/e0bimage_2022-01-23_23-07-50__100.png 100w, https://rocknblock.io//storage/temp/public/9ea/205/e0bimage_2022-01-23_23-07-50__250.png 250w, https://rocknblock.io//storage/temp/public/9ea/205/e0bimage_2022-01-23_23-07-50__400.png 400w, https://rocknblock.io//storage/temp/public/9ea/205/e0bimage_2022-01-23_23-07-50__768.png 768w, https://rocknblock.io//storage/temp/public/9ea/205/e0bimage_2022-01-23_23-07-50__1024.png 1024w" sizes="(max-width: 2489px) 100vw, 2489px"></p>
+<section name="19d4">
+<p name="8e63">Different blockchain means different consensus mechanisms, hence different transaction processing, token standards, and so on. But also, some chains have features, that many other chains lack.</p>
+<p name="0236">All of this leads the developers to create a solution, that can solve the absence of blockchain interoperability.</p>
+<p name="5fd0">Here is why, <a href="../bridge.html">cross-chain</a> is crucial for blockchain projects like DEX (decentralized exchange, NFT Marketplaces, and even DAOs.</p>
+</section>
+<section name="83f8">
+<h3 name="412d"><strong>What is a blockchain bridge?</strong></h3>
+<p name="a7e6">Let’s begin from this: <strong>cross-chain</strong> is the type of blockchain integration that is meant to allow users to transfer or swap their digital assets from one blockchain network or platform to a different one. <strong>It is also called a&nbsp;</strong><a href="../bridge.html"><strong>blockchain bridge</strong></a><strong>.</strong></p>
+<p name="55df">Q: How do blockchains and protocols interact with each other right now?</p>
+<p name="5f4f">A: Only with the blockchain bridges.</p>
+<p name="1ad3">A typical blockchain bridge is a software code deployed in two chains, for example, A and B. That allows to send the information about the transactions and transfers to another chain, and make the target chain to make it valid.
+<br>This is the only way for chains A and B which contain different native coins, governed by different consensus mechanisms to be somehow compatible and “share the networks”. By saying “share the network” we mean — one dAPP/token/NFT/coin, etc. that deployed on a blockchain A can be available on a blockchain B.</p>
+<p name="f4c7">Without blockchain bridges, interoperability can not be reached, because due to the nature of blockchain, every public chain is a completely dedicated and independent network.
+<br>
+<br>
+</p>
+<figure name="1716"><img data-width="1400" src="../storage/temp/public/a53/146/c6b1642976082319__1000.jpg" class="fr-fic fr-dib" data-result="success" style="width: 100%;" srcset="https://rocknblock.io//storage/temp/public/a53/146/c6b1642976082319__1000.jpeg 1000w, https://rocknblock.io//storage/temp/public/a53/146/c6b1642976082319__100.jpeg 100w, https://rocknblock.io//storage/temp/public/a53/146/c6b1642976082319__250.jpeg 250w, https://rocknblock.io//storage/temp/public/a53/146/c6b1642976082319__400.jpeg 400w, https://rocknblock.io//storage/temp/public/a53/146/c6b1642976082319__768.jpeg 768w" sizes="(max-width: 1000px) 100vw, 1000px">
+<figcaption>
+<br>
+</figcaption>
+</figure>
+</section>
+<section name="e0c3">
+<h3 name="5146"><strong>Why do we need interoperability?</strong></h3>
+<p name="477b">Imagine Ethereum, the biggest blockchain network with vastly developed dAPPS, DeFi tools, and NFTs on-chain. Ethereum is an extremely busy network, due to the number of users, dAPPS, and nodes on it.</p>
+<p name="c900">Users, that are aware of different chains see the different dAPPS that they would like to use, or NFTs that they want to acquire with a different token or coin, that exists on a different blockchain.
+<br><strong>We want interoperability because it is easy and profitable for users. Even if we are creators of a crypto project, we are in any way the users of a blockchain.</strong></p>
+<p name="8f78">Interoperability brings us a lot of benefits by making the transactions cheaper, transferring digital assets easier, and removing us from the need to choose a specific chain for our project.</p>
+<p name="b835">Why do you think the majority of NFT creators choose Ethereum? Because it is the biggest chain with a greater market cap for NFTs. Interoperability helps us to choose a blockchain that we want, with a different consensus mechanism, without cutting off something from our project, because it must be existing on blockchain A.</p>
+<p name="318a">Blockchain interoperability incorporates transferring data from blockchain A to blockchain B without duplicating it in the end place. Besides the ability to transfer all kinds of digital assets, blockchain bridges can also transfer smart-contracts execution conditions.</p>
+<p name="21ce">In plain words, with interoperable blockchains that can work with bridges, users are capable of deploying digital assets from one native blockchain to another without duplicating them, distorting the ownership of those assets, or losing their value. The value of digital assets transferred by a bridge will be always pegged to the native digital asset value.</p>
+<p name="c1c5">Blockchain bridges are opening a whole range of possibilities for completely different blockchains to scale. When a network is too big and busy, the transactions are becoming more and more pricey. Hence, blockchain bridges are one of the good solutions for the scalability of big networks.</p>
+</section>
+<section name="eb87">
+<h3 name="836e">Minding the gap. How do blockchain bridges operate?</h3>
+<blockquote name="983c"><strong>It is pretty odd, but a lot of blockchain bridges tend to be centralized, on the road to achieving more decentralization and interoperability for networks.</strong></blockquote>
+<p name="fd0b"><strong>Trusted blockchain bridges (trust-based bridges)</strong></p>
+<p name="a525">These kinds of bridges are called trusted bridges (trusted-based bridges), due to the fact that a user basically has to literally trust a bridge provider for his assets, so then a provider launches a bridge for transferring data.
+<br>Almost every blockchain bridge that you know is a trusted bridge (trust-based bridge) including Binance bridge, Compound (Gateway), Harmony, and Terra.</p>
+<p name="16d5">But, not all of them.</p>
+<p name="934c">The benefits of trusted blockchain bridges are that when they are hosted by big names such as Binance, and when their bridges are working perfectly fine, there is a big room for the reliable transferring of a humongous amount of digital assets.</p>
+<p name="fd67">Talking about just appearing trusted bridges it is highly risky to rely on those bridges.</p>
+<p name="6fd4"><strong>Trustless blockchain bridges. Decentralization!</strong></p>
+<p name="cc4b">Trustless bridges according to multiple opinions are probably the key solution to developing seamless interoperability for all existing blockchains out there.</p>
+<p name="1892">Because the trustless bridges don’t require a user to grant any trust “out of air”. A Trustless bridge doesn’t actually take the assets anywhere. Instead, transferable assets don’t go outside of their native blockchain during a bridge transfer.</p>
+<p name="e09c">Trustless bridge executes the burn of assets on one blockchain, and mints assets on the other, when the value of those assets is always equal to the value of assets in the first place.
+<br>You can also imagine that these bridges work in a way like a blockchain in between does. Having individual networks pitching in to validate transactions in two separate networks.</p>
+<p name="19b4">Trustless decentralized bridges offer way more transparency and security for the DeFi dAPPS and protocols. This is extremely crucial for them because the DeFi protocol’s purpose is to incentivize trading, exchange, and locking of multiple kinds of crypto. This is more beneficial for a user, and for a DeFi protocol as well.</p>
+</section>
+<section name="9ec6">
+<h3 name="8d9a">What are “wrapped” tokens?</h3>
+<p name="de85">When you see a token like wETH, it means that this is not actually ETH on a native blockchain (in this case Ethereum), it is a token, that is representing ETH on a different blockchain where it was “bridged”. Wrapped tokens are the only way to transfer assets from a blockchain A to B and vice-versa without continuously exchanging them.</p>
+<p name="fa80"><strong>When a native coin, cryptocurrency, or token “goes from” blockchain A to blockchain B with a bridge, a wrapped token is created on blockchain B, and its value will be always pegged to the value of the digital asset it represents.</strong></p>
+<p name="9516">A user can always unwrap a wrapped token either to bridge it back to the native blockchain or by redeeming its equivalent to other digital assets existing on another blockchain.</p>
+<p name="538a"><strong>In the majority of cases, any wrapped token is an ERC-20 token.</strong></p>
+<blockquote name="8d42"><strong><em>Important note:&nbsp;</em></strong>The concept of wrapped tokens is actually almost identical to the concept of stablecoins. The majority of stablecoins are pegged to the fiat currency rate that they represent on a blockchain.</blockquote>
+</section>
+<section name="8ac9">
+<h3 name="cd06">What problems blockchain bridges do solve?</h3>
+<p name="1f7f">Once a developer builds their dapp on any particular network, they’re generally locked into that platform with no opportunity to leverage any of the benefits of other blockchains.</p>
+<p name="35ba"><strong>That also creates a blockchain monopoly</strong>, as we could say. Bridges are needed to wipe off the borders for different blockchains, to make them even more centralized. So eventually, users, and developers will benefit from it. The main benefit will be not to be dependent only on one blockchain network and be able to interact seamlessly with other blockchains.&nbsp;</p>
+<p name="a030"><strong>Problem 1. Lack of interoperability between blockchains.&nbsp;</strong>This is a core problem of the whole blockchain space. Some networks have different advantages and disadvantages, and it is important for them to grow following the user’s demand for what they are offering.</p>
+<p name="dcd1">If, for example, you want to have super fast transactions for your blockchain project that will provide payments in crypto, you will deploy your project on Solana, because the transaction speed is crucial for you.
+<br>But then, users on Ethereum won’t be able to use your dAPP, without switching to Solana. And that goes way deeper for plenty of blockchain projects, especially DeFi protocols, and NFT collections.</p>
+<blockquote name="094f">Interoperability is also crucial for adopting technology by enterprises and institutions because practically, these users want to use a reliable, secure chain that is also can be compatible with any other chain. So, in this sense, they can dispatch the maximum utility from adopting blockchain technology.</blockquote>
+<p name="d47b"><strong>Problem 2. Lack of Scalability.&nbsp;</strong>Remember how we already mentioned too-big and too-busy networks? Where the gas fees are so high, that they exceed the available balance in your wallet?</p>
+<p name="6260">Ethereum is a great chain, but because it is not easy to modernize the blockchain it takes a lot of effort from the blockchain developers to create effective solutions that will make it work.</p>
+<blockquote name="026d">Blockchain bridges can help to enhance the scalability for tremendous transaction volumes and spread on a blockchain. And this solution won’t force users and devs to drain the liquidity (exchanging assets), consequently resulting in a negative effect for the whole blockchain.&nbsp;</blockquote>
+<p name="9ec8"><strong>Problem 3. Lack of Efficiency.&nbsp;</strong>The situation is when users have to go through multiple centralized and decentralized crypto exchanges and pay multiple fees for making various transactions in order to move from coin A to coin B.</p>
+<blockquote name="a9ab">Bridges are supposed to solve this issue by giving an opportunity for a user to move from one asset to another with one transaction.&nbsp;</blockquote>
+<p name="9920">Hence, it creates a big room for enhancing cross-chain NFT gaming projects, and cross-chain Yield Farming, and DeFi protocols.</p>
+<p name="997d"><strong>Problem 4. DeFi that are rigid and “locked” from growth and derivative collaterals.&nbsp;</strong>
+<br>As we already mentioned, bridges can be the key to redefining DeFi. Blockchain bridges that allow users to seamlessly move between the chain will empower existing (and not existing yet) DeFi protocols by bringing them more liquidity and more room for creating innovative DeFi products and dAPPS. Holders of Bitcoin can’t stake it, but they can stake Cardano, but they refuse to exchange their portfolio value of BTC for ADA. With bridges, they will be able to stake altcoins without selling their BTC.</p>
+<blockquote name="cc73">Quite contradictive to say, but the decentralized principles of blockchain technology put the brakes on the DeFi growth, Which is weird because DeF are the finances 2.0, decentralized protocols that emerged because of the decentralized ledgers.&nbsp;</blockquote>
+<p name="f47f">Blockchain’s inability to be compatible with other blockchains is locking the users of DeFi into the border of a specific network with the ability to trade and stake the assets that are available exclusively on that native blockchain. This puts a burden of limits on DeFi because other networks can offer even more utility, functionality, and innovative algorithms.</p>
+<p name="112e">Besides constraining the decentralization due to the lack of interoperability between blockchains, that issue also freezes the development and advancement of innovation emergence, seamless trade of digital assets, and natural and competitive growth of blockchain projects.
+<br>Frankly, the dAPPS, project creators, and developers remain under the experience limits of only one network solution without giving it wider adoption. In this case, multi-chain will be a poorer solution, rather than a great blockchain bridge. Or better multiple bridges.</p>
+<p name="d937"><strong>DeFi dAPPS will face the new era with blockchain bridges, by becoming more accessible for multiple groups of users, attracting more users with higher rewards, because of increased liquidity.</strong></p>
+</section>
+<section name="172a">
+<h3 name="0bba">Cross-chain solutions that empower blockchain projects</h3>
+<p name="ab3b">Even though developers of many blockchain communities and projects started to use this solution way more often in 2021, there is still a lack of blockchain bridges out there. It means, that we have more blockchains that need a bridge to another already now. We decided to bring a few examples of prominent blockchain bridges at the moment.</p>
+<ul>
+<li name="c01f"><strong>Polkadot Snowfork bridge</strong>
+<br>Snowbridge is a decentralized, trustless, and general-purpose bridge between Polkadot and Ethereum built by Snowfork.
+<br>
+<br>
+<br>The most common purpose (there are more) of this bridge is to move from ETH to DOT and vice-versa in order to be able to use the Polkadot protocol seamlessly without draining your ETH or DOT.
+<br>
+<br>
+<br>The Snowbridge will make it possible to transfer ETH, ERC-20 tokens, loan/futures contracts, option/future contracts, and other sorts of Polka-Eth assets within both of the chains.</li>
+<li name="ebc3"><a data-href="https://multichain.org/" href="https://multichain.org/" rel="noopener" target="_blank"><strong>Multichain cross-chain protocol (ex. Anyswap bridge)&nbsp;</strong><br></a>Anyswap bridge has been transformed into a cross-chain solution provider. Anyswap has relaunched as Multichain with a focus on infrastructure for arbitrary cross-chain interactions with a maximum blockchain to interoperate.
+<br>
+<br>
+<br>Multichain, as a cross-chain router protocol (CRP), endeavors to be the ultimate router for Web 3.
+<br>
+<br>
+<br>Now, Multichain supports more than 1428 coins and tokens to swap between 30 chains including Ethereum, Terra, Avalanche, Binance Smart Chain, and Aurora. You can even bridge to BTC.</li>
+<li name="5225"><a data-href="https://www.harmony.one/" href="https://www.harmony.one/" rel="noopener" target="_blank"><strong>Harmony bridges and network</strong><br></a>“Harmony’s bridges can connect any Proof-of-Work and Proof-of-Stake chains. Our FlyClient architecture is fully trustless and highly gas-efficient. Currently, our bridges for Ethereum and Binance Smart Chain secure tens of millions of cross-chain assets.”</li>
+</ul>
+</section>
+<section name="bed3">
+<h3 name="6541">The examples of blockchain bridges that we’ve built</h3>
+<p name="f6d6">One of the greatest examples of a cross-chain solution that was developed by the team of our experienced blockchain developers is the Less Bridge. Made for Less Network.
+<br>Less Bridge is a trustless bridge that allows transferring coins and tokens between 6 blockchain networks including the most demanding Ethereum, Binance Smart Chain, Avalanche, Tron, Polygon, and fantom.</p>
+<p name="fb36">The bridge moves assets by interacting through Matemask wallet integration or Binance wallet with taking the Less tokens, but not releasing them.</p>
+<p name="583a">Less token is the native coins of Less Network, the project is certified and <strong>audited&nbsp;</strong>by <strong>CertiK&nbsp;</strong>and gained a total score of 95 after all final audits. <a data-href="https://www.certik.com/projects/lesstoken" href="https://www.certik.com/projects/lesstoken" rel="noopener" target="_blank"><strong>You can check this out here.</strong></a></p>
+<p name="b14f">⚡️ Check out how it works! <a data-href="https://bridge.less.xyz/" href="https://bridge.less.xyz/" rel="noopener" target="_blank">Less bridge</a></p>
+<figure name="34e7"><img data-width="1072" src="../storage/temp/public/622/792/7c71642976082395__1000.jpg" class="fr-fic fr-dib" data-result="success" style="width: 100%;" srcset="https://rocknblock.io//storage/temp/public/622/792/7c71642976082395__1000.jpeg 1000w, https://rocknblock.io//storage/temp/public/622/792/7c71642976082395__100.jpeg 100w, https://rocknblock.io//storage/temp/public/622/792/7c71642976082395__250.jpeg 250w, https://rocknblock.io//storage/temp/public/622/792/7c71642976082395__400.jpeg 400w, https://rocknblock.io//storage/temp/public/622/792/7c71642976082395__768.jpeg 768w" sizes="(max-width: 1000px) 100vw, 1000px"></figure>
+<p name="3dea"><strong>We take the building of a&nbsp;</strong><a href="../bridge.html"><strong>blockchain bridge</strong></a><strong>&nbsp;to the right path</strong></p>
+</section>
+<p data-selectable-paragraph="">Rock’n’Block’s team can help you with:</p>
+<p data-selectable-paragraph="">⚡️<a href="../marketplace.html" rel="noopener ugc nofollow" target="_blank">NFT and NFT Marketplaces development</a> ;
+<br>⚡️<a href="../10knft.html" rel="noopener ugc nofollow" target="_blank">NFT 10K generator</a>;
+<br>⚡️<a href="../staking.html" rel="noopener ugc nofollow" target="_blank">Staking platforms</a>;
+<br>⚡️<a href="../vesting.html" rel="noopener ugc nofollow" target="_blank">Vesting platforms</a>;
+<br>⚡️<a href="../farming.html" rel="noopener ugc nofollow" target="_blank">Farming platforms</a>;
+<br>⚡️<a href="../crowdsale.html" rel="noopener noreferrer" target="_blank">Crowdsale</a>;
+<br>⚡️<a href="../bridge.html" rel="noopener noreferrer" target="_blank">Crosschain bridge</a>;
+<br>⚡️Any other custom request from a crypto wallet development to custom <a href="../index.html" rel="noopener ugc nofollow" target="_blank">blockchain development</a>.</p>
+<p data-selectable-paragraph="" style="text-align: left;">If you’re interested in building your blockchain project, feel free to contact our team via the <a href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noopener ugc nofollow" target="_blank">Telegram channel</a> or<a href="https://calendly.com/alex-tka?_ga=2.125281484.774853951.1635149124-626771872.1633109778" rel="noopener noreferrer" target="_blank">&nbsp;book a call via Calendly</a>.</p>
+<p data-selectable-paragraph="" style="text-align: left;">
+<br>
+</p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>We❤️Development</strong></p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>Rock⚡️Block</strong></p>
+<p data-selectable-paragraph="" style="text-align: center;"><strong>Follow us on social media to receive the hottest blockchain development Rock’n’Block updates<a href="https://twitter.com/RocknBlockDev" rel="noopener ugc nofollow" target="_blank">&nbsp;Twitter</a>, <a href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noopener ugc nofollow" target="_blank">Telegram</a>, <a href="https://www.linkedin.com/company/13060149" rel="noopener ugc nofollow" target="_blank">LinkedIn</a>, <a href="https://www.facebook.com/RocknBlockDev" rel="noopener ugc nofollow" target="_blank">Facebook</a>,&nbsp;</strong><a href="https://www.instagram.com/rocknblock.io/" rel="noopener ugc nofollow" target="_blank"><strong>Instagram</strong></a></p>
+</section>
+<section class="article-share">
+<div class="container"><span class="article-section-title">Share it!</span>
+<div class="article-share-items">
+<a class="article-share-item" href="https://twitter.com/intent/tweet?text=Mind%20the%20gap!%20Everything%20you%20need%20to%20know%20about%20blockchain%20bridges%20and%20cross-chain.%20Mind%20the%20gap!%20Everything%20you%20need%20to%20know%20about%20blockchain%20bridges%20and%20cross-chain&amp;url=https://rocknblock.io/blog/everything-you-need-know-about-blockchain-bridges-and-cross-chain&amp;hashtags=blockchain,cross-chain,blockchain%20bridges" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tw-mask.svg" alt="twitter" /></a>
+<a class="article-share-item" href="https://t.me/share/url?url=https://rocknblock.io/blog/everything-you-need-know-about-blockchain-bridges-and-cross-chain&amp;text=What%20are%20blockchain%20bridges?%20How%20can%20a%20bridge%20be%20an%20ultimate%20solution%20to%20enhance%20interoperability,%20NFT%20transfers,%20and%20network%20scalability?%20Learn%20more%20here." target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="telegram" /></a>
+<a class="article-share-item" href="https://www.facebook.com/sharer/sharer.php?u=https://rocknblock.io/blog/everything-you-need-know-about-blockchain-bridges-and-cross-chain&amp;t=Mind%20the%20gap!%20Everything%20you%20need%20to%20know%20about%20blockchain%20bridges%20and%20cross-chain&amp;text=What%20are%20blockchain%20bridges?%20How%20can%20a%20bridge%20be%20an%20ultimate%20solution%20to%20enhance%20interoperability,%20NFT%20transfers,%20and%20network%20scalability?%20Learn%20more%20here." target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-fb-mask.svg" alt="facebook" /></a>
+<a class="article-share-item" href="https://www.linkedin.com/sharing/share-offsite/?url=https://rocknblock.io/blog/everything-you-need-know-about-blockchain-bridges-and-cross-chain" target="_blank" rel="noreferrer"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-in-mask.svg" alt="linkedin" /></a>
+</div>
+</div>
+</section>
+<section>
+<div class="container article-similar"> <span class="article-section-title">Similar Posts</span>
+<div class="blog-items">
+<a class="swiper-slide blog-item" href="what-exactly-yield-farming-is.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/e2d/3b1/e24/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/a23/47c/456thumb__240_140_0_0_crop__240.png" alt="What exactly Yield Farming is? YDragon" srcset="https://rocknblock.io//storage/temp/public/a23/47c/456thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/a23/47c/456thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">What exactly Yield Farming is? YDragon</h3>
+<p class="blog-item-anonce">Full comprehensive guide about all Yield Farming mechanics and the development cases of Yield Framing platforms. Here is how we developed the YDragon, the powerful DeFi cross-chain platform</p>
+</a>
+<a class="swiper-slide blog-item" href="multi-chain-cross-chain-cross-platform-blockchain-project.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/b61/b12/299/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/4a6/6b8/a45thumb__240_140_0_0_crop__240.png" alt="Rock’n’Block notes: Multi-chain or cross-platform?" srcset="https://rocknblock.io//storage/temp/public/4a6/6b8/a45thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/4a6/6b8/a45thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Rock’n’Block notes: Multi-chain or cross-platform?</h3>
+<p class="blog-item-anonce">In order to SWAP or trade assets on DEXs, they should have an implementation of a multi-chain or support cross-chain. How is this working out? Rock&#039;n&#039;Block explains</p>
+</a>
+<a class="swiper-slide blog-item" href="why-does-your-coin-need-cross-chain.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/389/568/0dc/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/d88/244/d8ethumb__240_140_0_0_crop__240.png" alt="Why does your coin need a Сross-Сhain?" srcset="https://rocknblock.io//storage/temp/public/d88/244/d8ethumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/d88/244/d8ethumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">Why does your coin need a Сross-Сhain?</h3>
+<p class="blog-item-anonce">Each blockchain has its features, advantages, and useful options. But they also have some disadvantages. Participants can&#039;t change the rules, use tools from different blockchains, and interact in the way they would be comfortable with a cross-chain bridge</p>
+</a>
+<a class="swiper-slide blog-item" href="how-choose-blockchain-platform-your-business.html">
+<picture class="blog-item-img">
+<source type="image/webp" srcset="../storage/app/uploads/public/d5a/1bb/dab/thumb__240_140_0_0_crop.html" />
+<img loading="lazy" src="../storage/temp/public/58e/7fa/b22thumb__240_140_0_0_crop__240.png" alt="How to choose a blockchain platform for your business?" srcset="https://rocknblock.io//storage/temp/public/58e/7fa/b22thumb__240_140_0_0_crop__240.png 240w, https://rocknblock.io//storage/temp/public/58e/7fa/b22thumb__240_140_0_0_crop__100.png 100w" sizes="(max-width: 240px) 100vw, 240px">
+</picture>
+<h3 class="blog-item-title">How to choose a blockchain platform for your business?</h3>
+<p class="blog-item-anonce">The rapid development of digital technology leads to the need for rapid adaptation of business and technological processes. There is a professional interest in IT developments that can remove the issues that have arisen. When choosing a blockchain platfor</p>
+</a>
+</div>
+</div>
+</section>
+</section>
+<section class="form">
+<div class="container">
+<div class="contact-us container" id="contact-us">
+<div class="background-img">
+<picture>
+<source type="image/webp" srcset="../themes/rocknblock/assets/images/site/background/partners.html" />
+<img loading="lazy" src="../storage/temp/public/d5a/9db/096partners__98.png" alt="partners" srcset="https://rocknblock.io//storage/temp/public/d5a/9db/096partners__98.png 98w" sizes="(max-width: 98px) 100vw, 98px">
+</picture>
+</div>
+<div class="background-img">
+<picture>
+<source type="image/webp" srcset="../themes/rocknblock/assets/images/site/background/contact.html" />
+<img loading="lazy" src="../storage/temp/public/565/7bf/e43contact__116.png" alt="contact" srcset="https://rocknblock.io//storage/temp/public/565/7bf/e43contact__116.png 116w, https://rocknblock.io//storage/temp/public/565/7bf/e43contact__100.png 100w" sizes="(max-width: 116px) 100vw, 116px">
+</picture>
+</div>
+<div class="block-header">
+<h2 class="primary-header">Estimate your project now!</h2>
+<h3 class="secondary-header">Get free consultation and build your blockchain project with our highly qualified team!</h3>
+ </div>
+<div class="form-social-links">
+<a href="https://t.me/rocknblock" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/telegram.svg" alt="telegram" />
+</a>
+<a href="https://api.whatsapp.com/send?phone=16232304354" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/whatsapp.svg" alt="whatsapp" />
+</a>
+<a class="form-social-links__book" href="https://calendly.com/rocknblock-io" target="_blank" rel="nofollow noreferrer">
+<img src="../themes/rocknblock/assets/images/site/social/book-call.svg" alt="book a call" />
+</a>
+</div>
+<div class="form-info-text">
+<span>Start a chat with us or fill this form</span>
+</div>
+<form method="POST" action="https://rocknblock.io/blog/everything-you-need-know-about-blockchain-bridges-and-cross-chain" accept-charset="UTF-8" data-request="feedback::onForm" class="contact-us__form" data-request-loading="#loading-form" data-request-validate="1" data-request-update="&quot;forms\/main&quot;:&quot;#contact-us&quot;"><input name="_session_key" type="hidden" value="D4lqbvEaNKc5LoLnoTblpNytV13sm4HWSOCVV5fx"><input name="_token" type="hidden" value="tzqrMj6CSUIY5mofJHeIk3iueabR8upP2HV01yGU">
+<div id="loading-form">
+<div class="load-form">
+<img class="load-form-icon" src="../themes/rocknblock/assets/images/site/icon-loader.svg" alt="rocknblock loading" />
+<span>Please wait...</span>
+</div>
+</div>
+<input class="contact-us__form__input" id="contact-us-input" type="text" name="id" placeholder="Name" value="all" required hidden="hidden" />
+<label class="visually-hidden" hidden="hidden" for="contact-us-input">Enter your name</label>
+<input class="contact-us__form__input" id="contact-us-input" type="text" name="name" placeholder="Name" required />
+<div class="form-group">
+<label hidden="hidden" for="contact-us-input-2">Your contact</label>
+<input class="contact-us__form__input" id="contact-us-input-2" name="contact" placeholder="Your contact" required />
+<div class="select-social">
+<select class="lm_input t-phone" name="type" required>
+<option value="telegram" default>Telegram</option>
+
+<option value="whatsapp">Whatsapp</option>
+</select>
+</div>
+</div>
+<div class="form-info-text" style="color:red;opacity: 1;" data-validate-for="contact"></div>
+<label class="visually-hidden" hidden="hidden" for="contact-us-textarea">Describe your project</label>
+<textarea class="contact-us__form__input contact-us__form__input-textarea" name="idea" id="contact-us-textarea" rows="1" placeholder="Briefly describe your project or idea" required></textarea>
+<p class="terms">By using the service, you accept the <a href="../terms-of-service.html" target="_blank">Terms of Service</a>
+</p>
+<input class="contact-us__form__submit-btn btn btn-orange btn-rounded" type="submit" value="Submit request" />
+</form>
+</div> </div>
+</section> </main>
+
+<footer id="layout-footer">
+<div class="container footer">
+<div class="sp-form-outer sp-force-hide">
+<div class="sp-form sp-form-regular sp-form-embed sp-form-horizontal sp-form-full-width" id="sp-form-213867" sp-id="213867" sp-hash="12ac849f63c2a031cbadb847c379704b51a7bf5903cc5b0d0de78bd1f8388438" sp-lang="en" sp-show-options="%7B%22satellite%22%3Afalse%2C%22maDomain%22%3A%22login.sendpulse.com%22%2C%22formsDomain%22%3A%22forms.sendpulse.com%22%2C%22condition%22%3A%22onEnter%22%2C%22scrollTo%22%3A25%2C%22delay%22%3A10%2C%22repeat%22%3A3%2C%22background%22%3A%22rgba(0%2C%200%2C%200%2C%200.5)%22%2C%22position%22%3A%22bottom-right%22%2C%22animation%22%3A%22%22%2C%22hideOnMobile%22%3Afalse%2C%22urlFilter%22%3Afalse%2C%22urlFilterConditions%22%3A%5B%7B%22force%22%3A%22hide%22%2C%22clause%22%3A%22contains%22%2C%22token%22%3A%22%22%7D%5D%2C%22analytics%22%3A%7B%22ga%22%3A%7B%22eventLabel%22%3Anull%2C%22send%22%3Afalse%7D%2C%22ym%22%3A%7B%22counterId%22%3Anull%2C%22eventLabel%22%3Anull%2C%22targetId%22%3Anull%2C%22send%22%3Afalse%7D%7D%2C%22utmEnable%22%3Afalse%7D">
+<div class="sp-form-fields-wrapper show-grid">
+<div class="form__wrapper">
+<label class="sp-control-label"><span>Stay Current With Our Latest Insights</span></label>
+<form class="sp-element-container" novalidate="">
+<div class="sp-field" sp-id="sp-a71e6fd1-9acf-4f41-b3dc-8f2152c749f8"><input class="sp-form-control" type="email" sp-type="email" name="sform[email]" placeholder="Enter Your Email" sp-tips="%7B%22required%22%3A%22Required%20field%22%2C%22wrong%22%3A%22Wrong%20email%22%7D" autocomplete="on" required="required"></div>
+<div class="sp-field sp-button-container" sp-id="sp-f63cba59-48d0-4248-babc-97587ed34c99"><button class="sp-button" id="sp-f63cba59-48d0-4248-babc-97587ed34c99">SUBSCRIBE</button></div>
+<div class="sp-field sp-field-full-width" sp-id="sp-7dd427e4-a8c3-4126-b02f-897742857dde">
+<div style="font-family: inherit; line-height: 1;"></div>
+</div>
+</form>
+<div class="sp-message">
+<div></div>
+</div>
+</div>
+<nav class="social-links">
+<span>Let's connect</span>
+<ul class="social-links__list">
+<li class="social-links__link">
+<a class="icon" href="https://twitter.com/rocknblockdev" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-tw-mask.svg" alt="twiter">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://t.me/joinchat/WG1xLuqY2uUgc_HH" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="telegram">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://www.facebook.com/RocknBlockDev/?ref=br_rs" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-fb-mask.svg" alt="facebook">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://rocknblock.medium.com/" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-medium-mask.svg" alt="medium">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="https://www.linkedin.com/authwall?trk=ripf&amp;trkInfo=AQHvgveZGbs93QAAAXggz85o2_gQEyTCero1KbSW_FNCIX1sjFUjvezZQqiUuu2cVmo2lj4adoTCg0J8Rvb-V8pKjpQj8U3C5-qT4igU957ofdXB7BvLt6ctemMUWideBHjsZLg=&amp;originalReferer=https://rocknblock.io/&amp;sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2F13060149" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-in-mask.svg" alt="linked in">
+</a>
+</li>
+<li class="social-links__link">
+<a class="icon" href="../cdn-cgi/l/email-protection.html#dfb7bab3b3b09fadb0bcb4b1bdb3b0bcb4f1b6b0" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-mail-mask.svg" alt="email">
+</a>
+</li>
+</ul>
+</nav>
+</div>
+ </div>
+</div>
+<div class="footer-services">
+<div class="footer-services-list">
+<div class="footer-services-item">
+<span class="title">NFT Metaverse</span>
+<a class="link" href="../marketplace.html">NFT Marketplace</a>
+<a class="link" href="../10knft.html">10k NFT Generator</a>
+<a class="link" href="../gamefi.html">GameFi</a>
+<a class="link" href="../metaverse.html">Metaverse</a>
+</div>
+<div class="footer-services-item">
+<span class="title">De-Fi Experience</span>
+<a class="link" href="../farming.html">Yield Farming</a>
+<a class="link" href="../vesting.html">Vesting Contract</a>
+<a class="link" href="../staking.html">Staking Platfrom</a>
+<a class="link" href="../launchpad.html">Launchpad</a>
+<a class="link" href="../tools.html">Trading Tools</a>
+<a class="link" href="../dex.html">DEX/CEX</a>
+</div>
+<div class="footer-services-item">
+<span class="title">Token Assistance</span>
+<a class="link" href="../token-generator.html">Token Generator</a>
+<a class="link" href="../crowdsale.html">Crowdsale Pack</a>
+<a class="link" href="../bridge.html">Cross-Chain Bridge</a>
+<a class="link" href="../safemoon.html">Deflationary</a>
+<a class="link" href="../tokenization.html">Tokenized Property</a>
+</div>
+<div class="footer-services-item">
+<span class="title">Blockhain Expertise</span>
+<a class="link" href="../consulting.html">Consulting</a>
+<a class="link" href="../marketing.html">Web3 Marketing</a>
+<a class="link" href="../security-audit.html">Security Audit</a>
+<a class="link" href="../rust.html">Rust Development</a>
+</div>
+</div>
+</div>
+<div class="bottom">
+<div class="links">
+<p class="bottom__copyright-desktop">© Copyright Rock’n’Block 2022</p> <a href="../privacy-policy.html" target="_blank">Privacy
+Policy</a><a href="../terms-of-service.html" target="_blank">Terms
+of Service</a><a href="../company.html" target="_blank">Company</a>
+</div>
+<p class="bottom__copyright-mobile">© Copyright Rock’n’Block 2023</p>
+</div>
+</div>
+<div id="btnScrollToTop">
+<img src="../themes/rocknblock/assets/images/site/icons/icon-arrow-top-mask.svg" alt="arrow top">
+</div>
+<ul class="side-socials">
+<li class="side-socials__link side-socials__link_tg">
+<a class="icon" href="https://t.me/rocknblock" rel="noreferrer" target="_blank"><img src="../themes/rocknblock/assets/images/site/social/icon-footer-tg-mask.svg" alt="tg">
+</a>
+</li>
+<li class="side-socials__link side-socials__link_whatsapp">
+<a class="icon" href="https://api.whatsapp.com/send?phone=16232304354" rel="noreferrer" target="_blank">
+<img src="../themes/rocknblock/assets/images/site/social/icon-footer-whatsapp-mask.svg" alt="whatsapp">
+</a>
+</li>
+</ul> </footer>
+<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../themes/rocknblock/assets/javascript/jquery.js"></script>
+<script defer src="../themes/rocknblock/assets/javascript/main.min.js"></script>
+<script type="text/javascript" async src="../../web.webformscr.com/apps/fc3/build/default-handler79b6.js?1653643444289"></script>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(function(){
+      
+      window.__lc = window.__lc || {};
+      window.__lc.license = 9683030;
+      ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="../../cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+    
+    }, 3500); // время указано в мс = 0,001 секунды, изменить по вкусу
+  });
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/9683030/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+
+<script src="../modules/system/assets/js/framework.combined-min5cce.js?v=1.1.7"></script>
+<link rel="stylesheet" property="stylesheet" href="../modules/system/assets/css/framework.extras-min5cce.css?v=1.1.7">
+
+<scriptd type="text/javascript" id="amo_pixel_identifier_js" async="async" src="../../piper.amocrm.ru/pixel/js/identifier/pixel_identifier.js"></script>
+<script>window.AMOPIXEL_IDENTIFIER_PARAMS = window.AMOPIXEL_IDENTIFIER_PARAMS || { }; window.AMOPIXEL_IDENTIFIER_PARAMS.onload = function (pixel_identifier) { var visitor_uid = pixel_identifier.getVisitorUid ( ); if (visitor_uid) {document.getElementById ( 'visitor_uid' ).value = visitor_uid;}};</script> </body>
+
+<!-- Mirrored from rocknblock.io/blog/everything-you-need-know-about-blockchain-bridges-and-cross-chain by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Apr 2023 16:33:43 GMT -->
+</html>
